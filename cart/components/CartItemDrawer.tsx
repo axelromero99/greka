@@ -22,6 +22,9 @@ import {Option} from "../../product/types";
 import {CartItem} from "../types";
 import {getCartItemPrice} from "../utils";
 
+import ImageSlider from "./CartDrawer/ImageSlider";
+import {SlideData} from "./CartDrawer/SlideData";
+
 interface Props extends Omit<DrawerProps, "children"> {
   item: CartItem;
   onClose: VoidFunction;
@@ -35,10 +38,10 @@ const CartItemDrawer: React.FC<Props> = ({item, onClose, onSubmit, ...props}) =>
     () => Object.entries(item.options).map(([title, options]) => ({title, options})),
     [item],
   );
-  const isValid = React.useMemo(() => options.length === Object.keys(formData.options).length, [
-    formData,
-    options,
-  ]);
+  const isValid = React.useMemo(
+    () => options.length === Object.keys(formData.options).length,
+    [formData, options],
+  );
 
   function handleSelectOption(option: Option) {
     setFormData((formData) => ({
@@ -63,13 +66,8 @@ const CartItemDrawer: React.FC<Props> = ({item, onClose, onSubmit, ...props}) =>
           <DrawerBody data-testid="cart-item-drawer" paddingX={4}>
             <Stack divider={<Divider />} spacing={6}>
               <Stack>
-                <Image
-                  alt={item.title}
-                  height={240}
-                  objectFit="cover"
-                  src={item.image}
-                  width="100%"
-                />
+                <ImageSlider slides={item.gallery.split(",")} />
+
                 <Text color="gray.500">{item.description}</Text>
               </Stack>
               {options.length ? (

@@ -1,5 +1,14 @@
 import React from "react";
-import {Stack, Button, Text, Image} from "@chakra-ui/react";
+import {
+  useColorModeValue,
+  Stack,
+  Button,
+  Center,
+  Box,
+  Heading,
+  Text,
+  Image,
+} from "@chakra-ui/react";
 
 import {parseCurrency} from "../../utils/currency";
 import {CartItem} from "../../cart/types";
@@ -17,39 +26,65 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
 
   return (
     <>
-      <Stack
-        key={product.id}
-        alignItems="center"
-        borderColor="gray.100"
-        borderRadius="md"
-        borderWidth={1}
-        data-testid="product"
-        direction="row"
-        justifyContent="space-between"
-        spacing={3}
-      >
-        <Stack direction="row" padding={2} spacing={4} width="100%">
-          <Image
-            backgroundColor="white"
-            borderRadius="md"
-            height={{base: 24, sm: 36}}
-            loading="lazy"
-            minWidth={{base: 24, sm: 36}}
-            objectFit="contain"
-            src={product.image}
-            width={{base: 24, sm: 36}}
-          />
-          <Stack justifyContent="space-between" spacing={1} width="100%">
-            <Stack spacing={1}>
-              <Text fontWeight="500">{product.title}</Text>
-              <Text color="gray.500" fontSize="sm">
-                {product.description}
+      <Center py={12}>
+        <Box
+          bg={useColorModeValue("white", "gray.800")}
+          boxShadow={"2xl"}
+          maxW={"400px"}
+          p={6}
+          pos={"relative"}
+          role={"group"}
+          rounded={"lg"}
+          w={"full"}
+          zIndex={1}
+        >
+          <Box
+            _after={{
+              transition: "all .3s ease",
+              content: '""',
+              w: "full",
+              h: "full",
+              pos: "absolute",
+              top: 5,
+              left: 0,
+              backgroundImage: `url(${product.image})`,
+              filter: "blur(15px)",
+              zIndex: -1,
+            }}
+            _groupHover={{
+              _after: {
+                filter: "blur(20px)",
+              },
+            }}
+            height={"230px"}
+            mt={-12}
+            pos={"relative"}
+            rounded={"lg"}
+          >
+            <Image
+              height={230}
+              objectFit={"cover"}
+              rounded={"lg"}
+              src={product.image}
+              width={360}
+            />
+          </Box>
+          <Stack align={"center"} pt={10}>
+            <Text color={"gray.500"} fontSize={"sm"} textTransform={"uppercase"}>
+              {product.category}
+            </Text>
+            <Heading fontFamily={"body"} fontSize={"2xl"} fontWeight={500}>
+              {product.title}
+            </Heading>
+            <Stack align={"center"} direction={"row"}>
+              <Text fontSize={"xl"} fontWeight={800}>
+                {product.discount ? parseCurrency(product.discount) : parseCurrency(product.price)}
               </Text>
-            </Stack>
-            <Stack alignItems="flex-end" direction="row" justifyContent="space-between">
-              <Text color="green.500" fontSize="sm" fontWeight="500">
-                {parseCurrency(product.price)}
-              </Text>
+              {product.discount && (
+                <Text color={"gray.600"} textDecoration={"line-through"}>
+                  {product.price}
+                </Text>
+              )}
               <Button
                 size="xs"
                 onClick={() => (product.options ? toggleModal(true) : onAdd(cartItem))}
@@ -58,8 +93,8 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
               </Button>
             </Stack>
           </Stack>
-        </Stack>
-      </Stack>
+        </Box>
+      </Center>
       {isModalOpen && (
         <CartItemDrawer
           isOpen

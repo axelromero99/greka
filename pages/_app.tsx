@@ -36,7 +36,7 @@ const App: React.FC<AppProps> = ({Component, pageProps}) => {
   return (
     <>
       <Head>
-        <title>Mi tienda online - Almacency</title>
+        <title>Greka Showroom</title>
         <meta content="initial-scale=1.0, width=device-width" name="viewport" />
         {/* Inicio de meta tags de licencia - Cambiar el contenido de los mismos viola el contenido de los terminos de licencia */}
         <meta content="goncy" name="author" />
@@ -45,20 +45,15 @@ const App: React.FC<AppProps> = ({Component, pageProps}) => {
       </Head>
       <ChakraProvider theme={theme}>
         <Container
-          backgroundColor="background_primary"
-          borderRadius="sm"
-          maxWidth="container.xl"
-          padding={4}
+          // backgroundColor="background_primary"
+          bgGradient="linear(to-r, #FCD7D7, #F9BEBE)"
+          // maxWidth="container.xl"
+          maxWidth="100%"
+          padding={0}
         >
           <Stack spacing={8}>
             <Stack marginBottom={4} spacing={4}>
-              <Image
-                borderRadius="lg"
-                height="100%"
-                maxHeight={64}
-                objectFit="cover"
-                src={INFORMATION.banner}
-              />
+              <Image height="100%" maxHeight={64} objectFit="cover" src={INFORMATION.banner} />
               <Stack
                 alignItems="center"
                 direction={{base: "column", sm: "row"}}
@@ -90,7 +85,6 @@ const App: React.FC<AppProps> = ({Component, pageProps}) => {
             </Stack>
             <Component {...pageProps} />
           </Stack>
-          <Divider marginY={4} />
           {/* Inicio de copyright - Cambiar el contenido de los mismos viola el contenido de los terminos de licencia */}
         </Container>
         <Container

@@ -4,7 +4,6 @@ import {
   Flex,
   Text,
   IconButton,
-  Button,
   Stack,
   Collapse,
   Icon,
@@ -13,20 +12,19 @@ import {
   PopoverTrigger,
   PopoverContent,
   useColorModeValue,
-  useBreakpointValue,
   useDisclosure,
   Image,
 } from "@chakra-ui/react";
 import {HamburgerIcon, CloseIcon, ChevronDownIcon, ChevronRightIcon} from "@chakra-ui/icons";
 
-export default function WithSubnavigation() {
+export default function WithSubnavigation(): JSX.Element {
   const {isOpen, onToggle} = useDisclosure();
 
   return (
     <Box>
       <Flex
         align={"center"}
-        // bg={useColorModeValue("white", "gray.800")}
+        alignItems={"center"}
         bg={"rgba:0,0,0,0.1"}
         borderColor={useColorModeValue("gray.200", "gray.900")}
         borderStyle={"solid"}
@@ -41,22 +39,22 @@ export default function WithSubnavigation() {
             onClick={onToggle}
           />
         </Flex>
-        <Flex flex={{base: 1}} justify={{base: "center", md: "start"}}>
-          <Text
-            color={useColorModeValue("gray.800", "white")}
-            fontFamily={"heading"}
-            textAlign={useBreakpointValue({base: "center", md: "left"})}
-          >
+        <Flex
+          alignItems={"center"}
+          alignSelf={"baseline"}
+          flex={{base: 1}}
+          justify={{base: "center", md: "start"}}
+        >
+          <Box>
             <Image
               bg="white"
               borderRadius="lg"
-              height={10}
-              // maxHeight={40}
+              height={12}
               objectFit="cover"
               src={"/assets/logo.png"}
               width={60}
             />
-          </Text>
+          </Box>
 
           <Flex display={{base: "none", md: "flex"}} ml={10}>
             <DesktopNav />

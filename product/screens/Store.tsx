@@ -41,11 +41,19 @@ const StoreScreen: React.FC<Props> = ({products, fields}) => {
           </Text>
         )}
         {Boolean(quantity) && (
-          <Flex alignItems="center" bottom={4} justifyContent="center" position="sticky">
+          <Flex
+            alignItems="center"
+            bottom={4}
+            justifyContent="center"
+            position="sticky"
+            zIndex="popover"
+          >
             <Button
+              backgroundColor="#F1A07C"
               boxShadow="xl"
               colorScheme="primary"
               data-testid="show-cart"
+              margin={1}
               size="lg"
               width={{base: "100%", sm: "fit-content"}}
               onClick={() => toggleCart(true)}
@@ -64,7 +72,7 @@ const StoreScreen: React.FC<Props> = ({products, fields}) => {
                     paddingX={2}
                     paddingY={1}
                   >
-                    {quantity} items
+                    Cantidad: {quantity}
                   </Text>
                 </Stack>
                 <Text fontSize="md" lineHeight={6}>

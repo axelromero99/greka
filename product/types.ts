@@ -13,6 +13,8 @@ export interface Product {
   category: string;
   description: string;
   image: string;
+  gallery?: string;
   options?: Record<Option["category"], Option[]>;
   price: number;
+  discount?: number;
 }

@@ -17,8 +17,10 @@ class Product implements IProduct {
   category: IProduct["category"];
   description: IProduct["description"];
   image: IProduct["image"];
+  gallery: IProduct["gallery"];
   options: IProduct["options"];
   price: IProduct["price"];
+  discount: IProduct["discount"];
 
   constructor() {
     this.options = {} as Product["options"];
@@ -31,7 +33,9 @@ class Product implements IProduct {
       category: product.category,
       description: product.description,
       image: product.image,
+      gallery: product.gallery,
       price: Number(product.price),
+      discount: Number(product.discount),
     });
   }
 
@@ -57,8 +61,10 @@ class Product implements IProduct {
       category: this.category,
       description: this.description,
       image: this.image,
+      gallery: this.gallery,
       options: this.options,
       price: Number(this.price),
+      discount: Number(this.discount),
     };
 
     if (Object.keys(product.options).length === 0) {
