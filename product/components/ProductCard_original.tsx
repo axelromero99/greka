@@ -41,21 +41,21 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
           />
           <Stack justifyContent="space-between" spacing={1} width="100%">
             <Stack spacing={1}>
-              <Text fontWeight="900">{product.title}</Text>
+              <Text fontWeight="500">{product.title}</Text>
               <Text color="gray.500" fontSize="sm">
                 {product.description}
               </Text>
             </Stack>
             <Stack alignItems="flex-end" direction="row" justifyContent="space-between">
-              <Text fontSize="sm" fontWeight="800">
+              <Text color="green.500" fontSize="sm" fontWeight="500">
                 {parseCurrency(product.price)}
               </Text>
-              {/* <Button
+              <Button
                 size="xs"
                 onClick={() => (product.options ? toggleModal(true) : onAdd(cartItem))}
               >
                 Agregar
-              </Button> */}
+              </Button>
             </Stack>
           </Stack>
         </Stack>
