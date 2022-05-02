@@ -101,37 +101,6 @@ function normalize(data: (RawProduct | RawOption)[]) {
   return normalized;
 }
 
-function normalizeWithCategory(data: (RawProduct | RawOption)[], categoryType) {
-  const products = new Map<RawProduct["id"], Product>();
-
-  for (const item of data) {
-    // console.log(item);
-    // console.log("category type url:", categoryType);
-    // console.log("item category:", item.category);
-    // console.log(item.category === categoryType.toLowerCase());
-
-    if (!products.has(item.id) && item.category === categoryType.toLowerCase()) {
-      products.set(item.id, new Product());
-    }
-
-    if (item.type === "product" && item.category === categoryType.toLowerCase()) {
-      const product = products.get(item.id);
-
-      product.set(item);
-    } else if (item.type === "option" && item.category === categoryType.toLowerCase()) {
-      const product = products.get(item.id);
-
-      product.addOption(item);
-    }
-  }
-
-  const normalized: IProduct[] = Object.values(Object.fromEntries(products)).map((product) =>
-    product.toJSON(),
-  );
-
-  return normalized;
-}
-
 export default {
   list: async (): Promise<IProduct[]> => {
     return axios
@@ -145,29 +114,6 @@ export default {
               header: true,
               complete: (results) => {
                 const data = normalize(results.data as (RawProduct | RawOption)[]);
-
-                return resolve(data);
-              },
-              error: (error) => reject(error.message),
-            });
-          }),
-      );
-  },
-  listByCategory: async (categoryType: string | string[]): Promise<IProduct[]> => {
-    return axios
-      .get(process.env.PRODUCTS_CSV, {
-        responseType: "blob",
-      })
-      .then(
-        (response) =>
-          new Promise<IProduct[]>((resolve, reject) => {
-            Papa.parse(response.data, {
-              header: true,
-              complete: (results) => {
-                const data = normalizeWithCategory(
-                  results.data as (RawProduct | RawOption)[],
-                  categoryType,
-                );
 
                 return resolve(data);
               },

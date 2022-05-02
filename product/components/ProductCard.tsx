@@ -8,6 +8,7 @@ import {
   Heading,
   Text,
   Image,
+  Fade,
 } from "@chakra-ui/react";
 
 import {parseCurrency} from "../../utils/currency";
@@ -22,6 +23,10 @@ interface Props {
 
 const ProductCard: React.FC<Props> = ({product, onAdd}) => {
   const [isModalOpen, toggleModal] = React.useState(false);
+  //probando
+  const [isShown, setIsShown] = React.useState(false);
+
+  //probando
   const cartItem = React.useMemo<CartItem>(() => ({...product, quantity: 1}), [product]);
 
   return (
@@ -40,7 +45,7 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
         >
           <Box
             _after={{
-              transition: "all .3s ease",
+              transition: "all .3s linear",
               content: '""',
               w: "full",
               h: "full",
@@ -56,19 +61,41 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
                 filter: "blur(20px)",
               },
             }}
+            alignItems={"center"}
+            cursor={"pointer"}
+            display={"flex"}
+            flexDirection={"column"}
             height={"230px"}
+            justifyContent={"center"}
             mt={-12}
             pos={"relative"}
             rounded={"lg"}
+            onClick={() => (product.options ? toggleModal(true) : onAdd(cartItem))}
+            onMouseOut={() => setIsShown(false)}
+            onMouseOver={() => setIsShown(true)}
           >
+            <Box
+              color="white"
+              opacity={isShown ? "1" : "0.3"}
+              pos={"absolute"}
+              top={isShown ? "45%" : "52%"}
+              transition={"all .2s ease-in-out"}
+              visibility={isShown ? "visible" : "hidden"}
+              zIndex={2}
+            >
+              🔍 Ver
+            </Box>
             <Image
+              filter={isShown ? "blur(3px)" : ""}
               height={230}
               objectFit={"cover"}
               rounded={"lg"}
               src={product.image}
+              transition={"all .3s linear"}
               width={360}
             />
           </Box>
+
           <Stack align={"center"} pt={10}>
             <Text color={"gray.500"} fontSize={"sm"} textTransform={"uppercase"}>
               {product.category}
@@ -77,20 +104,25 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
               {product.title}
             </Heading>
             <Stack align={"center"} direction={"row"}>
-              <Text fontSize={"xl"} fontWeight={800}>
+              <Text fontSize={"lg"} fontWeight={650}>
                 {product.discount ? parseCurrency(product.discount) : parseCurrency(product.price)}
               </Text>
               {product.discount && (
-                <Text color={"gray.600"} textDecoration={"line-through"}>
-                  {product.price}
+                <Text
+                  color={"gray.500"}
+                  fontSize={"sm"}
+                  fontWeight={500}
+                  textDecoration={"line-through"}
+                >
+                  ${product.price}
                 </Text>
               )}
-              <Button
+              {/* <Button
                 size="xs"
                 onClick={() => (product.options ? toggleModal(true) : onAdd(cartItem))}
               >
                 Agregar
-              </Button>
+              </Button> */}
             </Stack>
           </Stack>
         </Box>

@@ -2,14 +2,13 @@ import * as React from "react";
 import Head from "next/head";
 import {
   ChakraProvider,
-  Heading,
+  Box,
   Text,
+  Spacer,
   Image,
   Container,
   Stack,
-  Divider,
   Link,
-  Box,
   Flex,
 } from "@chakra-ui/react";
 import {AppProps} from "next/app";
@@ -46,7 +45,8 @@ const App: React.FC<AppProps> = ({Component, pageProps}) => {
       <ChakraProvider theme={theme}>
         <Container
           // backgroundColor="background_primary"
-          bgGradient="linear(to-r, #FCD7D7, #F9BEBE)"
+          // bgGradient="linear(to-r, #FCD7D7, #F9BEBE)"
+          bgGradient="linear-gradient(90deg, rgba(255,180,209,1) 0%, rgba(249,108,137,1) 100%)"
           // maxWidth="container.xl"
           maxWidth="100%"
           padding={0}
@@ -93,7 +93,45 @@ const App: React.FC<AppProps> = ({Component, pageProps}) => {
           maxWidth="container.xl"
           padding={4}
         >
-          <Text textAlign="center">© Copyright {new Date().getFullYear()}. GREKA SHOWROOM</Text>
+          <Flex alignItems={"center"} justifyContent={"center"}>
+            <Text color={"white"} fontFamily={"body"} fontWeight={700} textAlign="center">
+              © Copyright {new Date().getFullYear()}. GREKA SHOWROOM
+            </Text>
+
+            <Flex position={"absolute"} right={6}>
+              <Link isExternal href={"https://www.instagram.com/grekashowroom/"} marginX={2}>
+                <Flex
+                  alignItems="center"
+                  backgroundColor={"#F4A5A5"}
+                  borderRadius={9999}
+                  color="white"
+                  height={8}
+                  justifyContent="center"
+                  width={8}
+                >
+                  <Image src={"/assets/icons/instagram.svg"} />
+                </Flex>
+              </Link>
+              <Link
+                isExternal
+                href={
+                  "https://mail.google.com/mail/?view=cm&source=mailto&to=grekashowroom@gmail.com"
+                }
+              >
+                <Flex
+                  alignItems="center"
+                  backgroundColor={"#F4A5A5"}
+                  borderRadius={9999}
+                  color="white"
+                  height={8}
+                  justifyContent="center"
+                  width={8}
+                >
+                  <Image src={"/assets/icons/envelope.svg"} />
+                </Flex>
+              </Link>
+            </Flex>
+          </Flex>
           {/* Fin de copyright */}
         </Container>
       </ChakraProvider>

@@ -7,17 +7,15 @@ import {
   Stack,
   Collapse,
   Icon,
+  Link,
   Popover,
   PopoverTrigger,
-  Button,
   PopoverContent,
   useColorModeValue,
   useDisclosure,
   Image,
 } from "@chakra-ui/react";
-import {Link as ChakraLink} from "@chakra-ui/react";
 import {HamburgerIcon, CloseIcon, ChevronDownIcon, ChevronRightIcon} from "@chakra-ui/icons";
-import Link from "next/link";
 
 export default function WithSubnavigation(): JSX.Element {
   const {isOpen, onToggle} = useDisclosure();
@@ -78,29 +76,27 @@ const DesktopNav = () => {
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
   return (
-    <Stack direction={"row"} spacing={5}>
+    <Stack direction={"row"} spacing={4}>
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
           <Popover placement={"bottom-start"} trigger={"hover"}>
             <PopoverTrigger>
-              <Link href={navItem.href ?? "#"}>
-                <Button
-                  _hover={{
-                    textDecoration: "none",
-                    color: linkHoverColor,
-                  }}
-                  backgroundColor={"#F1A07C"}
-                  borderRadius={7}
-                  color={linkColor}
-                  fontFamily={"body"}
-                  fontSize={"md"}
-                  fontWeight={700}
-                  p={3}
-                  pl={10}
-                  pr={10}
-                >
-                  {navItem.label}
-                </Button>
+              <Link
+                _hover={{
+                  textDecoration: "none",
+                  color: linkHoverColor,
+                }}
+                backgroundColor={"#F1A07C"}
+                borderRadius={7}
+                color={linkColor}
+                fontSize={"sm"}
+                fontWeight={500}
+                href={navItem.href ?? "#"}
+                p={3}
+                pl={10}
+                pr={10}
+              >
+                {navItem.label}
               </Link>
             </PopoverTrigger>
 
@@ -129,35 +125,33 @@ const DesktopNav = () => {
 
 const DesktopSubNav = ({label, href, subLabel}: NavItem) => {
   return (
-    <Link href={href}>
-      <Box
-        _hover={{bg: useColorModeValue("pink.50", "gray.900")}}
-        cursor={"pointer"}
-        display={"block"}
-        p={2}
-        role={"group"}
-        rounded={"md"}
-      >
-        <Stack align={"center"} direction={"row"}>
-          <Box>
-            <Text _groupHover={{color: "pink.400"}} fontWeight={500} transition={"all .3s ease"}>
-              {label}
-            </Text>
-            <Text fontSize={"sm"}>{subLabel}</Text>
-          </Box>
-          <Flex
-            _groupHover={{opacity: "100%", transform: "translateX(0)"}}
-            align={"center"}
-            flex={1}
-            justify={"flex-end"}
-            opacity={0}
-            transform={"translateX(-10px)"}
-            transition={"all .3s ease"}
-          >
-            <Icon as={ChevronRightIcon} color={"pink.400"} h={5} w={5} />
-          </Flex>
-        </Stack>
-      </Box>
+    <Link
+      _hover={{bg: useColorModeValue("pink.50", "gray.900")}}
+      display={"block"}
+      href={href}
+      p={2}
+      role={"group"}
+      rounded={"md"}
+    >
+      <Stack align={"center"} direction={"row"}>
+        <Box>
+          <Text _groupHover={{color: "pink.400"}} fontWeight={500} transition={"all .3s ease"}>
+            {label}
+          </Text>
+          <Text fontSize={"sm"}>{subLabel}</Text>
+        </Box>
+        <Flex
+          _groupHover={{opacity: "100%", transform: "translateX(0)"}}
+          align={"center"}
+          flex={1}
+          justify={"flex-end"}
+          opacity={0}
+          transform={"translateX(-10px)"}
+          transition={"all .3s ease"}
+        >
+          <Icon as={ChevronRightIcon} color={"pink.400"} h={5} w={5} />
+        </Flex>
+      </Stack>
     </Link>
   );
 };
@@ -182,7 +176,7 @@ const MobileNavItem = ({label, children, href}: NavItem) => {
           textDecoration: "none",
         }}
         align={"center"}
-        as={ChakraLink}
+        as={Link}
         href={href ?? "#"}
         justify={"space-between"}
         py={2}
@@ -212,9 +206,9 @@ const MobileNavItem = ({label, children, href}: NavItem) => {
         >
           {children &&
             children.map((child) => (
-              <ChakraLink key={child.label} href={child.href} py={2}>
+              <Link key={child.label} href={child.href} py={2}>
                 {child.label}
-              </ChakraLink>
+              </Link>
             ))}
         </Stack>
       </Collapse>
@@ -236,37 +230,32 @@ const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "Productos",
-    href: "/categories/todos",
+    href: "categories/todos",
     children: [
-      {
-        label: "Todos",
-        // subLabel: "Find your dream design job",
-        href: "/categories/todos",
-      },
       {
         label: "Jeans",
         // subLabel: "Find your dream design job",
-        href: "/categories/jeans",
+        href: "categories/jeans",
       },
       {
         label: "Tops",
         // subLabel: "An exclusive list for contract work",
-        href: "/categories/tops",
+        href: "categories/tops",
       },
       {
         label: "Abrigos",
         // subLabel: "An exclusive list for contract work",
-        href: "/categories/abrigos",
+        href: "categories/abrigos",
       },
       {
         label: "Remeras",
         // subLabel: "An exclusive list for contract work",
-        href: "/categories/remeras",
+        href: "categories/remeras",
       },
     ],
   },
   {
-    label: "Contactanos",
-    href: "/contact-me",
+    label: "¿Quien soy?",
+    href: "about-us",
   },
 ];

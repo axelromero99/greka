@@ -10,16 +10,18 @@ import {Field} from "../../cart/types";
 interface Props {
   products: Product[];
   fields: Field[];
+  categoryType: string;
 }
 
-const StoreScreen: React.FC<Props> = ({products, fields}) => {
+const StoreScreen: React.FC<Props> = ({products, fields, categoryType}) => {
   const [{total, quantity}, {addItem}] = useCart();
   const [isCartOpen, toggleCart] = React.useState<boolean>(false);
 
   return (
     <>
+      {categoryType}
       <Stack spacing={6}>
-        {products.length ? (
+        {products?.length ? (
           <Grid
             gridGap={8}
             templateColumns={{
