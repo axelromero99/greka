@@ -43,7 +43,7 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
   };
 };
 
-export const getStaticPaths: GetStaticPaths<{slug: string}> = async () => {
+export const getStaticPaths: GetStaticPaths<{categoryType: string}> = async () => {
   return {
     paths: [
       {params: {categoryType: "todos"}},
