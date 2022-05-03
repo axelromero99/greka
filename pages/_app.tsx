@@ -29,7 +29,7 @@ const App: React.FC<AppProps> = ({Component, pageProps}) => {
             <Component {...pageProps} />
           </Stack>
         </Container>
-        <Container borderRadius="sm" maxHeight={10} padding={4}>
+        <Container borderRadius="sm" marginBottom={3} maxHeight={10} padding={4}>
           <Flex alignItems={"center"} justifyContent={"center"}>
             <Text color={"#444"} fontFamily={"body"} fontWeight={500} textAlign="center">
               © Copyright {new Date().getFullYear()}. GREKA SHOWROOM

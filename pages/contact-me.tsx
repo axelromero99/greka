@@ -1,12 +1,8 @@
 import React from "react";
 import {Flex, Grid, Text} from "@chakra-ui/react";
-import {
-  FormControl,
-  Input,
-  Button,
-  Textarea,
-} from "@chakra-ui/react";
-
+import {FormControl, Input, Button, Textarea} from "@chakra-ui/react";
+import {AiFillEnvironment, AiFillPhone, AiTwotoneMail} from "react-icons/ai";
+import { BsInstagram } from "react-icons/bs";
 export default function AboutUs() {
   return (
     <>
@@ -54,18 +50,20 @@ export default function AboutUs() {
           borderRadius={15}
           height="80vh"
           justifyContent="center"
-          width={{base: "80vw", md: "60vw", xl: "45vw"}}
+          width={{base: "80vw", md: "60vw", xl: "35vw"}}
         >
           <Grid
             alignSelf="center"
-            width={{base: "70vw", md: "45vw", xl: "35vw"}}
-            gap={{base: "10vw", md: "10vw", xl: "7vw"}}
+            gap={{base: "10vh", md: "10vh", xl: "10vh"}}
+            width={{base: "70vw", md: "45vw", xl: "25vw"}}
           >
-            <Flex>A</Flex>
-            <Flex>A</Flex>
-            <Flex>A</Flex>
-            <Flex>A</Flex>
-            <Flex>A</Flex>
+            <Grid alignItems="space-around">
+              <Flex>A</Flex>
+              <Flex>A</Flex>
+              <Flex>A</Flex>
+              <Flex>A</Flex>
+              <Flex>A</Flex>
+            </Grid>
           </Grid>
         </Flex>
       </Grid>

@@ -1,5 +1,5 @@
 import React from "react";
-import {Box, Button, Heading, Flex} from "@chakra-ui/react";
+import {Box, Button, Heading, Flex, Grid, Image} from "@chakra-ui/react";
 
 import ImageSlider from "../cart/components/CartDrawer/ImageSlider";
 
@@ -8,6 +8,10 @@ const slideData = ["01.jpg", "02.jpg", "03.jpg", "04.jpg", "05.jpg"];
 const index_copy: React.FC = () => {
   return (
     <>
+      <Flex
+      >
+        <Image src={"https://www.bergerpaints.com/colour-magazine/Upload/Posting/Image/colours-fashion-banner-feb15.jpg"} />
+      </Flex>
       <Flex
         bgGradient={"linear-gradient(90deg, rgba(255,180,209,1) 0%, rgba(249,108,137,1) 100%)"}
         height={600}
@@ -23,7 +27,7 @@ const index_copy: React.FC = () => {
         >
           <Box display={"flex"} flexDirection={"column"}>
             <Heading fontFamily={"body"} marginBottom={50} maxWidth={"760px"}>
-              My name is Grikas and I'm a front-end developer.
+              Puto el q lee
             </Heading>
             <Heading
               as="h3"
@@ -41,6 +45,9 @@ const index_copy: React.FC = () => {
         </Flex>
         <ImageSlider slides={slideData} />
       </Flex>
+      <Grid>
+
+      </Grid>
     </>
   );
 };

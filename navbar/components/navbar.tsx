@@ -71,7 +71,7 @@ export default function WithSubnavigation(): JSX.Element {
                 style={{
                   borderRadius: 10,
                   padding: "5px 15px",
-                  width: "100%",
+                  width: "60%",
                   border: "1px solid #999",
                 }}
                 type="text"
@@ -251,6 +251,11 @@ interface NavItem {
 }
 
 const NAV_ITEMS: Array<NavItem> = [
+  {
+    label: "Home",
+    href: "/",
+    icon: AiOutlineHome
+  },
   {
     label: "Productos",
     href: "/categories/todos",

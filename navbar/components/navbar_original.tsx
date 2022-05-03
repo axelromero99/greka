@@ -15,10 +15,15 @@ import {
   useDisclosure,
   Image,
 } from "@chakra-ui/react";
-import {HamburgerIcon, CloseIcon, ChevronDownIcon, ChevronRightIcon} from "@chakra-ui/icons";
+import {
+  HamburgerIcon,
+  CloseIcon,
+  ChevronDownIcon,
+  ChevronRightIcon,
+} from "@chakra-ui/icons";
 
 export default function WithSubnavigation(): JSX.Element {
-  const {isOpen, onToggle} = useDisclosure();
+  const { isOpen, onToggle } = useDisclosure();
 
   return (
     <Box>
@@ -31,10 +36,16 @@ export default function WithSubnavigation(): JSX.Element {
         color={useColorModeValue("gray.600", "white")}
         minH={"60px"}
       >
-        <Flex display={{base: "flex", md: "none"}} flex={{base: 1, md: "auto"}} ml={{base: -2}}>
+        <Flex
+          display={{ base: "flex", md: "none" }}
+          flex={{ base: 1, md: "auto" }}
+          ml={{ base: -2 }}
+        >
           <IconButton
             aria-label={"Toggle Navigation"}
-            icon={isOpen ? <CloseIcon h={3} w={3} /> : <HamburgerIcon h={5} w={5} />}
+            icon={
+              isOpen ? <CloseIcon h={3} w={3} /> : <HamburgerIcon h={5} w={5} />
+            }
             variant={"ghost"}
             onClick={onToggle}
           />
@@ -42,21 +53,23 @@ export default function WithSubnavigation(): JSX.Element {
         <Flex
           alignItems={"center"}
           alignSelf={"baseline"}
-          flex={{base: 1}}
-          justify={{base: "center", md: "start"}}
+          flex={{ base: 1 }}
+          justify={{ base: "center", md: "start" }}
         >
           <Box>
-            <Image
-              bg="white"
-              borderRadius="lg"
-              height={12}
-              objectFit="cover"
-              src={"/assets/logo.png"}
-              width={60}
-            />
+            <Link href="/">
+              <Image
+                bg="white"
+                borderRadius="lg"
+                height={12}
+                objectFit="cover"
+                src={"/assets/logo.png"}
+                width={60}
+              />
+            </Link>
           </Box>
 
-          <Flex display={{base: "none", md: "flex"}} ml={10}>
+          <Flex display={{ base: "none", md: "flex" }} ml={10}>
             <DesktopNav />
           </Flex>
         </Flex>
@@ -123,10 +136,10 @@ const DesktopNav = () => {
   );
 };
 
-const DesktopSubNav = ({label, href, subLabel}: NavItem) => {
+const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
   return (
     <Link
-      _hover={{bg: useColorModeValue("pink.50", "gray.900")}}
+      _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
       display={"block"}
       href={href}
       p={2}
@@ -135,13 +148,17 @@ const DesktopSubNav = ({label, href, subLabel}: NavItem) => {
     >
       <Stack align={"center"} direction={"row"}>
         <Box>
-          <Text _groupHover={{color: "pink.400"}} fontWeight={500} transition={"all .3s ease"}>
+          <Text
+            _groupHover={{ color: "pink.400" }}
+            fontWeight={500}
+            transition={"all .3s ease"}
+          >
             {label}
           </Text>
           <Text fontSize={"sm"}>{subLabel}</Text>
         </Box>
         <Flex
-          _groupHover={{opacity: "100%", transform: "translateX(0)"}}
+          _groupHover={{ opacity: "100%", transform: "translateX(0)" }}
           align={"center"}
           flex={1}
           justify={"flex-end"}
@@ -158,7 +175,11 @@ const DesktopSubNav = ({label, href, subLabel}: NavItem) => {
 
 const MobileNav = () => {
   return (
-    <Stack bg={useColorModeValue("white", "gray.800")} display={{md: "none"}} p={4}>
+    <Stack
+      bg={useColorModeValue("white", "gray.800")}
+      display={{ md: "none" }}
+      p={4}
+    >
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
@@ -166,8 +187,8 @@ const MobileNav = () => {
   );
 };
 
-const MobileNavItem = ({label, children, href}: NavItem) => {
-  const {isOpen, onToggle} = useDisclosure();
+const MobileNavItem = ({ label, children, href }: NavItem) => {
+  const { isOpen, onToggle } = useDisclosure();
 
   return (
     <Stack spacing={4} onClick={children && onToggle}>
@@ -181,7 +202,10 @@ const MobileNavItem = ({label, children, href}: NavItem) => {
         justify={"space-between"}
         py={2}
       >
-        <Text color={useColorModeValue("gray.600", "gray.200")} fontWeight={600}>
+        <Text
+          color={useColorModeValue("gray.600", "gray.200")}
+          fontWeight={600}
+        >
           {label}
         </Text>
         {children && (
@@ -195,7 +219,7 @@ const MobileNavItem = ({label, children, href}: NavItem) => {
         )}
       </Flex>
 
-      <Collapse animateOpacity in={isOpen} style={{marginTop: "0!important"}}>
+      <Collapse animateOpacity in={isOpen} style={{ marginTop: "0!important" }}>
         <Stack
           align={"start"}
           borderColor={useColorModeValue("gray.200", "gray.700")}
