@@ -23,7 +23,6 @@ import {CartItem} from "../types";
 import {getCartItemPrice} from "../utils";
 
 import ImageSlider from "./CartDrawer/ImageSlider";
-import {SlideData} from "./CartDrawer/SlideData";
 
 interface Props extends Omit<DrawerProps, "children"> {
   item: CartItem;

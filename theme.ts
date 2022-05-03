@@ -2,14 +2,15 @@ import {extendTheme, theme} from "@chakra-ui/react";
 
 export default extendTheme({
   fonts: {
-    body: "Rosario, sans-serif",
-    footer: "Ruda, sans-serif",
-    navbar: "Rosario, sans-serif",
+    body: "Montserrat, sans-serif",
+    footer: "Montserrat, sans-serif",
+    navbar: "Montserrat, sans-serif",
   },
   styles: {
     global: {
       body: {
-        bg: "#F4A5A5",
+        // bgGradient: "linear-gradient(90deg, rgba(255,180,209,1) 0%, rgba(249,108,137,1) 100%)",
+        bg: "white",
       },
     },
   },

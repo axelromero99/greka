@@ -15,9 +15,15 @@ import {
   useDisclosure,
   Image,
 } from "@chakra-ui/react";
+import {AiOutlineHome} from "react-icons/ai";
+import {RiTShirtLine} from "react-icons/ri";
+import {BsChatLeftDots} from "react-icons/bs";
+import {AiOutlineSearch} from "react-icons/ai";
 import {Link as ChakraLink} from "@chakra-ui/react";
 import {HamburgerIcon, CloseIcon, ChevronDownIcon, ChevronRightIcon} from "@chakra-ui/icons";
 import Link from "next/link";
+
+import SearchBar from "./searchBar";
 
 export default function WithSubnavigation(): JSX.Element {
   const {isOpen, onToggle} = useDisclosure();
@@ -27,13 +33,18 @@ export default function WithSubnavigation(): JSX.Element {
       <Flex
         align={"center"}
         alignItems={"center"}
-        bg={"rgba:0,0,0,0.1"}
+        // bgGradient={"linear-gradient(90deg, rgba(255,180,209,1) 0%, rgba(249,108,137,1) 100%)"}
         borderColor={useColorModeValue("gray.200", "gray.900")}
         borderStyle={"solid"}
         color={useColorModeValue("gray.600", "white")}
-        minH={"60px"}
+        height={"65px"}
       >
-        <Flex display={{base: "flex", md: "none"}} flex={{base: 1, md: "auto"}} ml={{base: -2}}>
+        <Flex
+          alignItems={"center"}
+          display={{base: "flex", md: "none"}}
+          flex={{base: 1}}
+          ml={{base: -2}}
+        >
           <IconButton
             aria-label={"Toggle Navigation"}
             icon={isOpen ? <CloseIcon h={3} w={3} /> : <HamburgerIcon h={5} w={5} />}
@@ -41,24 +52,32 @@ export default function WithSubnavigation(): JSX.Element {
             onClick={onToggle}
           />
         </Flex>
-        <Flex
-          alignItems={"center"}
-          alignSelf={"baseline"}
-          flex={{base: 1}}
-          justify={{base: "center", md: "start"}}
-        >
+        <Flex alignItems={"center"} flex={{base: 1}}>
           <Box>
-            <Image
-              bg="white"
-              borderRadius="lg"
-              height={12}
-              objectFit="cover"
-              src={"/assets/logo.png"}
-              width={60}
-            />
+            <Image height={12} objectFit="cover" src={"/assets/logo.png"} width={60} />
           </Box>
-
-          <Flex display={{base: "none", md: "flex"}} ml={10}>
+          <Flex
+            alignItems="center"
+            display={{base: "none", md: "flex"}}
+            flex="1"
+            justifyContent="center"
+            ml={10}
+          >
+            <Flex flex="1">
+              <input
+                flex="1"
+                fontFamily={"navbar"}
+                placeholder="   ¿Qué mierda estas buscando hijo de puta?..."
+                style={{
+                  borderRadius: 10,
+                  padding: "5px 15px",
+                  width: "100%",
+                  border: "1px solid #999",
+                }}
+                type="text"
+              />
+              <AiOutlineSearch size={20} style={{position: "relative", top: 7, right: "5%"}} />
+            </Flex>
             <DesktopNav />
           </Flex>
         </Flex>
@@ -78,30 +97,31 @@ const DesktopNav = () => {
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
   return (
-    <Stack direction={"row"} spacing={5}>
+    <Stack direction={"row"} marginLeft={5} spacing={6}>
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
           <Popover placement={"bottom-start"} trigger={"hover"}>
             <PopoverTrigger>
-              <Link href={navItem.href ?? "#"}>
-                <Button
-                  _hover={{
-                    textDecoration: "none",
-                    color: linkHoverColor,
-                  }}
-                  backgroundColor={"#F1A07C"}
-                  borderRadius={7}
-                  color={linkColor}
-                  fontFamily={"body"}
-                  fontSize={"md"}
-                  fontWeight={700}
-                  p={3}
-                  pl={10}
-                  pr={10}
-                >
-                  {navItem.label}
-                </Button>
-              </Link>
+              <Button
+                _hover={{
+                  textDecoration: "none",
+                  color: linkHoverColor,
+                }}
+                alignItems="center"
+                backgroundColor={"transparent"}
+                borderRadius={7}
+                color={"#222"}
+                display={"flex"}
+                flexDirection={"column"}
+                fontFamily={"navbar"}
+                fontSize={"sm"}
+                fontWeight={500}
+                pl={5}
+                pr={5}
+              >
+                {navItem.icon && <navItem.icon color="#222" marginBottom={10} size={45} />}
+                <Link href={navItem.href ?? "#"}>{navItem.label}</Link>
+              </Button>
             </PopoverTrigger>
 
             {navItem.children && (
@@ -127,7 +147,7 @@ const DesktopNav = () => {
   );
 };
 
-const DesktopSubNav = ({label, href, subLabel}: NavItem) => {
+const DesktopSubNav = ({label, href, subLabel, icon}: NavItem) => {
   return (
     <Link href={href}>
       <Box
@@ -224,6 +244,7 @@ const MobileNavItem = ({label, children, href}: NavItem) => {
 
 interface NavItem {
   label: string;
+  icon?: JSX.Element;
   subLabel?: string;
   children?: Array<NavItem>;
   href?: string;
@@ -231,12 +252,9 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
   {
-    label: "Inicio",
-    href: "/",
-  },
-  {
     label: "Productos",
     href: "/categories/todos",
+    icon: RiTShirtLine,
     children: [
       {
         label: "Todos",
@@ -268,5 +286,6 @@ const NAV_ITEMS: Array<NavItem> = [
   {
     label: "Contactanos",
     href: "/contact-me",
+    icon: BsChatLeftDots,
   },
 ];

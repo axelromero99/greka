@@ -1,5 +1,5 @@
 import * as React from "react";
-import {Button, Flex, Grid, Stack, Text} from "@chakra-ui/react";
+import {Button, Flex, Grid, Stack, Text, Heading, Image} from "@chakra-ui/react";
 
 import type {Product} from "../types";
 import ProductCard from "../components/ProductCard";
@@ -18,8 +18,15 @@ const StoreScreen: React.FC<Props> = ({products, fields, categoryType}) => {
   const [isCartOpen, toggleCart] = React.useState<boolean>(false);
 
   return (
-    <>
-      {categoryType}
+      <>
+        <Image
+          height="100%" maxHeight={"200px"}
+          objectFit="cover"
+          src={"/assets/banner.jpg"}
+        />
+      <Heading color={"white"} fontFamily={"body"} textAlign={"center"} textTransform={"uppercase"}>
+        {categoryType}
+      </Heading>
       <Stack spacing={6}>
         {products?.length ? (
           <Grid
