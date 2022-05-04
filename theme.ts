@@ -5,6 +5,7 @@ export default extendTheme({
     body: "Montserrat, sans-serif",
     footer: "Montserrat, sans-serif",
     navbar: "Montserrat, sans-serif",
+    header: "Georgia",
   },
   styles: {
     global: {
@@ -16,6 +17,7 @@ export default extendTheme({
   },
   colors: {
     primary: "F4A5A5",
+    bg: "#eee",
     // primary: theme.colors["orange"],
     // background_primary: "#FCD7D7",
     // background_primary:

@@ -1,5 +1,5 @@
 import * as React from "react";
-import {Button, Flex, Grid, Stack, Text, Heading, Image} from "@chakra-ui/react";
+import {Button, Flex, Grid, Stack, Text, Heading, Box} from "@chakra-ui/react";
 
 import type {Product} from "../types";
 import ProductCard from "../components/ProductCard";
@@ -19,10 +19,31 @@ const StoreScreen: React.FC<Props> = ({products, fields, categoryType}) => {
 
   return (
     <>
-      <Image height="100%" maxHeight={"350px"} objectFit="cover" src={"/assets/banner.jpg"} />
-      <Heading color={"white"} fontFamily={"body"} textAlign={"center"} textTransform={"uppercase"}>
-        {categoryType}
-      </Heading>
+      <Box bg={"body"} height="1px" width="100%" />
+      <Flex
+        // height={"100%"}
+        // maxHeight={"200px"}
+        alignItems="center"
+        height={"350px"}
+        justifyContent="center"
+        margin={0}
+        style={{
+          backgroundImage: "url(/assets/banner.jpg)",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
+        width="100%"
+      >
+        <Heading
+          color={"white"}
+          fontFamily={"body"}
+          textAlign={"center"}
+          textShadow="2px 2px 1px rgba(255,114,114,1)"
+          textTransform={"uppercase"}
+        >
+          {categoryType}
+        </Heading>
+      </Flex>
       <Stack spacing={6}>
         {products?.length ? (
           <Grid

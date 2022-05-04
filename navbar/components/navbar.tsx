@@ -14,10 +14,11 @@ import {
   useColorModeValue,
   useDisclosure,
   Image,
+  Fade,
 } from "@chakra-ui/react";
 import {AiOutlineHome} from "react-icons/ai";
 import {RiTShirtLine} from "react-icons/ri";
-import {BsChatLeftDots} from "react-icons/bs";
+import {BsChatDots} from "react-icons/bs";
 import {AiOutlineSearch} from "react-icons/ai";
 import {Link as ChakraLink} from "@chakra-ui/react";
 import {HamburgerIcon, CloseIcon, ChevronDownIcon, ChevronRightIcon} from "@chakra-ui/icons";
@@ -34,7 +35,7 @@ export default function WithSubnavigation(): JSX.Element {
         align={"center"}
         alignItems={"center"}
         // bgGradient={"linear-gradient(90deg, rgba(255,180,209,1) 0%, rgba(249,108,137,1) 100%)"}
-        backgroundColor={"white"}
+        backgroundColor={"bg"}
         // borderColor={useColorModeValue("gray.200", "gray.900")}
         // borderStyle={"solid"}
         // color={useColorModeValue("gray.600", "white")}
@@ -69,6 +70,7 @@ export default function WithSubnavigation(): JSX.Element {
           >
             <Flex flex="1">
               <input
+                background-color="bg"
                 flex="1"
                 fontFamily={"navbar"}
                 placeholder="   ¿Qué mierda estas buscando hijo de puta?..."
@@ -77,7 +79,7 @@ export default function WithSubnavigation(): JSX.Element {
                   padding: "5px 15px",
                   width: "85%",
                   maxWidth: "1000px",
-                  border: "1px solid #999",
+                  border: "1px solid #a2a2a2",
                 }}
                 type="text"
               />
@@ -97,36 +99,41 @@ export default function WithSubnavigation(): JSX.Element {
 
 const DesktopNav = () => {
   // const linkColor = useColorModeValue("gray.600", "gray.200");
-  const linkColor = "white";
-  const linkHoverColor = useColorModeValue("gray.800", "white");
+  // const linkColor = "white";
+  // const linkHoverColor = useColorModeValue("gray.800", "white");
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
   return (
-    <Stack direction={"row"} marginLeft={5} spacing={6}>
+    <Stack direction={"row"} marginLeft={5} spacing={3}>
       {NAV_ITEMS.map((navItem) => (
-        <Box key={navItem.label} bg={"white"}>
+        <Box key={navItem.label} as={Link} bg={"transparent"} href={navItem.href ?? "#"}>
           <Popover placement={"bottom-start"} trigger={"hover"}>
             <Link href={navItem.href ?? "#"}>
-              <PopoverTrigger>
-                <Button
-                  _hover={{bg: useColorModeValue("pink.50", "gray.900"), color: "pink.400"}}
-                  alignItems="center"
-                  backgroundColor={"transparent"}
-                  borderRadius={7}
-                  color={"222"}
-                  display={"flex"}
-                  flexDirection={"column"}
-                  fontFamily={"navbar"}
-                  fontSize={"sm"}
-                  fontWeight={500}
-                  pl={5}
-                  pr={5}
-                  transition={"all .3s ease"}
-                >
-                  {navItem.icon && <navItem.icon color={"222"} size={45} />}
-                  <Text fontWeight={500}>{navItem.label}</Text>
-                </Button>
-              </PopoverTrigger>
+              <a>
+                <PopoverTrigger>
+                  <Button
+                    _hover={{bg: useColorModeValue("pink.50", "FF6F6F"), color: "pink.400"}}
+                    alignItems="center"
+                    backgroundColor={"transparent"}
+                    borderRadius={7}
+                    color={"444"}
+                    display={"flex"}
+                    flexDirection={"column"}
+                    fontFamily={"navbar"}
+                    fontSize={"sm"}
+                    fontWeight={500}
+                    href={navItem.href ?? "#"}
+                    minHeight={"4rem"}
+                    minW={"7rem"}
+                    pl={5}
+                    pr={5}
+                    transition={"all .2s ease"}
+                  >
+                    {navItem.icon && <navItem.icon color={"444"} size={"30"} />}
+                    <Text fontWeight={500}>{navItem.label}</Text>
+                  </Button>
+                </PopoverTrigger>
+              </a>
             </Link>
 
             {navItem.children && (
@@ -296,6 +303,6 @@ const NAV_ITEMS: Array<NavItem> = [
   {
     label: "Contactanos",
     href: "/contact-me",
-    icon: BsChatLeftDots,
+    icon: BsChatDots,
   },
 ];

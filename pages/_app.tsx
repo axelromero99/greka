@@ -25,14 +25,13 @@ const App: React.FC<AppProps> = ({Component, pageProps}) => {
           </Stack>
         </Container>
         <Container
-          bg={"white"}
+          backgroundColor={"bg"}
           display={"flex"}
-          height={10}
+          height={20}
           justifyContent={"center"}
           margin={0}
           maxW={"100%"}
         >
-          {/* <Stack width={"100vw"}> */}
           <Flex alignItems={"center"} justifyContent={"center"} width={"100%"}>
             <Text color={"#444"} fontFamily={"body"} fontWeight={500} textAlign="center">
               © Copyright {new Date().getFullYear()}. GREKA SHOWROOM
