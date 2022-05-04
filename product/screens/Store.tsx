@@ -16,7 +16,7 @@ interface Props {
 const dynamicBanners = {
   "todos": "url(/assets/banner.jpg)",
   "tops-remeras": "url(/assets/banner/tops.jpg)",
-  "abrigos": "url(/assets/banner/abrigos.jpg)",
+  "vestidos": "url(/assets/banner/vestido.jpg)",
   "shorts-polleras": "url(/assets/banner/remeras2.jpg)",
   "jeans": "url(/assets/banner/jeans.jpg"
 }
