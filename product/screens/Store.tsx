@@ -18,12 +18,8 @@ const StoreScreen: React.FC<Props> = ({products, fields, categoryType}) => {
   const [isCartOpen, toggleCart] = React.useState<boolean>(false);
 
   return (
-      <>
-        <Image
-          height="100%" maxHeight={"200px"}
-          objectFit="cover"
-          src={"/assets/banner.jpg"}
-        />
+    <>
+      <Image height="100%" maxHeight={"350px"} objectFit="cover" src={"/assets/banner.jpg"} />
       <Heading color={"white"} fontFamily={"body"} textAlign={"center"} textTransform={"uppercase"}>
         {categoryType}
       </Heading>

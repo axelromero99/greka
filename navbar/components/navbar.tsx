@@ -34,9 +34,10 @@ export default function WithSubnavigation(): JSX.Element {
         align={"center"}
         alignItems={"center"}
         // bgGradient={"linear-gradient(90deg, rgba(255,180,209,1) 0%, rgba(249,108,137,1) 100%)"}
-        borderColor={useColorModeValue("gray.200", "gray.900")}
-        borderStyle={"solid"}
-        color={useColorModeValue("gray.600", "white")}
+        backgroundColor={"white"}
+        // borderColor={useColorModeValue("gray.200", "gray.900")}
+        // borderStyle={"solid"}
+        // color={useColorModeValue("gray.600", "white")}
         height={"65px"}
       >
         <Flex
@@ -53,11 +54,14 @@ export default function WithSubnavigation(): JSX.Element {
           />
         </Flex>
         <Flex alignItems={"center"} flex={{base: 1}}>
-          <Box>
-            <Image height={12} objectFit="cover" src={"/assets/logo.png"} width={60} />
+          <Box cursor={"pointer"}>
+            <Link href={"/"}>
+              <Image height={12} objectFit="cover" src={"/assets/logo.png"} width={60} />
+            </Link>
           </Box>
           <Flex
             alignItems="center"
+            color={"primary"}
             display={{base: "none", md: "flex"}}
             flex="1"
             justifyContent="center"
@@ -71,7 +75,8 @@ export default function WithSubnavigation(): JSX.Element {
                 style={{
                   borderRadius: 10,
                   padding: "5px 15px",
-                  width: "60%",
+                  width: "85%",
+                  maxWidth: "1000px",
                   border: "1px solid #999",
                 }}
                 type="text"
@@ -99,30 +104,30 @@ const DesktopNav = () => {
   return (
     <Stack direction={"row"} marginLeft={5} spacing={6}>
       {NAV_ITEMS.map((navItem) => (
-        <Box key={navItem.label}>
+        <Box key={navItem.label} bg={"white"}>
           <Popover placement={"bottom-start"} trigger={"hover"}>
-            <PopoverTrigger>
-              <Button
-                _hover={{
-                  textDecoration: "none",
-                  color: linkHoverColor,
-                }}
-                alignItems="center"
-                backgroundColor={"transparent"}
-                borderRadius={7}
-                color={"#222"}
-                display={"flex"}
-                flexDirection={"column"}
-                fontFamily={"navbar"}
-                fontSize={"sm"}
-                fontWeight={500}
-                pl={5}
-                pr={5}
-              >
-                {navItem.icon && <navItem.icon color="#222" marginBottom={10} size={45} />}
-                <Link href={navItem.href ?? "#"}>{navItem.label}</Link>
-              </Button>
-            </PopoverTrigger>
+            <Link href={navItem.href ?? "#"}>
+              <PopoverTrigger>
+                <Button
+                  _hover={{bg: useColorModeValue("pink.50", "gray.900"), color: "pink.400"}}
+                  alignItems="center"
+                  backgroundColor={"transparent"}
+                  borderRadius={7}
+                  color={"222"}
+                  display={"flex"}
+                  flexDirection={"column"}
+                  fontFamily={"navbar"}
+                  fontSize={"sm"}
+                  fontWeight={500}
+                  pl={5}
+                  pr={5}
+                  transition={"all .3s ease"}
+                >
+                  {navItem.icon && <navItem.icon color={"222"} size={45} />}
+                  <Text fontWeight={500}>{navItem.label}</Text>
+                </Button>
+              </PopoverTrigger>
+            </Link>
 
             {navItem.children && (
               <PopoverContent
@@ -254,7 +259,7 @@ const NAV_ITEMS: Array<NavItem> = [
   {
     label: "Home",
     href: "/",
-    icon: AiOutlineHome
+    icon: AiOutlineHome,
   },
   {
     label: "Productos",
