@@ -1,5 +1,5 @@
 import * as React from "react";
-import {Button, Flex, Grid, Stack, Text, Heading, Image} from "@chakra-ui/react";
+import {Button, Flex, Grid, Stack, Text, Heading, Box} from "@chakra-ui/react";
 
 import type {Product} from "../types";
 import ProductCard from "../components/ProductCard";
@@ -13,20 +13,46 @@ interface Props {
   categoryType: string;
 }
 
+const dynamicBanners = {
+  "todos": "url(/assets/banner.jpg)",
+  "tops-remeras": "url(/assets/banner/tops.jpg)",
+  "vestidos": "url(/assets/banner/vestido.jpg)",
+  "shorts-polleras": "url(/assets/banner/remeras2.jpg)",
+  "jeans": "url(/assets/banner/jeans.jpg"
+}
+
 const StoreScreen: React.FC<Props> = ({products, fields, categoryType}) => {
   const [{total, quantity}, {addItem}] = useCart();
   const [isCartOpen, toggleCart] = React.useState<boolean>(false);
+  const bgBanner = dynamicBanners[categoryType];
 
   return (
-      <>
-        <Image
-          height="100%" maxHeight={"200px"}
-          objectFit="cover"
-          src={"/assets/banner.jpg"}
-        />
-      <Heading color={"white"} fontFamily={"body"} textAlign={"center"} textTransform={"uppercase"}>
-        {categoryType}
-      </Heading>
+    <>
+      <Box bg={"body"} height="1px" width="100%" />
+      <Flex
+        // height={"100%"}
+        // maxHeight={"200px"}
+        alignItems="center"
+        height={"350px"}
+        justifyContent="center"
+        margin={0}
+        style={{
+          backgroundImage: bgBanner,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
+        width="100%"
+      >
+        <Heading
+          color={"white"}
+          fontFamily={"body"}
+          textAlign={"center"}
+          textShadow="2px 2px 1px rgba(255,114,114,1)"
+          textTransform={"uppercase"}
+        >
+          {categoryType}
+        </Heading>
+      </Flex>
       <Stack spacing={6}>
         {products?.length ? (
           <Grid

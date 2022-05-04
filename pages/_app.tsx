@@ -19,18 +19,20 @@ const App: React.FC<AppProps> = ({Component, pageProps}) => {
       </Head>
       <ChakraProvider theme={theme}>
         <WithSubnavigation />
-        <Container
-          // bgGradient="linear-gradient(90deg, rgba(255,180,209,1) 0%, rgba(249,108,137,1) 100%)"
-          backgroundColor={"white"}
-          maxWidth="100%"
-          padding={0}
-        >
+        <Container maxWidth={"100vw"} minHeight={"100vh"} padding={0}>
           <Stack>
             <Component {...pageProps} />
           </Stack>
         </Container>
-        <Container borderRadius="sm" marginBottom={3} maxHeight={10} padding={4}>
-          <Flex alignItems={"center"} justifyContent={"center"}>
+        <Container
+          backgroundColor={"bg"}
+          display={"flex"}
+          height={20}
+          justifyContent={"center"}
+          margin={0}
+          maxW={"100%"}
+        >
+          <Flex alignItems={"center"} justifyContent={"center"} width={"100%"}>
             <Text color={"#444"} fontFamily={"body"} fontWeight={500} textAlign="center">
               © Copyright {new Date().getFullYear()}. GREKA SHOWROOM
             </Text>
@@ -62,6 +64,7 @@ const App: React.FC<AppProps> = ({Component, pageProps}) => {
                   // color="#555"
                   height={8}
                   justifyContent="center"
+                  paddingBottom={0.5}
                   width={8}
                 >
                   <Image src={"/assets/icons/envelope.svg"} />
@@ -69,6 +72,7 @@ const App: React.FC<AppProps> = ({Component, pageProps}) => {
               </Link>
             </Flex>
           </Flex>
+          {/* </Stack> */}
         </Container>
       </ChakraProvider>
     </>

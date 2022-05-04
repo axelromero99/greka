@@ -14,10 +14,11 @@ import {
   useColorModeValue,
   useDisclosure,
   Image,
+  Fade,
 } from "@chakra-ui/react";
 import {AiOutlineHome} from "react-icons/ai";
 import {RiTShirtLine} from "react-icons/ri";
-import {BsChatLeftDots} from "react-icons/bs";
+import {BsChatDots} from "react-icons/bs";
 import {AiOutlineSearch} from "react-icons/ai";
 import {Link as ChakraLink} from "@chakra-ui/react";
 import {HamburgerIcon, CloseIcon, ChevronDownIcon, ChevronRightIcon} from "@chakra-ui/icons";
@@ -34,9 +35,10 @@ export default function WithSubnavigation(): JSX.Element {
         align={"center"}
         alignItems={"center"}
         // bgGradient={"linear-gradient(90deg, rgba(255,180,209,1) 0%, rgba(249,108,137,1) 100%)"}
-        borderColor={useColorModeValue("gray.200", "gray.900")}
-        borderStyle={"solid"}
-        color={useColorModeValue("gray.600", "white")}
+        backgroundColor={"bg"}
+        // borderColor={useColorModeValue("gray.200", "gray.900")}
+        // borderStyle={"solid"}
+        // color={useColorModeValue("gray.600", "white")}
         height={"65px"}
       >
         <Flex
@@ -53,11 +55,14 @@ export default function WithSubnavigation(): JSX.Element {
           />
         </Flex>
         <Flex alignItems={"center"} flex={{base: 1}}>
-          <Box>
-            <Image height={12} objectFit="cover" src={"/assets/logo.png"} width={60} />
+          <Box cursor={"pointer"}>
+            <Link href={"/"}>
+              <Image height={12} objectFit="cover" src={"/assets/logo.png"} width={60} />
+            </Link>
           </Box>
           <Flex
             alignItems="center"
+            color={"primary"}
             display={{base: "none", md: "flex"}}
             flex="1"
             justifyContent="center"
@@ -65,14 +70,16 @@ export default function WithSubnavigation(): JSX.Element {
           >
             <Flex flex="1">
               <input
+                background-color="bg"
                 flex="1"
                 fontFamily={"navbar"}
                 placeholder="   ¿Qué mierda estas buscando hijo de puta?..."
                 style={{
                   borderRadius: 10,
                   padding: "5px 15px",
-                  width: "60%",
-                  border: "1px solid #999",
+                  width: "85%",
+                  maxWidth: "1000px",
+                  border: "1px solid #a2a2a2",
                 }}
                 type="text"
               />
@@ -92,37 +99,41 @@ export default function WithSubnavigation(): JSX.Element {
 
 const DesktopNav = () => {
   // const linkColor = useColorModeValue("gray.600", "gray.200");
-  const linkColor = "white";
-  const linkHoverColor = useColorModeValue("gray.800", "white");
+  // const linkColor = "white";
+  // const linkHoverColor = useColorModeValue("gray.800", "white");
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
   return (
-    <Stack direction={"row"} marginLeft={5} spacing={6}>
+    <Stack direction={"row"} marginLeft={5} spacing={3}>
       {NAV_ITEMS.map((navItem) => (
-        <Box key={navItem.label}>
+        <Box key={navItem.label} as={Link} bg={"transparent"} href={navItem.href ?? "#"}>
           <Popover placement={"bottom-start"} trigger={"hover"}>
-            <PopoverTrigger>
-              <Button
-                _hover={{
-                  textDecoration: "none",
-                  color: linkHoverColor,
-                }}
-                alignItems="center"
-                backgroundColor={"transparent"}
-                borderRadius={7}
-                color={"#222"}
-                display={"flex"}
-                flexDirection={"column"}
-                fontFamily={"navbar"}
-                fontSize={"sm"}
-                fontWeight={500}
-                pl={5}
-                pr={5}
-              >
-                {navItem.icon && <navItem.icon color="#222" marginBottom={10} size={45} />}
-                <Link href={navItem.href ?? "#"}>{navItem.label}</Link>
-              </Button>
-            </PopoverTrigger>
+            <Link href={navItem.href ?? "#"}>
+              <a>
+                <PopoverTrigger>
+                  <Button
+                    _hover={{bg: useColorModeValue("pink.50", "FF6F6F"), color: "pink.400"}}
+                    alignItems="center"
+                    backgroundColor={"transparent"}
+                    borderRadius={7}
+                    color={"444"}
+                    display={"flex"}
+                    flexDirection={"column"}
+                    fontFamily={"navbar"}
+                    fontSize={"sm"}
+                    fontWeight={500}
+                    minHeight={"4rem"}
+                    minW={"7rem"}
+                    pl={5}
+                    pr={5}
+                    transition={"all .2s ease"}
+                  >
+                    {navItem.icon && <navItem.icon color={"444"} size={"30"} />}
+                    <Text fontWeight={500}>{navItem.label}</Text>
+                  </Button>
+                </PopoverTrigger>
+              </a>
+            </Link>
 
             {navItem.children && (
               <PopoverContent
@@ -254,7 +265,7 @@ const NAV_ITEMS: Array<NavItem> = [
   {
     label: "Home",
     href: "/",
-    icon: AiOutlineHome
+    icon: AiOutlineHome,
   },
   {
     label: "Productos",
@@ -272,25 +283,25 @@ const NAV_ITEMS: Array<NavItem> = [
         href: "/categories/jeans",
       },
       {
-        label: "Tops",
+        label: "Tops-Remeras",
         // subLabel: "An exclusive list for contract work",
-        href: "/categories/tops",
+        href: "/categories/tops-remeras",
       },
       {
-        label: "Abrigos",
+        label: "Shorts-Polleras",
         // subLabel: "An exclusive list for contract work",
-        href: "/categories/abrigos",
+        href: "/categories/shorts-polleras",
       },
       {
-        label: "Remeras",
+        label: "Vestidos",
         // subLabel: "An exclusive list for contract work",
-        href: "/categories/remeras",
+        href: "/categories/vestidos",
       },
     ],
   },
   {
     label: "Contactanos",
     href: "/contact-me",
-    icon: BsChatLeftDots,
+    icon: BsChatDots,
   },
 ];
