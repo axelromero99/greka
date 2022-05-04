@@ -47,10 +47,10 @@ export const getStaticPaths: GetStaticPaths<{categoryType: string}> = async () =
   return {
     paths: [
       {params: {categoryType: "todos"}},
-      {params: {categoryType: "tops"}},
+      {params: {categoryType: "tops-remeras"}},
       {params: {categoryType: "jeans"}},
-      {params: {categoryType: "remeras"}},
-      {params: {categoryType: "polleras"}},
+      {params: {categoryType: "shorts-polleras"}},
+      {params: {categoryType: "sweaters"}},
       {params: {categoryType: "vestidos"}},
     ],
     fallback: false, //indicates the type of fallback

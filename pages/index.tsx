@@ -10,7 +10,7 @@ import {
   GridItem,
   Text,
   useColorModeValue,
-  SlideFade
+  SlideFade,
 } from "@chakra-ui/react";
 import {BsFillCartFill} from "react-icons/bs";
 import {FaMoneyBill} from "react-icons/fa";
@@ -46,10 +46,11 @@ const index_copy: React.FC = () => {
             position={"relative"}
             size="3xl"
             top={"22%"}
-          > 
-          <SlideFade in={true}>
-            Mochila nueva de <br/>PedidosYa.
-          </SlideFade>
+          >
+            <SlideFade in={true}>
+              Mochila nueva de <br />
+              PedidosYa.
+            </SlideFade>
           </Heading>
           <Heading
             as="h3"

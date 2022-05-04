@@ -122,7 +122,6 @@ const DesktopNav = () => {
                     fontFamily={"navbar"}
                     fontSize={"sm"}
                     fontWeight={500}
-                    href={navItem.href ?? "#"}
                     minHeight={"4rem"}
                     minW={"7rem"}
                     pl={5}
@@ -284,19 +283,19 @@ const NAV_ITEMS: Array<NavItem> = [
         href: "/categories/jeans",
       },
       {
-        label: "Tops",
+        label: "Tops-Remeras",
         // subLabel: "An exclusive list for contract work",
-        href: "/categories/tops",
+        href: "/categories/tops-remeras",
       },
       {
-        label: "Abrigos",
+        label: "Shorts-Polleras",
         // subLabel: "An exclusive list for contract work",
-        href: "/categories/abrigos",
+        href: "/categories/shorts-polleras",
       },
       {
-        label: "Remeras",
+        label: "Vestidos",
         // subLabel: "An exclusive list for contract work",
-        href: "/categories/remeras",
+        href: "/categories/vestidos",
       },
     ],
   },

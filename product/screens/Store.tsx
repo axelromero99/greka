@@ -13,9 +13,18 @@ interface Props {
   categoryType: string;
 }
 
+const dynamicBanners = {
+  "todos": "url(/assets/banner.jpg)",
+  "tops-remeras": "url(/assets/banner/tops.jpg)",
+  "abrigos": "url(/assets/banner/abrigos.jpg)",
+  "shorts-polleras": "url(/assets/banner/remeras2.jpg)",
+  "jeans": "url(/assets/banner/jeans.jpg"
+}
+
 const StoreScreen: React.FC<Props> = ({products, fields, categoryType}) => {
   const [{total, quantity}, {addItem}] = useCart();
   const [isCartOpen, toggleCart] = React.useState<boolean>(false);
+  const bgBanner = dynamicBanners[categoryType];
 
   return (
     <>
@@ -28,7 +37,7 @@ const StoreScreen: React.FC<Props> = ({products, fields, categoryType}) => {
         justifyContent="center"
         margin={0}
         style={{
-          backgroundImage: "url(/assets/banner.jpg)",
+          backgroundImage: bgBanner,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}
