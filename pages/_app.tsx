@@ -48,12 +48,12 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
       <ChakraProvider theme={theme}>
         <WithSubnavigation />
         {loading ? (
-          <Container maxWidth={"100vw"} padding={0}>
+          <Container minHeight={"100vh"} maxWidth={"100vw"} padding={0}>
             <Loading />
           </Container>
         ) : (
           <>
-            <Container maxWidth={"100vw"} padding={0}>
+            <Container minHeight={"100vh"} maxWidth={"100vw"} padding={0}>
               <Stack>
                 <Component {...pageProps} />
               </Stack>
