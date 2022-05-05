@@ -16,12 +16,12 @@ export default extendTheme({
     },
   },
   colors: {
-    primary: "F4A5A5",
+    primary: "#F4A5A5",
     bg: "#eee",
-    secondary: "#77D0D6",
+    bgSecondary: "#75CED4",
     tertiary: "#0ba9b3",
-    background_contact: "linear-gradient(90deg, rgba(59,205,214,1) 0%, rgba(119,208,214,1) 100%)",
-    background_contact2: "linear-gradient(270deg, rgba(59,205,214,1) 0%, rgba(119,208,214,1) 100%)",
+    // background_contact: "linear-gradient(90deg, rgba(59,205,214,1) 0%, rgba(119,208,214,1) 100%)",
+    // background_contact2: "linear-gradient(270deg, rgba(59,205,214,1) 0%, rgba(119,208,214,1) 100%)",
     // primary: theme.colors["orange"],
     // background_primary: "#FCD7D7",
     // background_primary:

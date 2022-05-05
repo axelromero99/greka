@@ -64,8 +64,9 @@ export default function WithSubnavigation(): JSX.Element {
           />
         </Flex>
         <Flex
-          marginLeft={{ base: "35%", md: 2 }}
+          marginLeft={{ base: -6, md: 5 }}
           alignItems={"center"}
+          justifyContent={{ base: "center", md: "start" }}
           flex={{ base: 1 }}
         >
           <Box cursor={"pointer"}>
@@ -78,21 +79,21 @@ export default function WithSubnavigation(): JSX.Element {
           </Box>
           <Flex
             alignItems="center"
-            color={"primary"}
+            color={"#444"}
             display={{ base: "none", md: "flex" }}
             flex="1"
             justifyContent="center"
             ml={10}
           >
             <Flex
-              flex="1"
+              flex="2"
               justifyContent={"center"}
               width="85%"
               maxWidth="900px"
             >
               <input
                 background-color="bg"
-                flex="1"
+                flex="2"
                 fontFamily={"navbar"}
                 placeholder="   ¿Qué mierda estas buscando hijo de puta?..."
                 style={{
@@ -131,9 +132,10 @@ const DesktopNav = () => {
       direction={"row"}
       marginLeft={5}
       spacing={3}
+      flex={"1"}
       display="flex"
       justifySelf="end"
-      justifyContent={"space-evenly"}
+      justifyContent={"end"}
       marginRight={3}
     >
       {NAV_ITEMS.map((navItem) => (
@@ -150,7 +152,7 @@ const DesktopNav = () => {
                   <Button
                     _hover={{
                       bg: useColorModeValue("pink.50", "FF6F6F"),
-                      color: "pink.400",
+                      color: "#444",
                     }}
                     alignItems="center"
                     backgroundColor={"transparent"}

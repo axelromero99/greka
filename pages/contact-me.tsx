@@ -1,14 +1,21 @@
-import React from "react";
-import { Flex, Grid, Text } from "@chakra-ui/react";
-import { FormControl, Input, Button, Textarea } from "@chakra-ui/react";
+import React, { useState } from "react";
+import {
+  Flex,
+  Grid,
+  Text,
+  useTheme,
+  FormControl,
+  Input,
+  Button,
+  Textarea,
+  Box,
+} from "@chakra-ui/react";
 import {
   AiFillEnvironment,
   AiFillPhone,
   AiTwotoneMail,
   AiFillInstagram,
 } from "react-icons/ai";
-import { useState } from "react";
-import { useTheme } from "@chakra-ui/react";
 import axios from "axios";
 
 export default function AboutUs() {
@@ -38,194 +45,246 @@ export default function AboutUs() {
       {/* ABOUT US */}
       <Grid
         autoFlow={{ base: "row", md: "row", xl: "column" }}
-        gap="5vw"
-        justifyContent="space-around"
+        gap="vw"
+        justifyContent="center"
         minHeight={"75vh"}
-        bg={"bg"}
-        my={20}
+        bg={"bgSecondary"}
+        // my={20}
+        position="relative"
+        zIndex={1}
       >
         <Flex
-          backgroundColor={theme.colors.secondary}
-          bg={theme.colors.background_contact}
-          border="2px dashed"
           borderRadius={15}
-          height="80vh"
-          justifyContent="center"
-          width={{ base: "80vw", md: "60vw", xl: "30vw" }}
+          boxShadow={
+            "rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px"
+          }
+          marginY={20}
+          minHeight={"70vh"}
+          minWidth={{ base: "90vw", md: "90vw", xl: "90vw" }}
+          style={{
+            backgroundImage:
+              "url(https://images.pexels.com/photos/3737713/pexels-photo-3737713.jpeg?cs=srgb&dl=pexels-dids-3737713.jpg&fm=jpg)",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+          zIndex={-1}
         >
-          <Flex
-            flexDirection="column"
-            justifyContent={{ base: "xs" }}
-            width={{ base: "70vw", md: "45vw", xl: "20vw" }}
+          {/* right box */}
+          <Grid
+            autoFlow={{ base: "row", md: "row", xl: "column", xl: "column" }}
+            gap={"5vw"}
           >
-            <Text
-              color="black"
-              fontSize={{ base: "2xl", md: "2xl", xl: "4xl" }}
-              fontWeight={700}
-              marginY="4vh"
+            <Flex
+              borderRadius={15}
+              height="85vh"
+              justifyContent="center"
+              width={{ base: "70vw", md: "50vw", xl: "35vw" }}
+              margin={"10vh 0"}
+              bg={"#fff"}
             >
-              Contact us
-            </Text>
-
-            <form style={{ height: "100%" }} onSubmit={handleSubmit}>
-              <Grid h="100%">
-                <FormControl>
-                  <Input
-                    _placeholder={{ color: "gray" }}
-                    bg="#fff"
-                    color="black"
-                    placeholder="Name"
-                    size={"lg"}
-                    type="name"
-                    onChange={(e) => setName(e.currentTarget.value)}
-                  />
-                </FormControl>
-
-                <FormControl>
-                  <Input
-                    _placeholder={{ color: "gray" }}
-                    bg="#fff"
-                    color="black"
-                    placeholder="Surname"
-                    size={"lg"}
-                    type="surname"
-                    onChange={(e) => setSurname(e.currentTarget.value)}
-                  />
-                </FormControl>
-
-                <FormControl>
-                  <Input
-                    _placeholder={{ color: "gray" }}
-                    bg="#fff"
-                    color="black"
-                    placeholder="Email"
-                    size={"lg"}
-                    type="email"
-                    onChange={(e) => setEmail(e.currentTarget.value)}
-                  />
-                </FormControl>
-
-                <FormControl>
-                  <Textarea
-                    _placeholder={{ color: "gray" }}
-                    bg="#fff"
-                    color="black"
-                    placeholder="Message"
-                    size={"lg"}
-                    onChange={(e) => setMessage(e.currentTarget.value)}
-                  />
-                </FormControl>
-                <Button
-                  bg="#fff"
-                  color={"black"}
-                  marginTop="4vh"
-                  type="submit"
-                  onClick={(e) => handleSubmit(e)}
-                >
-                  Button
-                </Button>
-              </Grid>
-            </form>
-          </Flex>
-        </Flex>
-        {/* right box */}
-
-        <Flex
-          backgroundColor={theme.colors.secondary}
-          bg={theme.colors.background_contact2}
-          box-shadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"          borderRadius={15}
-          height="80vh"
-          justifyContent="center"
-          width={{ base: "80vw", md: "60vw", xl: "25vw" }}
-        >
-          {/*CONTENT RIGHTBOX*/}
-          <Flex
-            flexDirection="column"
-            alignItems="center"
-            width={{ base: "70vw", md: "45vw", xl: "15vw" }}
-          >
-            <Grid alignItems="center" h="100%">
-              <Flex alignItems="center">
-                <Flex alignItems="center">
-                  <Flex
-                    alignItems="center"
-                    bg={theme.colors.tertiary}
-                    borderRadius={"100%"}
-                    fontWeight={"600"}
-                    h="55px"
-                    justifyContent="center"
-                    marginRight="2vw"
-                    w="55px"
-                  >
-                    <AiFillEnvironment fill="#202020" size="40" />
+              {/*CONTENT RIGHTBOX*/}
+              <Flex
+                flexDirection="column"
+                width={{ base: "50vw", md: "40vw", xl: "25vw" }}
+              >
+                <Grid h="100%">
+                  <Flex alignItems="center">
+                    <Flex>
+                      <Flex
+                        alignItems="center"
+                        bg={theme.colors.tertiary}
+                        borderRadius={"100%"}
+                        fontWeight={"600"}
+                        h="40px"
+                        justifyContent="center"
+                        marginRight="2vw"
+                        w="40px"
+                      >
+                        <AiFillEnvironment fill="#202020" size="30px" />
+                      </Flex>
+                      <Text
+                        fontFamily={"body"}
+                        fontSize="lg"
+                        alignSelf="center"
+                        color={"#202020"}
+                      >
+                        ***********
+                      </Text>
+                    </Flex>
                   </Flex>
-                  <Text fontFamily={"body"} fontSize="2xl" align-self="center">
-                    ***********
-                  </Text>
-                </Flex>
-              </Flex>
 
-              <Flex alignItems="center">
-                <Flex>
-                  <Flex
-                    alignItems="center"
-                    bg="#0ba9b3"
-                    borderRadius={"100%"}
-                    fontWeight={"600"}
-                    h="55px"
-                    justifyContent="center"
-                    marginRight="2vw"
-                    w="55px"
-                  >
-                    <AiFillPhone fill="#202020" size="40" />
+                  <Flex alignItems="center">
+                    <Flex>
+                      <Flex
+                        alignItems="center"
+                        bg="#0ba9b3"
+                        borderRadius={"100%"}
+                        fontWeight={"600"}
+                        h="40px"
+                        justifyContent="center"
+                        marginRight="2vw"
+                        w="40px"
+                      >
+                        <AiFillPhone fill="#202020" size="30" />
+                      </Flex>
+                      <Text
+                        fontFamily={"body"}
+                        fontSize="lg"
+                        alignSelf="center"
+                        color={"#202020"}
+                      >
+                        3795-**********
+                      </Text>
+                    </Flex>
                   </Flex>
-                  <Text fontFamily={"body"} fontSize="2xl" align-self="center">
-                    3795-**********
-                  </Text>
-                </Flex>
-              </Flex>
 
-              <Flex alignItems="center">
-                <Flex>
-                  <Flex
-                    alignItems="center"
-                    bg="#0ba9b3"
-                    borderRadius={"100%"}
-                    fontWeight={"600"}
-                    h="55px"
-                    justifyContent="center"
-                    marginRight="2vw"
-                    w="55px"
-                  >
-                    <AiTwotoneMail fill="#202020" size="40" />
+                  <Flex alignItems="center">
+                    <Flex>
+                      <Flex
+                        alignItems="center"
+                        bg="#0ba9b3"
+                        borderRadius={"100%"}
+                        fontWeight={"600"}
+                        h="40px"
+                        justifyContent="center"
+                        marginRight="2vw"
+                        w="40px"
+                      >
+                        <AiTwotoneMail fill="#202020" size="30" />
+                      </Flex>
+                      <Text
+                        fontFamily={"body"}
+                        fontSize="lg"
+                        alignSelf="center"
+                        color={"#202020"}
+                      >
+                        ****@***.com
+                      </Text>
+                    </Flex>
                   </Flex>
-                  <Text fontFamily={"body"} fontSize="2xl" align-self="center">
-                    ****@***.com
-                  </Text>
-                </Flex>
-              </Flex>
 
-              <Flex alignItems="center">
-                <Flex>
-                  <Flex
-                    alignItems="center"
-                    bg="#0ba9b3"
-                    borderRadius={"100%"}
-                    fontWeight={"600"}
-                    h="55px"
-                    justifyContent="center"
-                    marginRight="2vw"
-                    w="55px"
-                  >
-                    <AiFillInstagram fill="#202020" size="40" />
+                  <Flex alignItems="center">
+                    <Flex>
+                      <Flex
+                        alignItems="center"
+                        bg="#0ba9b3"
+                        borderRadius={"100%"}
+                        fontWeight={"600"}
+                        h="40px"
+                        justifyContent="center"
+                        marginRight="2vw"
+                        w="40px"
+                      >
+                        <AiFillInstagram fill="#202020" size="30" />
+                      </Flex>
+                      <Text
+                        fontFamily={"body"}
+                        fontSize="lg"
+                        alignSelf="center"
+                        color={"#202020"}
+                      >
+                        grekashowroom
+                      </Text>
+                    </Flex>
                   </Flex>
-                  <Text fontFamily={"body"} fontSize="2xl" align-self="center">
-                    grekashowroom
-                  </Text>
-                </Flex>
+                </Grid>
               </Flex>
-            </Grid>
-          </Flex>
+            </Flex>
+            {/* right box */}
+            <Flex
+              my="10vh"
+              backgroundColor={"#fff"}
+              borderRadius={15}
+              height="85vh"
+              justifyContent="center"
+              width={{ base: "60w", md: "50vw", xl: "40vw" }}
+            >
+              <Flex
+                flexDirection="column"
+                width={{ base: "50vw", md: "45vw", xl: "35vw" }}
+              >
+                <form style={{ height: "100%" }} onSubmit={handleSubmit}>
+                  <Grid
+                    h="100%"
+                    alignContent="center"
+                    gap="5vh"
+                    justifyContent="center"
+                  >
+                    <Text
+                      color={theme.colors.primary}
+                      fontSize={{ base: "lg", md: "xl", xl: "4xl" }}
+                      fontWeight={700}
+                      marginY="4vh"
+                      textShadow={`2px 2px 1px #75CED4`}
+                      justifySelf="center"
+                    >
+                      Contáctanos
+                    </Text>
+                    <FormControl>
+                      <Input
+                        _placeholder={{ color: "gray" }}
+                        bg="#fff"
+                        color="black"
+                        placeholder="Nombre"
+                        size={"lg"}
+                        type="name"
+                        onChange={(e) => setName(e.currentTarget.value)}
+                        width="100%"
+                      />
+                    </FormControl>
+
+                    <FormControl>
+                      <Input
+                        _placeholder={{ color: "gray" }}
+                        bg="#fff"
+                        color="black"
+                        placeholder="Apellido"
+                        size={"lg"}
+                        type="surname"
+                        onChange={(e) => setSurname(e.currentTarget.value)}
+                        width="100%"
+                      />
+                    </FormControl>
+
+                    <FormControl>
+                      <Input
+                        _placeholder={{ color: "gray" }}
+                        bg="#fff"
+                        color="black"
+                        placeholder="Correo Electrónico"
+                        size={"lg"}
+                        type="email"
+                        onChange={(e) => setEmail(e.currentTarget.value)}
+                        width="100%"
+                      />
+                    </FormControl>
+
+                    <FormControl>
+                      <Textarea
+                        style={{ resize: "none" }}
+                        _placeholder={{ color: "gray" }}
+                        bg="#fff"
+                        color="black"
+                        placeholder="Mensaje"
+                        size={"lg"}
+                        onChange={(e) => setMessage(e.currentTarget.value)}
+                      />
+                    </FormControl>
+                    <Button
+                      bg="#fff"
+                      color={"black"}
+                      type="submit"
+                      onClick={(e) => handleSubmit(e)}
+                    >
+                      Enviar
+                    </Button>
+                  </Grid>
+                </form>
+              </Flex>
+            </Flex>
+          </Grid>
         </Flex>
       </Grid>
     </>

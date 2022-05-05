@@ -10,23 +10,20 @@ import {
   Flex,
   Stack,
 } from "@chakra-ui/react";
-import Loading from "../loading/Loading";
-import NProgress from "nprogress";
 import Router from "next/router";
 import { AppProps } from "next/app";
-
 import WithSubnavigation from "../navbar/components/navbar";
 import theme from "../theme";
+import Loading from "../loading/Loading";
+import NProgress from "nprogress";
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
   Router.events.on("routeChangeStart", (url) => {
-    console.log("Route changing...");
     NProgress.start();
     setLoading(true);
   });
   Router.events.on("routeChangeComplete", (url) => {
-    console.log("Route changed succesfully");
     NProgress.done();
     setLoading(false);
   });
@@ -39,13 +36,13 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
         {/* Inicio de meta tags de licencia - Cambiar el contenido de los mismos viola el contenido de los terminos de licencia */}
         <meta content="showroom" name="greka" />
         <meta content="Greka Showroom" name="copyright" />
-        <link
+        {/* <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css"
           integrity="sha512-42kB9yDlYiCEfx2xVwq0q7hT4uf26FUgSIZBK8uiaEnTdShXjwr8Ip1V4xGJMg3mHkUt9nNuTDxunHF0/EgxLQ=="
-          crossorigin="anonymous"
-          referrerpolicy="no-referrer"
-        />
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
+        /> */}
         {/* Fin de meta tags de licencia */}
       </Head>
       <ChakraProvider theme={theme}>
@@ -64,8 +61,11 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
             <Container
               backgroundColor={"bg"}
               display={"flex"}
+              flexDirection={{ base: "column", md: "row" }}
+              textAlign={{ base: "left", md: "center" }}
+              alignItems={{ base: "start", md: "center" }}
               height={20}
-              justifyContent={"center"}
+              justifyContent={{ base: "center", md: "center" }}
               margin={0}
               maxW={"100%"}
             >
@@ -83,7 +83,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
                   © Copyright {new Date().getFullYear()}. GREKA SHOWROOM
                 </Text>
 
-                <Flex position={"absolute"} right={6}>
+                <Flex position={{ base: "block", sm: "absolute" }} right={6}>
                   <Link
                     isExternal
                     href={"https://www.instagram.com/grekashowroom/"}
@@ -97,6 +97,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
                       height={8}
                       justifyContent="center"
                       width={8}
+                      opacity={0.7}
                     >
                       <Image src={"/assets/icons/instagram.svg"} />
                     </Flex>
@@ -116,6 +117,8 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
                       justifyContent="center"
                       paddingBottom={0.5}
                       width={8}
+                      color={"#444"}
+                      opacity={0.7}
                     >
                       <Image src={"/assets/icons/envelope.svg"} />
                     </Flex>
