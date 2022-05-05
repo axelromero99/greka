@@ -15,25 +15,31 @@ import {
   useDisclosure,
   Image,
   Fade,
+  Heading,
 } from "@chakra-ui/react";
-import {AiOutlineHome} from "react-icons/ai";
-import {RiTShirtLine} from "react-icons/ri";
-import {BsChatDots} from "react-icons/bs";
-import {AiOutlineSearch} from "react-icons/ai";
-import {Link as ChakraLink} from "@chakra-ui/react";
-import {HamburgerIcon, CloseIcon, ChevronDownIcon, ChevronRightIcon} from "@chakra-ui/icons";
+import { AiOutlineHome } from "react-icons/ai";
+import { RiTShirtLine } from "react-icons/ri";
+import { BsChatDots } from "react-icons/bs";
+import { AiOutlineSearch } from "react-icons/ai";
+import { Link as ChakraLink } from "@chakra-ui/react";
+import {
+  HamburgerIcon,
+  CloseIcon,
+  ChevronDownIcon,
+  ChevronRightIcon,
+} from "@chakra-ui/icons";
 import Link from "next/link";
 
 import SearchBar from "./searchBar";
 
 export default function WithSubnavigation(): JSX.Element {
-  const {isOpen, onToggle} = useDisclosure();
+  const { isOpen, onToggle } = useDisclosure();
 
   return (
     <Box>
       <Flex
-        align={"center"}
         alignItems={"center"}
+        justifyContent={{ base: "start" }}
         // bgGradient={"linear-gradient(90deg, rgba(255,180,209,1) 0%, rgba(249,108,137,1) 100%)"}
         backgroundColor={"bg"}
         // borderColor={useColorModeValue("gray.200", "gray.900")}
@@ -43,32 +49,47 @@ export default function WithSubnavigation(): JSX.Element {
       >
         <Flex
           alignItems={"center"}
-          display={{base: "flex", md: "none"}}
-          flex={{base: 1}}
-          ml={{base: -2}}
+          display={{ base: "flex", md: "none" }}
+          flex={{ base: 0, md: 1 }}
+          ml={{ base: -2 }}
         >
           <IconButton
             aria-label={"Toggle Navigation"}
-            icon={isOpen ? <CloseIcon h={3} w={3} /> : <HamburgerIcon h={5} w={5} />}
+            icon={
+              isOpen ? <CloseIcon h={3} w={3} /> : <HamburgerIcon h={5} w={5} />
+            }
             variant={"ghost"}
             onClick={onToggle}
+            ml={3}
           />
         </Flex>
-        <Flex alignItems={"center"} flex={{base: 1}}>
+        <Flex
+          marginLeft={{ base: "35%", md: 2 }}
+          alignItems={"center"}
+          flex={{ base: 1 }}
+        >
           <Box cursor={"pointer"}>
             <Link href={"/"}>
-              <Image height={12} objectFit="cover" src={"/assets/logo.png"} width={60} />
+              <Heading fontFamily={"header"} color={"#333"}>
+                Grikas
+              </Heading>
+              {/*<Image height={12} objectFit="cover" src={"/assets/logo.png"} width={60} />*/}
             </Link>
           </Box>
           <Flex
             alignItems="center"
             color={"primary"}
-            display={{base: "none", md: "flex"}}
+            display={{ base: "none", md: "flex" }}
             flex="1"
             justifyContent="center"
             ml={10}
           >
-            <Flex flex="1">
+            <Flex
+              flex="1"
+              justifyContent={"center"}
+              width="85%"
+              maxWidth="900px"
+            >
               <input
                 background-color="bg"
                 flex="1"
@@ -77,13 +98,15 @@ export default function WithSubnavigation(): JSX.Element {
                 style={{
                   borderRadius: 10,
                   padding: "5px 15px",
-                  width: "85%",
-                  maxWidth: "1000px",
                   border: "1px solid #a2a2a2",
+                  width: "100%",
                 }}
                 type="text"
               />
-              <AiOutlineSearch size={20} style={{position: "relative", top: 7, right: "5%"}} />
+              <AiOutlineSearch
+                size={20}
+                style={{ position: "relative", top: 7, right: "6%" }}
+              />
             </Flex>
             <DesktopNav />
           </Flex>
@@ -104,19 +127,35 @@ const DesktopNav = () => {
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
   return (
-    <Stack direction={"row"} marginLeft={5} spacing={3}>
+    <Stack
+      direction={"row"}
+      marginLeft={5}
+      spacing={3}
+      display="flex"
+      justifySelf="end"
+      justifyContent={"space-evenly"}
+      marginRight={3}
+    >
       {NAV_ITEMS.map((navItem) => (
-        <Box key={navItem.label} as={Link} bg={"transparent"} href={navItem.href ?? "#"}>
+        <Box
+          key={navItem.label}
+          as={Link}
+          bg={"transparent"}
+          href={navItem.href ?? "#"}
+        >
           <Popover placement={"bottom-start"} trigger={"hover"}>
             <Link href={navItem.href ?? "#"}>
               <a>
                 <PopoverTrigger>
                   <Button
-                    _hover={{bg: useColorModeValue("pink.50", "FF6F6F"), color: "pink.400"}}
+                    _hover={{
+                      bg: useColorModeValue("pink.50", "FF6F6F"),
+                      color: "pink.400",
+                    }}
                     alignItems="center"
                     backgroundColor={"transparent"}
                     borderRadius={7}
-                    color={"444"}
+                    color={"#444"}
                     display={"flex"}
                     flexDirection={"column"}
                     fontFamily={"navbar"}
@@ -127,9 +166,14 @@ const DesktopNav = () => {
                     pl={5}
                     pr={5}
                     transition={"all .2s ease"}
+                    textDecoration={"none"}
                   >
-                    {navItem.icon && <navItem.icon color={"444"} size={"30"} />}
-                    <Text fontWeight={500}>{navItem.label}</Text>
+                    {navItem.icon && (
+                      <navItem.icon color={"#444"} size={"30"} />
+                    )}
+                    <Text fontWeight={500} pt={1}>
+                      {navItem.label}
+                    </Text>
                   </Button>
                 </PopoverTrigger>
               </a>
@@ -158,11 +202,11 @@ const DesktopNav = () => {
   );
 };
 
-const DesktopSubNav = ({label, href, subLabel, icon}: NavItem) => {
+const DesktopSubNav = ({ label, href, subLabel, icon }: NavItem) => {
   return (
     <Link href={href}>
       <Box
-        _hover={{bg: useColorModeValue("pink.50", "gray.900")}}
+        _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
         cursor={"pointer"}
         display={"block"}
         p={2}
@@ -171,13 +215,17 @@ const DesktopSubNav = ({label, href, subLabel, icon}: NavItem) => {
       >
         <Stack align={"center"} direction={"row"}>
           <Box>
-            <Text _groupHover={{color: "pink.400"}} fontWeight={500} transition={"all .3s ease"}>
+            <Text
+              _groupHover={{ color: "pink.400" }}
+              fontWeight={500}
+              transition={"all .3s ease"}
+            >
               {label}
             </Text>
             <Text fontSize={"sm"}>{subLabel}</Text>
           </Box>
           <Flex
-            _groupHover={{opacity: "100%", transform: "translateX(0)"}}
+            _groupHover={{ opacity: "100%", transform: "translateX(0)" }}
             align={"center"}
             flex={1}
             justify={"flex-end"}
@@ -195,7 +243,11 @@ const DesktopSubNav = ({label, href, subLabel, icon}: NavItem) => {
 
 const MobileNav = () => {
   return (
-    <Stack bg={useColorModeValue("white", "gray.800")} display={{md: "none"}} p={4}>
+    <Stack
+      bg={useColorModeValue("white", "gray.800")}
+      display={{ md: "none" }}
+      p={4}
+    >
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
@@ -203,8 +255,8 @@ const MobileNav = () => {
   );
 };
 
-const MobileNavItem = ({label, children, href}: NavItem) => {
-  const {isOpen, onToggle} = useDisclosure();
+const MobileNavItem = ({ label, children, href }: NavItem) => {
+  const { isOpen, onToggle } = useDisclosure();
 
   return (
     <Stack spacing={4} onClick={children && onToggle}>
@@ -218,7 +270,10 @@ const MobileNavItem = ({label, children, href}: NavItem) => {
         justify={"space-between"}
         py={2}
       >
-        <Text color={useColorModeValue("gray.600", "gray.200")} fontWeight={600}>
+        <Text
+          color={useColorModeValue("gray.600", "gray.200")}
+          fontWeight={600}
+        >
           {label}
         </Text>
         {children && (
@@ -232,7 +287,7 @@ const MobileNavItem = ({label, children, href}: NavItem) => {
         )}
       </Flex>
 
-      <Collapse animateOpacity in={isOpen} style={{marginTop: "0!important"}}>
+      <Collapse animateOpacity in={isOpen} style={{ marginTop: "0!important" }}>
         <Stack
           align={"start"}
           borderColor={useColorModeValue("gray.200", "gray.700")}
