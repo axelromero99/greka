@@ -75,6 +75,11 @@ class Product implements IProduct {
   }
 }
 
+/**
+ * It takes an array of raw products and options, and returns an array of normalized products
+ * @param {(RawProduct | RawOption)[]} data - (RawProduct | RawOption)[]
+ * @returns An array of IProducts
+ */
 function normalize(data: (RawProduct | RawOption)[]) {
   const products = new Map<RawProduct["id"], Product>();
 
@@ -101,15 +106,16 @@ function normalize(data: (RawProduct | RawOption)[]) {
   return normalized;
 }
 
+/**
+ * It takes an array of raw products and options, and returns an array of normalized products, filtered by categories
+ * @param {(RawProduct | RawOption)[]} data - (RawProduct | RawOption)[]
+ * @param categoryType - The category type of the products you want to normalize.
+ * @returns An array of IProducts
+ */
 function normalizeWithCategory(data: (RawProduct | RawOption)[], categoryType) {
   const products = new Map<RawProduct["id"], Product>();
 
   for (const item of data) {
-    // console.log(item);
-    // console.log("category type url:", categoryType);
-    // console.log("item category:", item.category);
-    // console.log(item.category === categoryType.toLowerCase());
-
     if (!products.has(item.id) && item.category === categoryType.toLowerCase()) {
       products.set(item.id, new Product());
     }
@@ -118,7 +124,44 @@ function normalizeWithCategory(data: (RawProduct | RawOption)[], categoryType) {
       const product = products.get(item.id);
 
       product.set(item);
-    } else if (item.type === "option" && item.category === categoryType.toLowerCase()) {
+    } else if (item.type === "option") {
+      const product = products.get(item.id);
+
+      product.addOption(item);
+    }
+  }
+
+  const normalized: IProduct[] = Object.values(Object.fromEntries(products)).map((product) =>
+    product.toJSON(),
+  );
+
+  return normalized;
+}
+
+/**
+ * It takes an array of raw products and options, and returns an array of normalized products
+ * @param {(RawProduct | RawOption)[]} data - (RawProduct | RawOption)[]
+ * @param search - The search term
+ * @returns An array of IProducts
+ */
+function normalizeSearch(data: (RawProduct | RawOption)[], search: string) {
+  const products = new Map<RawProduct["id"], Product>();
+
+  for (const item of data) {
+    let lastProductTitle = "";
+
+    if (!products.has(item.id) && item.title.toLowerCase().includes(search)) {
+      products.set(item.id, new Product());
+    }
+
+    if (item.type === "product" && item.title.toLowerCase().includes(search)) {
+      const product = products.get(item.id);
+
+      product.set(item);
+      lastProductTitle = item.title.toLocaleLowerCase();
+    }
+
+    if (item.type === "option" && lastProductTitle.includes(search)) {
       const product = products.get(item.id);
 
       product.addOption(item);
@@ -168,6 +211,26 @@ export default {
                   results.data as (RawProduct | RawOption)[],
                   categoryType,
                 );
+
+                return resolve(data);
+              },
+              error: (error) => reject(error.message),
+            });
+          }),
+      );
+  },
+  searchAndList: async (search: string): Promise<IProduct[]> => {
+    return axios
+      .get(process.env.PRODUCTS_CSV, {
+        responseType: "blob",
+      })
+      .then(
+        (response) =>
+          new Promise<IProduct[]>((resolve, reject) => {
+            Papa.parse(response.data, {
+              header: true,
+              complete: (results) => {
+                const data = normalizeSearch(results.data as (RawProduct | RawOption)[], search);
 
                 return resolve(data);
               },

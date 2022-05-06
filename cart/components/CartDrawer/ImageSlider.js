@@ -4,11 +4,20 @@ import {Carousel} from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 // If you want to use your own Selectors look up the Advancaed Story book examples
-const ImageSlider = ({slides, width, height}) => {
+const ImageSlider = ({slides}) => {
   return (
-    <Carousel autoPlay={true} showIndicators={false} infiniteLoop dynamicHeight={false} emulateTouch={true} showStatus={false} width={width} display="flex" justifyContent="center">
+    <Carousel
+      infiniteLoop
+      autoPlay={true}
+      display="flex"
+      dynamicHeight={false}
+      emulateTouch={true}
+      justifyContent="center"
+      showIndicators={false}
+      showStatus={false}
+    >
       {slides.map((slide, index) => {
-        return <Image key={index} height={height} src={`/assets/products/${slide}`} width={width} />;
+        return <Image key={index} src={`/assets/products/${slide}`} />;
       })}
     </Carousel>
   );
