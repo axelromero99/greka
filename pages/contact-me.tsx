@@ -8,13 +8,14 @@ import {
   Input,
   Button,
   Textarea,
-  Box,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import {
   AiFillEnvironment,
   AiFillPhone,
   AiTwotoneMail,
   AiFillInstagram,
+  AiTwotoneCalendar,
 } from "react-icons/ai";
 import axios from "axios";
 
@@ -73,8 +74,8 @@ export default function AboutUs() {
           <Grid autoFlow={{ base: "row", md: "row", xl: "column" }} gap={"5vw"}>
             <Flex
               borderRadius={15}
-              height={{ base: "100%", md: "78%", lg: "100%", xl: "80%" }}
-              width={{ base: "60w", md: "40vw", xl: "30vw" }}
+              height={{ base: "80vh", md: "80%", lg: "100%", xl: "80%" }}
+              width={{ base: "70vw", md: "40v w", xl: "30vw" }}
               justifyContent={"center"}
               margin={"10vh 0"}
               bg={"bg_contactMe"}
@@ -85,9 +86,40 @@ export default function AboutUs() {
               {/*CONTENT LEFTBOX*/}
               <Flex
                 flexDirection="column"
-                width={{ base: "50vw", md: "40vw", xl: "25vw" }}
+                width={{ base: "90vw", md: "40vw", xl: "25vw" }}
+                justifyContent={"center"}
               >
-                <Grid h="100%">
+                <Grid
+                  w={{ base: "60vw", md: "40vw", xl: "25vw" }}
+                  h="60vh"
+                  justifyContent={"center"}
+                >
+                  
+                  <Flex alignItems="center">
+                    <Flex>
+                      <Flex
+                        alignItems={"center"}
+                        bg={"bgSecondary"}
+                        borderRadius={"100%"}
+                        fontWeight={"600"}
+                        h={"40px"}
+                        justifyContent={"center"}
+                        marginRight={"2vw"}
+                        w={"40px"}
+                        alignSelf="center"
+                      >
+                        <AiFillEnvironment fill="secondary" size="30px" />
+                      </Flex>
+                      <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3539.703085237791!2d-58.83847798494288!3d-27.478501582887215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94456c996041c7e3%3A0xfa9ea756edccc92e!2sGral.%20Paz%201244%2C%20W3410BAY%20Corrientes!5e0!3m2!1ses-419!2sar!4v1651879176703!5m2!1ses-419!2sar"
+                        allowFullScreen={true}
+                        width="80%"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        frameborder="0"
+                      ></iframe>
+                    </Flex>
+                  </Flex>
                   <Flex alignItems="center">
                     <Flex>
                       <Flex
@@ -100,7 +132,7 @@ export default function AboutUs() {
                         marginRight={"2vw"}
                         w={"40px"}
                       >
-                        <AiFillEnvironment fill="secondary" size="30px" />
+                        <AiTwotoneCalendar fill="secondary" size="30" />
                       </Flex>
                       <Text
                         fontFamily={"body"}
@@ -108,11 +140,10 @@ export default function AboutUs() {
                         alignSelf={"center"}
                         color={"secondary"}
                       >
-                        GENERAL PAZ 1244
+                        Lunes a Viernes de 18hs a 21hs
                       </Text>
                     </Flex>
                   </Flex>
-
                   <Flex alignItems="center">
                     <Flex>
                       <Flex
@@ -133,36 +164,10 @@ export default function AboutUs() {
                         alignSelf={"center"}
                         color={"secondary"}
                       >
-                        3795-**********
+                        3794 - 348353
                       </Text>
                     </Flex>
                   </Flex>
-
-                  <Flex alignItems="center">
-                    <Flex>
-                      <Flex
-                        alignItems={"center"}
-                        bg={"bgSecondary"}
-                        borderRadius={"100%"}
-                        fontWeight={"600"}
-                        h={"40px"}
-                        justifyContent={"center"}
-                        marginRight={"2vw"}
-                        w={"40px"}
-                      >
-                        <AiTwotoneMail fill="secondary" size="30" />
-                      </Flex>
-                      <Text
-                        fontFamily={"body"}
-                        fontSize={"lg"}
-                        alignSelf={"center"}
-                        color={"secondary"}
-                      >
-                        GREKAS
-                      </Text>
-                    </Flex>
-                  </Flex>
-
                   <Flex alignItems="center">
                     <Flex>
                       <Flex
@@ -183,7 +188,7 @@ export default function AboutUs() {
                         alignSelf={"center"}
                         color={"secondary"}
                       >
-                        GREKASHOWROOM
+                        @grekashowroom
                       </Text>
                     </Flex>
                   </Flex>
@@ -209,15 +214,15 @@ export default function AboutUs() {
                 <form style={{ height: "100%" }} onSubmit={handleSubmit}>
                   <Grid
                     h={"100%"}
-                    alignContent={"center"}
+                    // alignContent={"center"}
                     gap={"5vh"}
-                    justifyContent={"center"}
+                    // justifyContent={"center"}
                   >
                     <Text
-                      color={"primary"}
-                      fontSize={{ base: "lg", md: "xl", xl: "4xl" }}
+                      color={"rgba(255,111,111,0.80)"}
+                      fontSize={{ base: "28px", xl: "34px" }}
                       fontWeight={700}
-                      marginY={"1vh"}
+                      // marginY={"1vh"}
                       // textShadow={`2px 2px 1px #75CED4`}
                       justifySelf={"center"}
                     >
@@ -306,10 +311,22 @@ export default function AboutUs() {
                       />
                     </FormControl>
                     <Button
-                      bg={"bg_contactMe"}
-                      color={"black"}
+                      _active={{
+                        bg: useColorModeValue("pink.50", "gray.900"),
+                        color: "rgba(255,111,111,0.75)",
+                      }}
+                      _hover={{
+                        bg:
+                          "rgba(255,111,111,0.75)" ||
+                          useColorModeValue("gray.300", "FF6F6F"),
+                        color: "white",
+                      }}
+                      bg={"rgba(255,111,111,0.95)"}
+                      color={"white"}
                       type={"submit"}
                       onClick={(e) => handleSubmit(e)}
+                      width={{ base: "90%", xl: "40vh" }}
+                      marginLeft={2}
                     >
                       Enviar
                     </Button>

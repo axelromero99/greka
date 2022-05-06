@@ -21,7 +21,7 @@ const SearchBar: NextPage = () => {
     }
 
     if (debouncedSearch) searchURL(search.toLocaleLowerCase());
-  }, [debouncedSearch, router, search]);
+  }, [debouncedSearch]);
 
   return (
     <input

@@ -17,7 +17,7 @@ import NProgress from "nprogress";
 import WithSubnavigation from "../navbar/components/navbar";
 import theme from "../theme";
 import Loading from "../loading/Loading";
-NProgress.configure({ trickle: false });
+NProgress.configure({ showSpinner: false });
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   const [loading, setLoading] = useState<boolean>(false);

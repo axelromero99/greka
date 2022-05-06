@@ -15,6 +15,7 @@ const ImageSlider = ({slides}) => {
       justifyContent="center"
       showIndicators={false}
       showStatus={false}
+      showThumbs={false}
     >
       {slides.map((slide, index) => {
         return <Image key={index} src={`/assets/products/${slide}`} />;

@@ -12,6 +12,7 @@ import {
   useColorModeValue,
   SlideFade,
 } from "@chakra-ui/react";
+import Link from "next/link";
 import { BsFillCartFill } from "react-icons/bs";
 import { FaMoneyBill } from "react-icons/fa";
 import { BsExclamationTriangleFill } from "react-icons/bs";
@@ -23,7 +24,7 @@ const slideData = ["02.jpg", "03.jpg", "05.jpg"];
 const index_copy: React.FC = () => {
   return (
     <>
-      <Box bg={"body"} height="1px" width="100%" />
+      <Box bg={"body"} height="1px" width="100%ºººººººººººººººººººººººººººººººººº" />
       <Flex
         // height={"100%"}
         // maxHeight={"200px"}
@@ -31,7 +32,7 @@ const index_copy: React.FC = () => {
         margin={0}
         style={{
           backgroundImage:
-            "url(https://www.bergerpaints.com/colour-magazine/Upload/Posting/Image/colours-fashion-banner-feb15.jpg)",
+            `url(https://www.bergerpaints.com/colour-magazine/Upload/Posting/Image/colours-fashion-banner-feb15.jpg)`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "right",
@@ -50,8 +51,7 @@ const index_copy: React.FC = () => {
             maxWidth={{ base: "300px", sm: "420px", md: "800px" }}
             textShadow={{ base: "1px 1px 2px rgba(1,1,1,0.8)" }}
           >
-            Esto es una tienda <br />
-            de articulos sexuales.
+            Plan Mi Moto 2022
           </Heading>
           <Heading
             as="h3"
@@ -63,14 +63,14 @@ const index_copy: React.FC = () => {
             textShadow={{ base: "1px 1px 2px rgba(1,1,1,0.6)" }}
             top={{ base: "20%", md: "27%" }}
           >
-            Esto es un subtítulo.
+            Conseguí tu primera
             <br />
             <Text
               color={"rgba(255,114,114,1)"}
               display="inline-block"
               textShadow="2px 2px 1px white"
             >
-              muy cringe.
+              Motomel Blitz 0km.
             </Text>
           </Heading>
         </Box>
@@ -164,7 +164,9 @@ const index_copy: React.FC = () => {
               bg={"rgba(255,111,111,0.95)"}
               color={"white"}
             >
-              Sexo premarital
+              <Link href="/categories/todos">
+                <a>Ver productos</a>
+              </Link>
             </Button>
           </GridItem>
         </Grid>
