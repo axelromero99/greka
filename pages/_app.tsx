@@ -1,18 +1,26 @@
 import * as React from "react";
-import {useState} from "react";
+import { useState } from "react";
 import Head from "next/head";
-import {ChakraProvider, Text, Image, Container, Link, Flex, Stack} from "@chakra-ui/react";
+import {
+  ChakraProvider,
+  Text,
+  Image,
+  Container,
+  Link,
+  Flex,
+  Stack,
+} from "@chakra-ui/react";
 import Router from "next/router";
-import {AppProps} from "next/app";
+import { AppProps } from "next/app";
 import NProgress from "nprogress";
 
 import WithSubnavigation from "../navbar/components/navbar";
 import theme from "../theme";
 import Loading from "../loading/Loading";
+NProgress.configure({ trickle: false });
 
-const App: React.FC<AppProps> = ({Component, pageProps}) => {
+const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   const [loading, setLoading] = useState<boolean>(false);
-
   Router.events.on("routeChangeStart", (url) => {
     NProgress.start();
     setLoading(true);
@@ -53,15 +61,15 @@ const App: React.FC<AppProps> = ({Component, pageProps}) => {
               </Stack>
             </Container>
             <Container
-              alignItems={{base: "start", md: "center"}}
+              alignItems={{ base: "start", md: "center" }}
               backgroundColor={"bg"}
               display={"flex"}
-              flexDirection={{base: "column", md: "row"}}
+              flexDirection={{ base: "column", md: "row" }}
               height={20}
-              justifyContent={{base: "center", md: "center"}}
+              justifyContent={{ base: "center", md: "center" }}
               margin={0}
               maxW={"100%"}
-              textAlign={{base: "left", md: "center"}}
+              textAlign={{ base: "left", md: "center" }}
             >
               <Flex
                 alignItems={"center"}
@@ -77,8 +85,12 @@ const App: React.FC<AppProps> = ({Component, pageProps}) => {
                   © Copyright {new Date().getFullYear()}. GREKA SHOWROOM
                 </Text>
 
-                <Flex position={{base: "block", sm: "absolute"}} right={6}>
-                  <Link isExternal href={"https://www.instagram.com/grekashowroom/"} marginX={2}>
+                <Flex position={{ base: "block", sm: "absolute" }} right={6}>
+                  <Link
+                    isExternal
+                    href={"https://www.instagram.com/grekashowroom/"}
+                    marginX={2}
+                  >
                     <Flex
                       alignItems="center"
                       backgroundColor={"transparent"}

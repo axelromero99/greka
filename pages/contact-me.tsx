@@ -45,7 +45,7 @@ export default function AboutUs() {
         autoFlow={{ base: "row", md: "row", xl: "column" }}
         gap="vw"
         justifyContent="center"
-        minHeight={"75vh"}
+        minHeight={"100vh"}
         bg={"bgSecondary"}
         // my={20}
         position="relative"
@@ -69,20 +69,20 @@ export default function AboutUs() {
           }}
           zIndex={-1}
         >
-          {/* right box */}
-          <Grid
-            autoFlow={{ base: "row", md: "row", xl: "column", xl: "column" }}
-            gap={"5vw"}
-          >
+          {/* left box */}
+          <Grid autoFlow={{ base: "row", md: "row", xl: "column" }} gap={"5vw"}>
             <Flex
               borderRadius={15}
-              height={"85vh"}
+              height={{ base: "100%", md: "78%", lg: "100%", xl: "80%" }}
+              width={{ base: "60w", md: "40vw", xl: "30vw" }}
               justifyContent={"center"}
-              width={{ base: "70vw", md: "50vw", xl: "35vw" }}
               margin={"10vh 0"}
               bg={"bg_contactMe"}
+              boxShadow={
+                "rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px"
+              }
             >
-              {/*CONTENT RIGHTBOX*/}
+              {/*CONTENT LEFTBOX*/}
               <Flex
                 flexDirection="column"
                 width={{ base: "50vw", md: "40vw", xl: "25vw" }}
@@ -108,7 +108,7 @@ export default function AboutUs() {
                         alignSelf={"center"}
                         color={"secondary"}
                       >
-                        ***********
+                        GENERAL PAZ 1244
                       </Text>
                     </Flex>
                   </Flex>
@@ -158,7 +158,7 @@ export default function AboutUs() {
                         alignSelf={"center"}
                         color={"secondary"}
                       >
-                        ****@***.com
+                        GREKAS
                       </Text>
                     </Flex>
                   </Flex>
@@ -183,7 +183,7 @@ export default function AboutUs() {
                         alignSelf={"center"}
                         color={"secondary"}
                       >
-                        grekashowroom
+                        GREKASHOWROOM
                       </Text>
                     </Flex>
                   </Flex>
@@ -195,13 +195,16 @@ export default function AboutUs() {
               my={"10vh"}
               backgroundColor={"bg_contactMe"}
               borderRadius={15}
-              height={"85vh"}
+              boxShadow={
+                "rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px"
+              }
+              height={{ base: "75%", md: "78%", lg: "85%", xl: "80%" }}
+              width={{ base: "60w", md: "40vw", xl: "30vw" }}
               justifyContent={"center"}
-              width={{ base: "60w", md: "50vw", xl: "40vw" }}
             >
               <Flex
                 flexDirection={"column"}
-                width={{ base: "50vw", md: "45vw", xl: "35vw" }}
+                // width={{ base: "50vw", md: "45vw", xl: "10vw" }}
               >
                 <form style={{ height: "100%" }} onSubmit={handleSubmit}>
                   <Grid
@@ -214,8 +217,8 @@ export default function AboutUs() {
                       color={"primary"}
                       fontSize={{ base: "lg", md: "xl", xl: "4xl" }}
                       fontWeight={700}
-                      marginY={"4vh"}
-                      textShadow={`2px 2px 1px #75CED4`}
+                      marginY={"1vh"}
+                      // textShadow={`2px 2px 1px #75CED4`}
                       justifySelf={"center"}
                     >
                       CONTACTANOS
@@ -226,10 +229,18 @@ export default function AboutUs() {
                         bg={"bg_contactMe"}
                         color={"black"}
                         placeholder={"Nombre"}
-                        size={"lg"}
+                        // size={"md"}
+                        width={{ base: "90%", xl: "40vh" }}
+                        height={{
+                          base: "5vh",
+                          md: "6vh",
+                          lg: "5vh",
+                          xl: "5vh",
+                        }}
+                        marginLeft={2}
                         type={"name"}
                         onChange={(e) => setName(e.currentTarget.value)}
-                        width={"100%"}
+                        // width={"100%"}
                       />
                     </FormControl>
 
@@ -239,10 +250,18 @@ export default function AboutUs() {
                         bg={"bg_contactMe"}
                         color={"black"}
                         placeholder={"Apellido"}
-                        size={"lg"}
+                        // size={"lg"}
+                        width={{ base: "90%", xl: "40vh" }}
+                        height={{
+                          base: "5vh",
+                          md: "6vh",
+                          lg: "5vh",
+                          xl: "5vh",
+                        }}
+                        marginLeft={2}
                         type={"surname"}
                         onChange={(e) => setSurname(e.currentTarget.value)}
-                        width={"100%"}
+                        // width={"100%"}
                       />
                     </FormControl>
 
@@ -252,10 +271,18 @@ export default function AboutUs() {
                         bg={"bg_contactMe"}
                         color={"black"}
                         placeholder={"Correo Electrónico"}
-                        size={"lg"}
+                        // size={"lg"}
+                        width={{ base: "90%", xl: "40vh" }}
+                        height={{
+                          base: "5vh",
+                          md: "6vh",
+                          lg: "5vh",
+                          xl: "5vh",
+                        }}
+                        marginLeft={2}
                         type={"email"}
                         onChange={(e) => setEmail(e.currentTarget.value)}
-                        width={"100%"}
+                        // width={"100%"}
                       />
                     </FormControl>
 
@@ -266,6 +293,14 @@ export default function AboutUs() {
                         bg={"bg_contactMe"}
                         color={"black"}
                         placeholder={"Mensaje"}
+                        width={{ base: "90%", xl: "40vh" }}
+                        height={{
+                          base: "5vh",
+                          md: "6vh",
+                          lg: "5vh",
+                          xl: "5vh",
+                        }}
+                        marginLeft={2}
                         size={"lg"}
                         onChange={(e) => setMessage(e.currentTarget.value)}
                       />

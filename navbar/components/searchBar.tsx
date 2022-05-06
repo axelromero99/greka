@@ -1,7 +1,7 @@
 import * as React from "react";
-import type {NextPage} from "next";
-import {useEffect, useState} from "react";
-import {useRouter} from "next/router";
+import type { NextPage } from "next";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 import useDebounce from "../../utils/hooks/useDebounce";
 
@@ -13,7 +13,7 @@ const SearchBar: NextPage = () => {
   const router = useRouter();
   const [search, setSearch] = useState<string | null>(null);
 
-  const debouncedSearch = useDebounce(search, 500);
+  const debouncedSearch = useDebounce(search, 1000);
 
   useEffect(() => {
     function searchURL(search) {
@@ -21,7 +21,7 @@ const SearchBar: NextPage = () => {
     }
 
     if (debouncedSearch) searchURL(search.toLocaleLowerCase());
-  }, [debouncedSearch]);
+  }, [debouncedSearch, router, search]);
 
   return (
     <input
