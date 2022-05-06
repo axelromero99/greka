@@ -75,10 +75,10 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
                 width={"100%"}
               >
                 <Text
-                  color={"#444"}
+                  color={"tertiary"}
                   fontFamily={"body"}
                   fontWeight={500}
-                  textAlign="center"
+                  textAlign={"center"}
                 >
                   © Copyright {new Date().getFullYear()}. GREKA SHOWROOM
                 </Text>
@@ -95,7 +95,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
                       borderRadius={9999}
                       // color="#555"
                       height={8}
-                      justifyContent="center"
+                      justifyContent={"center"}
                       width={8}
                       opacity={0.7}
                     >
@@ -117,7 +117,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
                       justifyContent="center"
                       paddingBottom={0.5}
                       width={8}
-                      color={"#444"}
+                      color={"tertiary"}
                       opacity={0.7}
                     >
                       <Image src={"/assets/icons/envelope.svg"} />

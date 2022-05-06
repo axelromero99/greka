@@ -35,9 +35,7 @@ export default function AboutUs() {
       email,
       message,
     });
-    axios.post("/api/contact", form).then((res) => {
-      console.log(res);
-    });
+    axios.post("/api/contact", form);
   };
 
   return (
@@ -78,11 +76,11 @@ export default function AboutUs() {
           >
             <Flex
               borderRadius={15}
-              height="85vh"
-              justifyContent="center"
+              height={"85vh"}
+              justifyContent={"center"}
               width={{ base: "70vw", md: "50vw", xl: "35vw" }}
               margin={"10vh 0"}
-              bg={"#fff"}
+              bg={"bg_contactMe"}
             >
               {/*CONTENT RIGHTBOX*/}
               <Flex
@@ -93,22 +91,22 @@ export default function AboutUs() {
                   <Flex alignItems="center">
                     <Flex>
                       <Flex
-                        alignItems="center"
-                        bg={theme.colors.tertiary}
+                        alignItems={"center"}
+                        bg={"bgSecondary"}
                         borderRadius={"100%"}
                         fontWeight={"600"}
-                        h="40px"
-                        justifyContent="center"
-                        marginRight="2vw"
-                        w="40px"
+                        h={"40px"}
+                        justifyContent={"center"}
+                        marginRight={"2vw"}
+                        w={"40px"}
                       >
-                        <AiFillEnvironment fill="#202020" size="30px" />
+                        <AiFillEnvironment fill="secondary" size="30px" />
                       </Flex>
                       <Text
                         fontFamily={"body"}
-                        fontSize="lg"
-                        alignSelf="center"
-                        color={"#202020"}
+                        fontSize={"lg"}
+                        alignSelf={"center"}
+                        color={"secondary"}
                       >
                         ***********
                       </Text>
@@ -118,22 +116,22 @@ export default function AboutUs() {
                   <Flex alignItems="center">
                     <Flex>
                       <Flex
-                        alignItems="center"
-                        bg="#0ba9b3"
+                        alignItems={"center"}
+                        bg={"bgSecondary"}
                         borderRadius={"100%"}
                         fontWeight={"600"}
-                        h="40px"
-                        justifyContent="center"
-                        marginRight="2vw"
-                        w="40px"
+                        h={"40px"}
+                        justifyContent={"center"}
+                        marginRight={"2vw"}
+                        w={"40px"}
                       >
-                        <AiFillPhone fill="#202020" size="30" />
+                        <AiFillPhone fill="secondary" size="30" />
                       </Flex>
                       <Text
                         fontFamily={"body"}
-                        fontSize="lg"
-                        alignSelf="center"
-                        color={"#202020"}
+                        fontSize={"lg"}
+                        alignSelf={"center"}
+                        color={"secondary"}
                       >
                         3795-**********
                       </Text>
@@ -143,22 +141,22 @@ export default function AboutUs() {
                   <Flex alignItems="center">
                     <Flex>
                       <Flex
-                        alignItems="center"
-                        bg="#0ba9b3"
+                        alignItems={"center"}
+                        bg={"bgSecondary"}
                         borderRadius={"100%"}
                         fontWeight={"600"}
-                        h="40px"
-                        justifyContent="center"
-                        marginRight="2vw"
-                        w="40px"
+                        h={"40px"}
+                        justifyContent={"center"}
+                        marginRight={"2vw"}
+                        w={"40px"}
                       >
-                        <AiTwotoneMail fill="#202020" size="30" />
+                        <AiTwotoneMail fill="secondary" size="30" />
                       </Flex>
                       <Text
                         fontFamily={"body"}
-                        fontSize="lg"
-                        alignSelf="center"
-                        color={"#202020"}
+                        fontSize={"lg"}
+                        alignSelf={"center"}
+                        color={"secondary"}
                       >
                         ****@***.com
                       </Text>
@@ -169,21 +167,21 @@ export default function AboutUs() {
                     <Flex>
                       <Flex
                         alignItems="center"
-                        bg="#0ba9b3"
+                        bg={"bgSecondary"}
                         borderRadius={"100%"}
                         fontWeight={"600"}
-                        h="40px"
-                        justifyContent="center"
-                        marginRight="2vw"
-                        w="40px"
+                        h={"40px"}
+                        justifyContent={"center"}
+                        marginRight={"2vw"}
+                        w={"40px"}
                       >
-                        <AiFillInstagram fill="#202020" size="30" />
+                        <AiFillInstagram fill="secondary" size="30" />
                       </Flex>
                       <Text
                         fontFamily={"body"}
-                        fontSize="lg"
-                        alignSelf="center"
-                        color={"#202020"}
+                        fontSize={"lg"}
+                        alignSelf={"center"}
+                        color={"secondary"}
                       >
                         grekashowroom
                       </Text>
@@ -194,70 +192,70 @@ export default function AboutUs() {
             </Flex>
             {/* right box */}
             <Flex
-              my="10vh"
-              backgroundColor={"#fff"}
+              my={"10vh"}
+              backgroundColor={"bg_contactMe"}
               borderRadius={15}
-              height="85vh"
-              justifyContent="center"
+              height={"85vh"}
+              justifyContent={"center"}
               width={{ base: "60w", md: "50vw", xl: "40vw" }}
             >
               <Flex
-                flexDirection="column"
+                flexDirection={"column"}
                 width={{ base: "50vw", md: "45vw", xl: "35vw" }}
               >
                 <form style={{ height: "100%" }} onSubmit={handleSubmit}>
                   <Grid
-                    h="100%"
-                    alignContent="center"
-                    gap="5vh"
-                    justifyContent="center"
+                    h={"100%"}
+                    alignContent={"center"}
+                    gap={"5vh"}
+                    justifyContent={"center"}
                   >
                     <Text
-                      color={theme.colors.primary}
+                      color={"primary"}
                       fontSize={{ base: "lg", md: "xl", xl: "4xl" }}
                       fontWeight={700}
-                      marginY="4vh"
+                      marginY={"4vh"}
                       textShadow={`2px 2px 1px #75CED4`}
-                      justifySelf="center"
+                      justifySelf={"center"}
                     >
-                      Contáctanos
+                      CONTACTANOS
                     </Text>
                     <FormControl>
                       <Input
                         _placeholder={{ color: "gray" }}
-                        bg="#fff"
-                        color="black"
-                        placeholder="Nombre"
+                        bg={"bg_contactMe"}
+                        color={"black"}
+                        placeholder={"Nombre"}
                         size={"lg"}
-                        type="name"
+                        type={"name"}
                         onChange={(e) => setName(e.currentTarget.value)}
-                        width="100%"
+                        width={"100%"}
                       />
                     </FormControl>
 
                     <FormControl>
                       <Input
                         _placeholder={{ color: "gray" }}
-                        bg="#fff"
-                        color="black"
-                        placeholder="Apellido"
+                        bg={"bg_contactMe"}
+                        color={"black"}
+                        placeholder={"Apellido"}
                         size={"lg"}
-                        type="surname"
+                        type={"surname"}
                         onChange={(e) => setSurname(e.currentTarget.value)}
-                        width="100%"
+                        width={"100%"}
                       />
                     </FormControl>
 
                     <FormControl>
                       <Input
                         _placeholder={{ color: "gray" }}
-                        bg="#fff"
-                        color="black"
-                        placeholder="Correo Electrónico"
+                        bg={"bg_contactMe"}
+                        color={"black"}
+                        placeholder={"Correo Electrónico"}
                         size={"lg"}
-                        type="email"
+                        type={"email"}
                         onChange={(e) => setEmail(e.currentTarget.value)}
-                        width="100%"
+                        width={"100%"}
                       />
                     </FormControl>
 
@@ -265,17 +263,17 @@ export default function AboutUs() {
                       <Textarea
                         style={{ resize: "none" }}
                         _placeholder={{ color: "gray" }}
-                        bg="#fff"
-                        color="black"
-                        placeholder="Mensaje"
+                        bg={"bg_contactMe"}
+                        color={"black"}
+                        placeholder={"Mensaje"}
                         size={"lg"}
                         onChange={(e) => setMessage(e.currentTarget.value)}
                       />
                     </FormControl>
                     <Button
-                      bg="#fff"
+                      bg={"bg_contactMe"}
                       color={"black"}
-                      type="submit"
+                      type={"submit"}
                       onClick={(e) => handleSubmit(e)}
                     >
                       Enviar

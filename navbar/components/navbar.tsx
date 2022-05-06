@@ -78,18 +78,18 @@ export default function WithSubnavigation(): JSX.Element {
             </Link>
           </Box>
           <Flex
-            alignItems="center"
-            color={"#444"}
+            alignItems={"center"}
+            color={"tertiary"}
             display={{ base: "none", md: "flex" }}
-            flex="1"
-            justifyContent="center"
+            flex={"1"}
+            justifyContent={"center"}
             ml={10}
           >
             <Flex
-              flex="2"
+              flex={"2"}
               justifyContent={"center"}
-              width="85%"
-              maxWidth="900px"
+              width={"85%"}
+              maxWidth={"900px"}
             >
               <input
                 background-color="bg"
@@ -122,9 +122,6 @@ export default function WithSubnavigation(): JSX.Element {
 }
 
 const DesktopNav = () => {
-  // const linkColor = useColorModeValue("gray.600", "gray.200");
-  // const linkColor = "white";
-  // const linkHoverColor = useColorModeValue("gray.800", "white");
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
   return (
@@ -133,8 +130,8 @@ const DesktopNav = () => {
       marginLeft={5}
       spacing={3}
       flex={"1"}
-      display="flex"
-      justifySelf="end"
+      display={"flex"}
+      justifySelf={"end"}
       justifyContent={"end"}
       marginRight={3}
     >
@@ -152,12 +149,12 @@ const DesktopNav = () => {
                   <Button
                     _hover={{
                       bg: useColorModeValue("pink.50", "FF6F6F"),
-                      color: "#444",
+                      color: "tertiary",
                     }}
-                    alignItems="center"
+                    alignItems={"center"}
                     backgroundColor={"transparent"}
                     borderRadius={7}
-                    color={"#444"}
+                    color={"tertiary"}
                     display={"flex"}
                     flexDirection={"column"}
                     fontFamily={"navbar"}
@@ -171,7 +168,7 @@ const DesktopNav = () => {
                     textDecoration={"none"}
                   >
                     {navItem.icon && (
-                      <navItem.icon color={"#444"} size={"30"} />
+                      <navItem.icon color={"tertiary"} size={"30"} />
                     )}
                     <Text fontWeight={500} pt={1}>
                       {navItem.label}

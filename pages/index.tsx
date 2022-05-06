@@ -98,7 +98,7 @@ const index_copy: React.FC = () => {
             display={"flex"}
             flexDirection={"column"}
             justifyContent={"center"}
-            marginTop="45px"
+            marginTop={"45px"}
             rowEnd={{ base: 2, md: 7 }}
             rowStart={{ base: 1, md: 1 }}
           >
@@ -110,7 +110,7 @@ const index_copy: React.FC = () => {
             colStart={{ base: 1, md: 1 }}
             rowEnd={{ base: 3, md: 6 }}
             rowStart={{ base: 1, md: 2 }}
-            w="100%"
+            w={"100%"}
           />
           <GridItem
             backgroundColor={"rgba(255,111,111,0.7)"}
@@ -118,35 +118,35 @@ const index_copy: React.FC = () => {
             colStart={1}
             rowEnd={{ base: 2, md: 6 }}
             rowStart={{ base: 1, md: 2 }}
-            w="100%"
+            w={"100%"}
           />
           <GridItem
             alignItems={"start"}
             backgroundColor="white"
             colEnd={{ base: 3, md: 5 }}
             colStart={{ base: 2, md: 4 }}
-            display="flex"
+            display={"flex"}
             flexDirection={"column"}
             justifyContent={"space-between"}
             padding={{ base: 3, md: 10 }}
             rowEnd={{ base: 3, md: 6 }}
             rowStart={{ base: 2, md: 2 }}
-            w="100%"
+            w={"100%"}
           >
             <Heading
-              as="h3"
-              color="#393939"
+              as={"h3"}
+              color={"#393939"}
               fontFamily={"header"}
-              fontSize="3xl"
+              fontSize={"3xl"}
             >
               Corrientes Cripy resinoso 1700 los 10g 3700 los 25g
             </Heading>
             <Heading
-              as="h5"
-              color="#555"
+              as={"h5"}
+              color={"#555"}
               fontFamily={"navbar"}
               lineHeight={8}
-              size="sm"
+              size={"sm"}
             >
               El argentino que compró el dominio de Google por menos de US$3
             </Heading>
@@ -162,7 +162,7 @@ const index_copy: React.FC = () => {
                 color: "white",
               }}
               bg={"rgba(255,111,111,0.95)"}
-              color="white"
+              color={"white"}
             >
               Sexo premarital
             </Button>
@@ -172,25 +172,25 @@ const index_copy: React.FC = () => {
       <Flex
         alignItems={"center"}
         backgroundColor="rgb(109 192 198)"
-        color="white"
-        justifyContent="space-evenly"
+        color={"white"}
+        justifyContent={"space-evenly"}
         minHeight={200}
         flexDirection={{ base: "row" }}
-        flexWrap="wrap"
+        flexWrap={"wrap"}
       >
         <Center
           alignItems={"center"}
           flexDirection={{ base: "column", md: "row" }}
           margin={5}
         >
-          <Box border="1px solid white" borderRadius={"50%"} padding={3}>
+          <Box border={"1px solid white"} borderRadius={"50%"} padding={3}>
             <BsFillCartFill size={40} />
           </Box>
           <Box
             marginTop={2}
             marginLeft={{ base: 0, md: 3 }}
-            display="flex"
-            flexDirection="column"
+            display={"flex"}
+            flexDirection={"column"}
             alignItems={{ base: "center", md: "start" }}
           >
             <Text fontWeight={800}>Viene el PM</Text>
@@ -204,14 +204,14 @@ const index_copy: React.FC = () => {
           flexDirection={{ base: "column", md: "row" }}
           margin={5}
         >
-          <Box border="1px solid white" borderRadius={"50%"} padding={3}>
+          <Box border={"1px solid white"} borderRadius={"50%"} padding={3}>
             <FaMoneyBill size={40} />
           </Box>
           <Box
             marginTop={2}
             marginLeft={{ base: 0, md: 3 }}
-            display="flex"
-            flexDirection="column"
+            display={"flex"}
+            flexDirection={"column"}
             alignItems={{ base: "center", md: "start" }}
           >
             <Text fontWeight={800}>Part Time</Text>
@@ -232,8 +232,8 @@ const index_copy: React.FC = () => {
           <Box
             marginTop={2}
             marginLeft={{ base: 0, md: 3 }}
-            display="flex"
-            flexDirection="column"
+            display={"flex"}
+            flexDirection={"column"}
             alignItems={{ base: "center", md: "start" }}
           >
             <Text fontWeight={800}>Cuidado</Text>
@@ -243,7 +243,7 @@ const index_copy: React.FC = () => {
           </Box>
         </Center>
       </Flex>
-      <Box bg={"body"} height="2px" width="100%" />
+      <Box bg={"body"} height={"2px"} width={"100%"} />
     </>
   );
 };
