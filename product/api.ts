@@ -1,4 +1,5 @@
 import axios from "axios";
+import {delBasePath} from "next/dist/shared/lib/router/router";
 import Papa from "papaparse";
 
 import {Option as IOption, Product as IProduct} from "./types";
