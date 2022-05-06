@@ -150,7 +150,11 @@ function normalizeSearch(data: (RawProduct | RawOption)[], search: string) {
   for (const item of data) {
     let lastProductTitle = "";
 
-    if (!products.has(item.id) && item.title.toLowerCase().includes(search)) {
+    if (
+      !products.has(item.id) &&
+      item.title.toLowerCase().includes(search) &&
+      item.type === "product"
+    ) {
       products.set(item.id, new Product());
     }
 
