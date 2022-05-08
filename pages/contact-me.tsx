@@ -69,13 +69,14 @@ export default function AboutUs() {
             alignItems: "center",
           }}
           zIndex={-1}
+          justifyContent="center"
         >
           {/* left box */}
           <Grid autoFlow={{ base: "row", md: "row", xl: "column" }} gap={"5vw"}>
             <Flex
               borderRadius={15}
-              height={{ base: "80vh", md: "80%", lg: "100%", xl: "80%" }}
-              width={{ base: "70vw", md: "40v w", xl: "30vw" }}
+              height={{ base: "80vh", md: "60%", xl: "80%" }}
+              width={{ base: "70vw", md: "40vw", xl: "40vw" }}
               justifyContent={"center"}
               margin={"10vh 0"}
               bg={"bg_contactMe"}
@@ -86,15 +87,15 @@ export default function AboutUs() {
               {/*CONTENT LEFTBOX*/}
               <Flex
                 flexDirection="column"
-                width={{ base: "90vw", md: "40vw", xl: "25vw" }}
-                justifyContent={"center"}
+                width={{ base: "90vw", md: "40vw", xl: "35vw" }}
+                justifyItems={"center"}
+                alignItems={"center"}
               >
                 <Grid
                   w={{ base: "60vw", md: "40vw", xl: "25vw" }}
                   h="60vh"
-                  justifyContent={"center"}
+                  justifySelf={"center"}
                 >
-                  
                   <Flex alignItems="center">
                     <Flex>
                       <Flex
@@ -204,7 +205,7 @@ export default function AboutUs() {
                 "rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px"
               }
               height={{ base: "75%", md: "78%", lg: "85%", xl: "80%" }}
-              width={{ base: "60w", md: "40vw", xl: "30vw" }}
+              width={{ base: "60w", md: "40vw", xl: "40vw" }}
               justifyContent={"center"}
             >
               <Flex

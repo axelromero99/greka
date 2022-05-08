@@ -24,15 +24,18 @@ const slideData = ["02.jpg", "03.jpg", "05.jpg"];
 const index_copy: React.FC = () => {
   return (
     <>
-      <Box bg={"body"} height="1px" width="100%ºººººººººººººººººººººººººººººººººº" />
+      <Box
+        bg={"body"}
+        height="1px"
+        width="100%ºººººººººººººººººººººººººººººººººº"
+      />
       <Flex
         // height={"100%"}
         // maxHeight={"200px"}
         height={"350px"}
         margin={0}
         style={{
-          backgroundImage:
-            `url(https://www.bergerpaints.com/colour-magazine/Upload/Posting/Image/colours-fashion-banner-feb15.jpg)`,
+          backgroundImage: `url(https://www.bergerpaints.com/colour-magazine/Upload/Posting/Image/colours-fashion-banner-feb15.jpg)`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "right",
