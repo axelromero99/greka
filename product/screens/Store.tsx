@@ -1,5 +1,6 @@
 import * as React from "react";
 import {Button, Flex, Grid, Stack, Text, Heading, Box} from "@chakra-ui/react";
+import {BsCart4} from "react-icons/bs";
 
 import type {Product} from "../types";
 import ProductCard from "../components/ProductCard";
@@ -14,12 +15,12 @@ interface Props {
 }
 
 const dynamicBanners = {
-  "todos": "url(/assets/banner.jpg)",
+  todos: "url(/assets/banner.jpg)",
   "tops-remeras": "url(/assets/banner/tops.jpg)",
-  "vestidos": "url(/assets/banner/vestido.jpg)",
+  vestidos: "url(/assets/banner/vestido.jpg)",
   "shorts-polleras": "url(/assets/banner/remeras2.jpg)",
-  "jeans": "url(/assets/banner/jeans.jpg"
-}
+  jeans: "url(/assets/banner/jeans.jpg",
+};
 
 const StoreScreen: React.FC<Props> = ({products, fields, categoryType}) => {
   const [{total, quantity}, {addItem}] = useCart();
@@ -84,35 +85,32 @@ const StoreScreen: React.FC<Props> = ({products, fields, categoryType}) => {
             zIndex="popover"
           >
             <Button
-              backgroundColor="#F1A07C"
+              backgroundColor="bgSecondary"
               boxShadow="xl"
-              colorScheme="primary"
+              colorScheme="gray"
               data-testid="show-cart"
-              margin={1}
+              marginBottom={2}
               size="lg"
               width={{base: "100%", sm: "fit-content"}}
               onClick={() => toggleCart(true)}
             >
               <Stack alignItems="center" direction="row" spacing={6}>
-                <Stack alignItems="center" direction="row" spacing={3}>
-                  <Text fontSize="md" lineHeight={6}>
-                    Ver pedido
-                  </Text>
+                <Stack alignItems="center" direction="row" spacing={6}>
+                  <BsCart4 size={"26"} />
                   <Text
-                    backgroundColor="rgba(0,0,0,0.25)"
+                    backgroundColor="rgba(0,0,0,0.1)"
                     borderRadius="sm"
-                    color="gray.100"
-                    fontSize="xs"
+                    color="#444"
+                    fontSize="sm"
                     fontWeight="500"
                     paddingX={2}
-                    paddingY={1}
+                    paddingY={2}
+                    alignSelf={"center"}
                   >
                     Cantidad: {quantity}
                   </Text>
                 </Stack>
-                <Text fontSize="md" lineHeight={6}>
-                  {total}
-                </Text>
+                <Text fontSize="md">{total}</Text>
               </Stack>
             </Button>
           </Flex>

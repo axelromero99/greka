@@ -24,11 +24,7 @@ const slideData = ["02.jpg", "03.jpg", "05.jpg"];
 const index_copy: React.FC = () => {
   return (
     <>
-      <Box
-        bg={"body"}
-        height="1px"
-        width="100%ºººººººººººººººººººººººººººººººººº"
-      />
+      <Box bg={"body"} height="1px" width="100%" />
       <Flex
         // height={"100%"}
         // maxHeight={"200px"}

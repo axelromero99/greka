@@ -11,7 +11,7 @@ import {
   DrawerFooter,
   DrawerProps,
   Text,
-  Image,
+  useColorModeValue,
   RadioGroup,
   Radio,
 } from "@chakra-ui/react";
@@ -37,10 +37,10 @@ const CartItemDrawer: React.FC<Props> = ({item, onClose, onSubmit, ...props}) =>
     () => Object.entries(item.options).map(([title, options]) => ({title, options})),
     [item],
   );
-  const isValid = React.useMemo(
-    () => options.length === Object.keys(formData.options).length,
-    [formData, options],
-  );
+  const isValid = React.useMemo(() => options.length === Object.keys(formData.options).length, [
+    formData,
+    options,
+  ]);
 
   function handleSelectOption(option: Option) {
     setFormData((formData) => ({
@@ -77,7 +77,7 @@ const CartItemDrawer: React.FC<Props> = ({item, onClose, onSubmit, ...props}) =>
                         {category.title}
                       </Text>
                       <RadioGroup
-                        colorScheme="primary"
+                        colorScheme="pink"
                         value={formData.options?.[category.title]?.[0]?.title}
                       >
                         <Stack>
@@ -85,9 +85,15 @@ const CartItemDrawer: React.FC<Props> = ({item, onClose, onSubmit, ...props}) =>
                             <Radio
                               key={option.title}
                               value={option.title}
+                              width="100%"
                               onChange={() => handleSelectOption(option)}
                             >
-                              <Stack direction="row" justifyContent="space-between" width="100%">
+                              <Stack
+                                cursor="default"
+                                direction="row"
+                                justifyContent="space-between"
+                                width="100%"
+                              >
                                 <Text>{option.title}</Text>
                                 {Boolean(option.price) && (
                                   <Text fontWeight="500">{parseCurrency(option.price)}</Text>
@@ -120,7 +126,16 @@ const CartItemDrawer: React.FC<Props> = ({item, onClose, onSubmit, ...props}) =>
                 <Text>{total}</Text>
               </Stack>
               <Button
-                colorScheme="primary"
+                _active={{
+                  bg: useColorModeValue("pink.50", "gray.900"),
+                  color: "rgba(255,111,111,0.75)",
+                }}
+                _hover={{
+                  bg: "rgba(255,111,111,0.75)" || useColorModeValue("gray.300", "FF6F6F"),
+                  color: "white",
+                }}
+                bg={"rgba(255,111,111,0.95)"}
+                color={"white"}
                 isDisabled={!isValid}
                 size="lg"
                 width="100%"
