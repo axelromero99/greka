@@ -17,22 +17,23 @@ export function getCartTotal(cart: Cart): number {
 export function getCartItemOptionsSummary(options: CartItem["options"]): string {
   return Object.entries(options)
     .reduce((options, [category, option]) => options.concat(`${category}: ${option[0].title}`), [])
-    .join(", ");
+    .join(",");
 }
 
 export function getCartMessage(cart: Cart, checkout: Checkout): string {
   const items = Array.from(cart.values())
     .map(
       (item) =>
-        `* ${item.title}${item.quantity > 1 ? ` (X${item.quantity})` : ``}${
+        `${item.title}${item.quantity > 1 ? ` (X${item.quantity})` : ``}${
           item.options ? ` [${getCartItemOptionsSummary(item.options)}]` : ``
         } - ${parseCurrency(getCartItemPrice(item))}\n`,
     )
     .join("\n");
   const fields = Array.from(checkout.entries())
-    .map(([key, value]) => `* ${key}: ${value}\n`)
+    .map(([key, value]) => `${key}: ${value}\n`)
     .join("\n");
-  const total = `Total: ${parseCurrency(getCartTotal(cart))}`;
+  const total = `Total (en efectivo): ${parseCurrency(getCartTotal(cart))}\n(7,5% de recargo con tarjeta)`;
 
-  return [items, fields, total].join("\n");
+  // return [items, fields, total].join("\n");
+  return `Hola, quisiera realizar la compra de:\n${items}${fields}\n${total} `;
 }

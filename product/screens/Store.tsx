@@ -19,7 +19,7 @@ const dynamicBanners = {
   "tops-remeras": "url(/assets/banner/tops.jpg)",
   vestidos: "url(/assets/banner/vestido.jpg)",
   "shorts-polleras": "url(/assets/banner/remeras2.jpg)",
-  jeans: "url(/assets/banner/jeans.jpg",
+  jeans: "url(/assets/banner/jeans.jpg)",
 };
 
 const StoreScreen: React.FC<Props> = ({products, fields, categoryType}) => {
@@ -76,7 +76,7 @@ const StoreScreen: React.FC<Props> = ({products, fields, categoryType}) => {
             No hay productos
           </Text>
         )}
-        {Boolean(quantity) && (
+        {(Boolean(quantity) && !isCartOpen) && (
           <Flex
             alignItems="center"
             bottom={4}

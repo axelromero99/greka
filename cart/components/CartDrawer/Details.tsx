@@ -16,6 +16,7 @@ const Details: React.FC<Props> = ({cart, onChange}) => {
       {Array.from(cart.entries()).map(([id, item]) => (
         <Stack key={id.toString()} data-testid={`cart-item-${item.id}`} direction="row">
           <Stack width="100%">
+            <Divider />
             <Stack alignItems="flex-start" direction="row" justifyContent="space-between">
               <Stack spacing={0}>
                 <Text fontSize="lg" fontWeight="500">
@@ -30,7 +31,7 @@ const Details: React.FC<Props> = ({cart, onChange}) => {
             <Stack direction="row">
               <Button
                 borderRadius={9999}
-                colorScheme="primary"
+                colorScheme="pink"
                 data-testid="decrement"
                 size="xs"
                 onClick={() => onChange(id, {...item, quantity: item.quantity - 1})}
@@ -43,7 +44,7 @@ const Details: React.FC<Props> = ({cart, onChange}) => {
               </Text>
               <Button
                 borderRadius={9999}
-                colorScheme="primary"
+                colorScheme="pink"
                 data-testid="increment"
                 size="xs"
                 onClick={() => onChange(id, {...item, quantity: item.quantity + 1})}
