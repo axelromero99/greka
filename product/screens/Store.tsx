@@ -82,7 +82,7 @@ const StoreScreen: React.FC<Props> = ({products, fields, categoryType}) => {
             bottom={4}
             justifyContent="center"
             position="sticky"
-            zIndex="popover"
+            zIndex="500"
           >
             <Button
               backgroundColor="bgSecondary"

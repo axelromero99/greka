@@ -303,7 +303,7 @@ const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "Productos",
-    // href: "/categories/todos",
+    href: "/categories/todos",
     icon: RiTShirtLine,
     children: [
       {

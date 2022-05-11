@@ -20,6 +20,13 @@ export function getCartItemOptionsSummary(options: CartItem["options"]): string 
     .join(",");
 }
 
+/**
+ * It takes a cart and a checkout object, and returns a string with the cart items, checkout fields and
+ * total
+ * @param {Cart} cart - {
+ * @param {Checkout} checkout - {
+ * @returns A string
+ */
 export function getCartMessage(cart: Cart, checkout: Checkout): string {
   const items = Array.from(cart.values())
     .map(
@@ -32,8 +39,9 @@ export function getCartMessage(cart: Cart, checkout: Checkout): string {
   const fields = Array.from(checkout.entries())
     .map(([key, value]) => `${key}: ${value}\n`)
     .join("\n");
-  const total = `Total (en efectivo): ${parseCurrency(getCartTotal(cart))}\n(7,5% de recargo con tarjeta)`;
+  const total = `Total (en efectivo): ${parseCurrency(
+    getCartTotal(cart),
+  )}\n(7,5% de recargo con tarjeta)`;
 
-  // return [items, fields, total].join("\n");
   return `Hola, quisiera realizar la compra de:\n${items}${fields}\n${total} `;
 }

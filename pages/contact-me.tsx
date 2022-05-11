@@ -52,9 +52,10 @@ export default function AboutUs() {
           marginY={20}
           minHeight={"70vh"}
           minWidth={{base: "90vw", md: "90vw", xl: "90vw"}}
+          bg={theme.colors.primary}
           style={{
             backgroundImage:
-              "url(https://images.pexels.com/photos/3737713/pexels-photo-3737713.jpeg?cs=srgb&dl=pexels-dids-3737713.jpg&fm=jpg)",
+              "url(https://www.freepnglogos.com/uploads/bokeh-png/bokeh-background-requirements-inc-9.png)",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             justifyContent: "center",
@@ -68,7 +69,7 @@ export default function AboutUs() {
               bg={"bg_contactMe"}
               borderRadius={15}
               boxShadow={"rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px"}
-              height={{base: "80vh", md: "70vh", xl: "90vh"}}
+              height={{base: "80vh", md: "70vh", xl: "100vh"}}
               justifyContent={"center"}
               margin={"10vh 0"}
               width={{base: "70vw", md: "50vw", xl: "40vw"}}
@@ -104,7 +105,7 @@ export default function AboutUs() {
                         alignSelf={"center"}
                         color={"secondary"}
                         fontFamily={"body"}
-                        fontSize={"lg"}
+                        fontSize={"xl"}
                       >
                         Lunes a Viernes de 18hs a 21hs
                       </Text>
@@ -128,7 +129,7 @@ export default function AboutUs() {
                         alignSelf={"center"}
                         color={"secondary"}
                         fontFamily={"body"}
-                        fontSize={"lg"}
+                        fontSize={"xl"}
                       >
                         3794 - 348353
                       </Text>
@@ -152,7 +153,7 @@ export default function AboutUs() {
                         alignSelf={"center"}
                         color={"secondary"}
                         fontFamily={"body"}
-                        fontSize={"lg"}
+                        fontSize={"xl"}
                       >
                         @grekashowroom
                       </Text>
@@ -166,6 +167,11 @@ export default function AboutUs() {
                       referrerpolicy="no-referrer-when-downgrade"
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3539.703085237791!2d-58.83847798494288!3d-27.478501582887215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94456c996041c7e3%3A0xfa9ea756edccc92e!2sGral.%20Paz%201244%2C%20W3410BAY%20Corrientes!5e0!3m2!1ses-419!2sar!4v1651879176703!5m2!1ses-419!2sar"
                       width="100%"
+                      style={{
+                        borderRadius: "15px",
+                        height: "100%",
+                        width: "100%",
+                      }}
                     />
                   </Flex>
                 </Grid>
@@ -176,21 +182,22 @@ export default function AboutUs() {
               backgroundColor={"bg_contactMe"}
               borderRadius={15}
               boxShadow={"rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px"}
-              height={{base: "75%", md: "78%", lg: "85%", xl: "90vh"}}
+              height={{base: "75%", md: "78%", lg: "85%", xl: "100vh"}}
               justifyContent={"center"}
               my={"10vh"}
               width={{base: "60w", md: "40vw", xl: "40vw"}}
+              
             >
               <Flex
                 flexDirection={"column"}
-                // width={{ base: "50vw", md: "45vw", xl: "10vw" }}
+                width={{base: "100%", md: "100%", xl: "35vw"}}
               >
                 <form style={{height: "100%"}} onSubmit={handleSubmit}>
                   <Grid
                     gap={"5vh"}
                     // alignContent={"center"}
                     h={"100%"}
-                    // justifyContent={"center"}
+                    justifyContent={"center"}
                   >
                     <Flex alignItems={"center"} justifyContent={"center"}>
                       <Text
@@ -207,6 +214,7 @@ export default function AboutUs() {
                     </Flex>
                     <FormControl>
                       <Input
+                        padding={"2rem"}
                         _placeholder={{color: "gray"}}
                         bg={"bg_contactMe"}
                         color={"black"}
@@ -228,6 +236,7 @@ export default function AboutUs() {
 
                     <FormControl>
                       <Input
+                        padding={"2rem"}
                         _placeholder={{color: "gray"}}
                         bg={"bg_contactMe"}
                         color={"black"}
@@ -249,6 +258,7 @@ export default function AboutUs() {
 
                     <FormControl>
                       <Input
+                        padding={"2rem"}
                         _placeholder={{color: "gray"}}
                         bg={"bg_contactMe"}
                         color={"black"}
