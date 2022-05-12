@@ -301,11 +301,10 @@ export default function AboutUs() {
                           xl: "5vh",
                         }}
                         marginLeft={2}
+                        padding={"2rem"}
                         placeholder={"Mensaje"}
                         size={"lg"}
-                        style={{resize: "none"}}
                         variant={"unstyled"}
-                        width={{base: "90%", xl: "40vh"}}
                         onChange={(e) => setMessage(e.currentTarget.value)}
                       />
                     </FormControl>
