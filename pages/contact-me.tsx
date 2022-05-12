@@ -46,13 +46,13 @@ export default function AboutUs() {
         zIndex={1}
       >
         <Flex
+          bg={theme.colors.primary}
           borderRadius={15}
           boxShadow={"rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px"}
           justifyContent="center"
           marginY={20}
           minHeight={"70vh"}
           minWidth={{base: "90vw", md: "90vw", xl: "90vw"}}
-          bg={theme.colors.primary}
           style={{
             backgroundImage:
               "url(https://www.freepnglogos.com/uploads/bokeh-png/bokeh-background-requirements-inc-9.png)",
@@ -166,12 +166,12 @@ export default function AboutUs() {
                       loading="lazy"
                       referrerpolicy="no-referrer-when-downgrade"
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3539.703085237791!2d-58.83847798494288!3d-27.478501582887215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94456c996041c7e3%3A0xfa9ea756edccc92e!2sGral.%20Paz%201244%2C%20W3410BAY%20Corrientes!5e0!3m2!1ses-419!2sar!4v1651879176703!5m2!1ses-419!2sar"
-                      width="100%"
                       style={{
                         borderRadius: "15px",
                         height: "100%",
                         width: "100%",
                       }}
+                      width="100%"
                     />
                   </Flex>
                 </Grid>
@@ -186,12 +186,8 @@ export default function AboutUs() {
               justifyContent={"center"}
               my={"10vh"}
               width={{base: "60w", md: "40vw", xl: "40vw"}}
-              
             >
-              <Flex
-                flexDirection={"column"}
-                width={{base: "100%", md: "100%", xl: "35vw"}}
-              >
+              <Flex flexDirection={"column"} width={{base: "100%", md: "100%", xl: "35vw"}}>
                 <form style={{height: "100%"}} onSubmit={handleSubmit}>
                   <Grid
                     gap={"5vh"}
@@ -214,7 +210,9 @@ export default function AboutUs() {
                     </Flex>
                     <FormControl>
                       <Input
-                        padding={"2rem"}
+                        border={`4px solid #75CED4`}
+                        borderRadius={"30px"}
+                        fontSize={"2xl"}
                         _placeholder={{color: "gray"}}
                         bg={"bg_contactMe"}
                         color={"black"}
@@ -224,10 +222,12 @@ export default function AboutUs() {
                           lg: "5vh",
                           xl: "5vh",
                         }}
-                        // size={"md"}
                         marginLeft={2}
+                        padding={"2rem"}
+                        // size={"md"}
                         placeholder={"Nombre"}
                         type={"name"}
+                        variant={"unstyled"}
                         width={{base: "90%", xl: "40vh"}}
                         onChange={(e) => setName(e.currentTarget.value)}
                         // width={"100%"}
@@ -236,7 +236,9 @@ export default function AboutUs() {
 
                     <FormControl>
                       <Input
-                        padding={"2rem"}
+                        border={`4px solid #75CED4`}
+                        borderRadius={"30px"}
+                        fontSize={"2xl"}
                         _placeholder={{color: "gray"}}
                         bg={"bg_contactMe"}
                         color={"black"}
@@ -246,10 +248,12 @@ export default function AboutUs() {
                           lg: "5vh",
                           xl: "5vh",
                         }}
-                        // size={"lg"}
                         marginLeft={2}
+                        padding={"2rem"}
+                        // size={"lg"}
                         placeholder={"Apellido"}
                         type={"surname"}
+                        variant={"unstyled"}
                         width={{base: "90%", xl: "40vh"}}
                         onChange={(e) => setSurname(e.currentTarget.value)}
                         // width={"100%"}
@@ -258,7 +262,9 @@ export default function AboutUs() {
 
                     <FormControl>
                       <Input
-                        padding={"2rem"}
+                        border={`4px solid #75CED4`}
+                        borderRadius={"30px"}
+                        fontSize={"2xl"}
                         _placeholder={{color: "gray"}}
                         bg={"bg_contactMe"}
                         color={"black"}
@@ -268,10 +274,12 @@ export default function AboutUs() {
                           lg: "5vh",
                           xl: "5vh",
                         }}
-                        // size={"lg"}
                         marginLeft={2}
+                        padding={"2rem"}
+                        // size={"lg"}
                         placeholder={"Correo Electrónico"}
                         type={"email"}
+                        variant={"unstyled"}
                         width={{base: "90%", xl: "40vh"}}
                         onChange={(e) => setEmail(e.currentTarget.value)}
                         // width={"100%"}
@@ -280,6 +288,9 @@ export default function AboutUs() {
 
                     <FormControl>
                       <Textarea
+                        border={`4px solid #75CED4`}
+                        borderRadius={"30px"}
+                        fontSize={"2xl"}
                         _placeholder={{color: "gray"}}
                         bg={"bg_contactMe"}
                         color={"black"}
@@ -293,6 +304,7 @@ export default function AboutUs() {
                         placeholder={"Mensaje"}
                         size={"lg"}
                         style={{resize: "none"}}
+                        variant={"unstyled"}
                         width={{base: "90%", xl: "40vh"}}
                         onChange={(e) => setMessage(e.currentTarget.value)}
                       />
