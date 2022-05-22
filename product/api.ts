@@ -1,5 +1,4 @@
 import axios from "axios";
-// import {delBasePath} from "next/dist/shared/lib/router/router";
 import Papa from "papaparse";
 
 import {Option as IOption, Product as IProduct} from "./types";
@@ -96,7 +95,7 @@ function normalize(data: (RawProduct | RawOption)[]) {
     } else if (item.type === "option") {
       const product = products.get(item.id);
 
-      product.addOption(item);
+      item && product.addOption(item);
     }
   }
 
@@ -116,6 +115,8 @@ function normalize(data: (RawProduct | RawOption)[]) {
 function normalizeWithCategory(data: (RawProduct | RawOption)[], categoryType) {
   const products = new Map<RawProduct["id"], Product>();
 
+  console.log("entra a normalize");
+
   for (const item of data) {
     if (!products.has(item.id) && item.category === categoryType.toLowerCase()) {
       products.set(item.id, new Product());
@@ -128,7 +129,7 @@ function normalizeWithCategory(data: (RawProduct | RawOption)[], categoryType) {
     } else if (item.type === "option") {
       const product = products.get(item.id);
 
-      product.addOption(item);
+      item && product.addOption(item);
     }
   }
 
@@ -169,7 +170,7 @@ function normalizeSearch(data: (RawProduct | RawOption)[], search: string) {
     if (item.type === "option" && lastProductTitle.includes(search)) {
       const product = products.get(item.id);
 
-      product.addOption(item);
+      item && product.addOption(item);
     }
   }
 
@@ -235,6 +236,7 @@ export default {
             Papa.parse(response.data, {
               header: true,
               complete: (results) => {
+                console.log("antes de entrar a normalize search");
                 const data = normalizeSearch(results.data as (RawProduct | RawOption)[], search);
 
                 return resolve(data);
@@ -243,11 +245,5 @@ export default {
             });
           }),
       );
-  },
-  mock: {
-    list: (mock: string): Promise<IProduct[]> =>
-      import(`./mocks/${mock}.json`).then((result) =>
-        normalize(result.default as (RawProduct | RawOption)[]),
-      ),
   },
 };

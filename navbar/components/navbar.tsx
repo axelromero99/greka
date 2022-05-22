@@ -15,22 +15,17 @@ import {
   useDisclosure,
   Heading,
 } from "@chakra-ui/react";
-import { AiOutlineHome, AiOutlineSearch } from "react-icons/ai";
-import { RiTShirtLine } from "react-icons/ri";
-import { BsChatDots } from "react-icons/bs";
-import { Link as ChakraLink } from "@chakra-ui/react";
-import {
-  HamburgerIcon,
-  CloseIcon,
-  ChevronDownIcon,
-  ChevronRightIcon,
-} from "@chakra-ui/icons";
+import {AiOutlineHome, AiOutlineSearch} from "react-icons/ai";
+import {RiTShirtLine} from "react-icons/ri";
+import {BsChatDots} from "react-icons/bs";
+import {Link as ChakraLink} from "@chakra-ui/react";
+import {HamburgerIcon, CloseIcon, ChevronDownIcon, ChevronRightIcon} from "@chakra-ui/icons";
 import Link from "next/link";
 
 import SearchBar from "./searchBar";
 
 export default function WithSubnavigation(): JSX.Element {
-  const { isOpen, onToggle } = useDisclosure();
+  const {isOpen, onToggle} = useDisclosure();
 
   return (
     <Box>
@@ -38,19 +33,17 @@ export default function WithSubnavigation(): JSX.Element {
         alignItems={"center"}
         backgroundColor={"bg"}
         height={"65px"}
-        justifyContent={{ base: "start" }}
+        justifyContent={{base: "start"}}
       >
         <Flex
           alignItems={"center"}
-          display={{ base: "flex", md: "none" }}
-          flex={{ base: 0, md: 1 }}
-          ml={{ base: -2 }}
+          display={{base: "flex", md: "none"}}
+          flex={{base: 0, md: 1}}
+          ml={{base: -2}}
         >
           <IconButton
             aria-label={"Toggle Navigation"}
-            icon={
-              isOpen ? <CloseIcon h={3} w={3} /> : <HamburgerIcon h={5} w={5} />
-            }
+            icon={isOpen ? <CloseIcon h={3} w={3} /> : <HamburgerIcon h={5} w={5} />}
             ml={3}
             variant={"ghost"}
             onClick={onToggle}
@@ -58,9 +51,9 @@ export default function WithSubnavigation(): JSX.Element {
         </Flex>
         <Flex
           alignItems={"center"}
-          flex={{ base: 1 }}
-          justifyContent={{ base: "center", md: "start" }}
-          marginLeft={{ base: -6, md: 5 }}
+          flex={{base: 1}}
+          justifyContent={{base: "center", md: "start"}}
+          marginLeft={{base: -6, md: 5}}
         >
           <Box cursor={"pointer"}>
             <Link href={"/"}>
@@ -72,22 +65,14 @@ export default function WithSubnavigation(): JSX.Element {
           <Flex
             alignItems={"center"}
             color={"#444"}
-            display={{ base: "none", md: "flex" }}
+            display={{base: "none", md: "flex"}}
             flex={"1"}
             justifyContent={"center"}
             ml={10}
           >
-            <Flex
-              flex="2"
-              justifyContent={"center"}
-              maxWidth="900px"
-              width="85%"
-            >
+            <Flex flex="2" justifyContent={"center"} maxWidth="900px" width="85%">
               <SearchBar />
-              <AiOutlineSearch
-                size={20}
-                style={{ position: "relative", top: 7, right: "6%" }}
-              />
+              <AiOutlineSearch size={20} style={{position: "relative", top: 7, right: "6%"}} />
             </Flex>
             <DesktopNav />
           </Flex>
@@ -107,25 +92,28 @@ const DesktopNav = () => {
   return (
     <Stack
       direction={"row"}
-      marginLeft={5}
-      spacing={3}
-      flex={"1"}
       display={"flex"}
-      justifySelf={"end"}
+      flex={"1"}
       justifyContent={"end"}
+      justifySelf={"end"}
       justifySelf="end"
       marginLeft={5}
+      marginLeft={5}
       marginRight={3}
+      spacing={3}
       spacing={3}
     >
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label} bg={"transparent"}>
           <Popover placement={"bottom-start"} trigger={"hover"}>
-          {/* <Link href={navItem.href ?? "#"}> */}
+            {/* <Link href={navItem.href ?? "#"}> */}
             <Link href={navItem.href ? navItem.href : ""}>
               <a>
                 <PopoverTrigger>
                   <Button
+                    _focus={{
+                      boxShadow: "none",
+                    }}
                     _hover={{
                       bg: useColorModeValue("pink.50", "FF6F6F"),
                       color: "tertiary",
@@ -146,9 +134,7 @@ const DesktopNav = () => {
                     textDecoration={"none"}
                     transition={"all .2s ease"}
                   >
-                    {navItem.icon && (
-                      <navItem.icon color={"tertiary"} size={"30"} />
-                    )}
+                    {navItem.icon && <navItem.icon color={"tertiary"} size={"30"} />}
                     <Text fontWeight={500} pt={1}>
                       {navItem.label}
                     </Text>
@@ -180,11 +166,11 @@ const DesktopNav = () => {
   );
 };
 
-const DesktopSubNav = ({ label, href, subLabel, icon }: NavItem) => {
+const DesktopSubNav = ({label, href, subLabel, icon}: NavItem) => {
   return (
     <Link href={href}>
       <Box
-        _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
+        _hover={{bg: useColorModeValue("pink.50", "gray.900")}}
         cursor={"pointer"}
         display={"block"}
         p={2}
@@ -193,17 +179,13 @@ const DesktopSubNav = ({ label, href, subLabel, icon }: NavItem) => {
       >
         <Stack align={"center"} direction={"row"}>
           <Box>
-            <Text
-              _groupHover={{ color: "pink.400" }}
-              fontWeight={500}
-              transition={"all .3s ease"}
-            >
+            <Text _groupHover={{color: "pink.400"}} fontWeight={500} transition={"all .3s ease"}>
               {label}
             </Text>
             <Text fontSize={"sm"}>{subLabel}</Text>
           </Box>
           <Flex
-            _groupHover={{ opacity: "100%", transform: "translateX(0)" }}
+            _groupHover={{opacity: "100%", transform: "translateX(0)"}}
             align={"center"}
             flex={1}
             justify={"flex-end"}
@@ -221,11 +203,7 @@ const DesktopSubNav = ({ label, href, subLabel, icon }: NavItem) => {
 
 const MobileNav = () => {
   return (
-    <Stack
-      bg={useColorModeValue("white", "gray.800")}
-      display={{ md: "none" }}
-      p={4}
-    >
+    <Stack bg={useColorModeValue("white", "gray.800")} display={{md: "none"}} p={4}>
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
@@ -233,8 +211,8 @@ const MobileNav = () => {
   );
 };
 
-const MobileNavItem = ({ label, children, href }: NavItem) => {
-  const { isOpen, onToggle } = useDisclosure();
+const MobileNavItem = ({label, children, href}: NavItem) => {
+  const {isOpen, onToggle} = useDisclosure();
 
   return (
     <Stack spacing={4} onClick={children && onToggle}>
@@ -248,10 +226,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
         justify={"space-between"}
         py={2}
       >
-        <Text
-          color={useColorModeValue("gray.600", "gray.200")}
-          fontWeight={600}
-        >
+        <Text color={useColorModeValue("gray.600", "gray.200")} fontWeight={600}>
           {label}
         </Text>
         {children && (
@@ -265,7 +240,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
         )}
       </Flex>
 
-      <Collapse animateOpacity in={isOpen} style={{ marginTop: "0!important" }}>
+      <Collapse animateOpacity in={isOpen} style={{marginTop: "0!important"}}>
         <Stack
           align={"start"}
           borderColor={useColorModeValue("gray.200", "gray.700")}

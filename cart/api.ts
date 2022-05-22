@@ -56,8 +56,4 @@ export default {
           }),
       );
   },
-  mock: {
-    list: (mock: string): Promise<IField[]> =>
-      import(`./mocks/${mock}.json`).then((result) => normalize(result.default as RawField[])),
-  },
 };
