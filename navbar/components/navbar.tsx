@@ -15,10 +15,9 @@ import {
   useDisclosure,
   Heading,
 } from "@chakra-ui/react";
-import { AiOutlineHome } from "react-icons/ai";
+import { AiOutlineHome, AiOutlineSearch } from "react-icons/ai";
 import { RiTShirtLine } from "react-icons/ri";
 import { BsChatDots } from "react-icons/bs";
-import { AiOutlineSearch } from "react-icons/ai";
 import { Link as ChakraLink } from "@chakra-ui/react";
 import {
   HamburgerIcon,
