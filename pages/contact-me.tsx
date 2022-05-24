@@ -66,7 +66,7 @@ export default function AboutUs() {
           {/* left box */}
           <Grid autoFlow={{base: "row", md: "row", xl: "column"}} gap="4vw">
             <Flex
-              bg={"bg_contactMe"}
+              bg={"bgContactMe"}
               borderRadius={15}
               boxShadow={"rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px"}
               height={{base: "80vh", md: "70vh", xl: "100vh"}}
@@ -179,7 +179,7 @@ export default function AboutUs() {
             </Flex>
             {/* right box */}
             <Flex
-              backgroundColor={"bg_contactMe"}
+              backgroundColor={"bgContactMe"}
               borderRadius={15}
               boxShadow={"rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px"}
               height={{base: "75%", md: "78%", lg: "85%", xl: "100vh"}}
@@ -214,7 +214,7 @@ export default function AboutUs() {
                         borderRadius={"30px"}
                         fontSize={"2xl"}
                         _placeholder={{color: "gray"}}
-                        bg={"bg_contactMe"}
+                        bg={"bgContactMe"}
                         color={"black"}
                         height={{
                           base: "5vh",
@@ -240,7 +240,7 @@ export default function AboutUs() {
                         borderRadius={"30px"}
                         fontSize={"2xl"}
                         _placeholder={{color: "gray"}}
-                        bg={"bg_contactMe"}
+                        bg={"bgContactMe"}
                         color={"black"}
                         height={{
                           base: "5vh",
@@ -266,7 +266,7 @@ export default function AboutUs() {
                         borderRadius={"30px"}
                         fontSize={"2xl"}
                         _placeholder={{color: "gray"}}
-                        bg={"bg_contactMe"}
+                        bg={"bgContactMe"}
                         color={"black"}
                         height={{
                           base: "5vh",
@@ -292,7 +292,7 @@ export default function AboutUs() {
                         borderRadius={"30px"}
                         fontSize={"2xl"}
                         _placeholder={{color: "gray"}}
-                        bg={"bg_contactMe"}
+                        bg={"bgContactMe"}
                         color={"black"}
                         height={{
                           base: "5vh",

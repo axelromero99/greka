@@ -21,7 +21,8 @@ export default extendTheme({
     tertiary: "#444",
     bg: "#eee",
     bgSecondary: "#75CED4",
-    bg_contactMe: "#fff",
+    bgContactMe: "#fff",
+    // bgContactMe: "#fff",
     // background_contact: "linear-gradient(90deg, rgba(59,205,214,1) 0%, rgba(119,208,214,1) 100%)",
     // background_contact2: "linear-gradient(270deg, rgba(59,205,214,1) 0%, rgba(119,208,214,1) 100%)",
     // primary: theme.colors["orange"],
@@ -38,6 +39,11 @@ export default extendTheme({
         label: {
           width: "100%",
         },
+      },
+    },
+    Button: {
+      baseStyle: {
+        _focus: "",
       },
     },
   },

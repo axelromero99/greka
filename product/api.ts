@@ -115,8 +115,6 @@ function normalize(data: (RawProduct | RawOption)[]) {
 function normalizeWithCategory(data: (RawProduct | RawOption)[], categoryType) {
   const products = new Map<RawProduct["id"], Product>();
 
-  console.log("entra a normalize");
-
   for (const item of data) {
     if (!products.has(item.id) && item.category === categoryType.toLowerCase()) {
       products.set(item.id, new Product());
@@ -236,7 +234,6 @@ export default {
             Papa.parse(response.data, {
               header: true,
               complete: (results) => {
-                console.log("antes de entrar a normalize search");
                 const data = normalizeSearch(results.data as (RawProduct | RawOption)[], search);
 
                 return resolve(data);
