@@ -96,17 +96,13 @@ const DesktopNav = () => {
       flex={"1"}
       justifyContent={"end"}
       justifySelf={"end"}
-      justifySelf="end"
-      marginLeft={5}
       marginLeft={5}
       marginRight={3}
-      spacing={3}
       spacing={3}
     >
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label} bg={"transparent"}>
           <Popover placement={"bottom-start"} trigger={"hover"}>
-            {/* <Link href={navItem.href ?? "#"}> */}
             <Link href={navItem.href ? navItem.href : ""}>
               <a>
                 <PopoverTrigger>
@@ -134,7 +130,13 @@ const DesktopNav = () => {
                     textDecoration={"none"}
                     transition={"all .2s ease"}
                   >
-                    {navItem.icon && <navItem.icon color={"tertiary"} size={"30"} />}
+                    {navItem.icon === "AiOutlineHome" && (
+                      <AiOutlineHome color={"tertiary"} size={"30"} />
+                    )}
+                    {navItem.icon === "RiTShirtLine" && (
+                      <RiTShirtLine color={"tertiary"} size={"30"} />
+                    )}
+                    {navItem.icon === "BsChatDots" && <BsChatDots color={"tertiary"} size={"30"} />}
                     <Text fontWeight={500} pt={1}>
                       {navItem.label}
                     </Text>
@@ -263,7 +265,7 @@ const MobileNavItem = ({label, children, href}: NavItem) => {
 
 interface NavItem {
   label: string;
-  icon?: JSX.Element;
+  icon?: string;
   subLabel?: string;
   children?: Array<NavItem>;
   href?: string;
@@ -273,12 +275,12 @@ const NAV_ITEMS: Array<NavItem> = [
   {
     label: "Home",
     href: "/",
-    icon: AiOutlineHome,
+    icon: "AiOutlineHome",
   },
   {
     label: "Productos",
     href: "/categories/todos",
-    icon: RiTShirtLine,
+    icon: "RiTShirtLine",
     children: [
       {
         label: "Todos",
@@ -305,6 +307,6 @@ const NAV_ITEMS: Array<NavItem> = [
   {
     label: "Contactanos",
     href: "/contact-me",
-    icon: BsChatDots,
+    icon: "BsChatDots",
   },
 ];
