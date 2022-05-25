@@ -11,8 +11,8 @@ export default function (req, res) {
     port: 465,
     secure: true,
     auth: {
-      user: "greka.ecommerce@gmail.com",
-      pass: "grekashoowrom123",
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASSWORD,
     },
   });
 

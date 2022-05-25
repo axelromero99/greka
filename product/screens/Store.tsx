@@ -22,7 +22,7 @@ const dynamicBanners = {
   jeans: "url(/assets/banner/jeans.jpg)",
 };
 
-const StoreScreen: React.FC<Props> = ({products, fields, categoryType}) => {
+const StoreScreen: React.FC<Props> = ({products, categoryType}) => {
   const [{total, quantity}, {addItem}] = useCart();
   const [isCartOpen, toggleCart] = React.useState<boolean>(false);
   const bgBanner = dynamicBanners[categoryType];
@@ -31,8 +31,6 @@ const StoreScreen: React.FC<Props> = ({products, fields, categoryType}) => {
     <>
       <Box bg={"body"} height="1px" width="100%" />
       <Flex
-        // height={"100%"}
-        // maxHeight={"200px"}
         alignItems="center"
         height={"350px"}
         justifyContent="center"
@@ -76,7 +74,7 @@ const StoreScreen: React.FC<Props> = ({products, fields, categoryType}) => {
             No hay productos
           </Text>
         )}
-        {(Boolean(quantity) && !isCartOpen) && (
+        {Boolean(quantity) && !isCartOpen && (
           <Flex
             alignItems="center"
             bottom={4}
@@ -98,6 +96,7 @@ const StoreScreen: React.FC<Props> = ({products, fields, categoryType}) => {
                 <Stack alignItems="center" direction="row" spacing={6}>
                   <BsCart4 size={"26"} />
                   <Text
+                    alignSelf={"center"}
                     backgroundColor="rgba(0,0,0,0.1)"
                     borderRadius="sm"
                     color="#444"
@@ -105,7 +104,6 @@ const StoreScreen: React.FC<Props> = ({products, fields, categoryType}) => {
                     fontWeight="500"
                     paddingX={2}
                     paddingY={2}
-                    alignSelf={"center"}
                   >
                     Cantidad: {quantity}
                   </Text>
@@ -116,7 +114,7 @@ const StoreScreen: React.FC<Props> = ({products, fields, categoryType}) => {
           </Flex>
         )}
       </Stack>
-      <CartDrawer fields={fields} isOpen={isCartOpen} onClose={() => toggleCart(false)} />
+      <CartDrawer isOpen={isCartOpen} onClose={() => toggleCart(false)} />
     </>
   );
 };

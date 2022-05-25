@@ -2,7 +2,7 @@ import * as React from "react";
 
 import {parseCurrency} from "../utils/currency";
 
-import {Cart, CartItem, Checkout, Field} from "./types";
+import {Cart, CartItem, Checkout} from "./types";
 import {getCartMessage, getCartTotal} from "./utils";
 
 interface Context {
@@ -22,7 +22,6 @@ interface Context {
 }
 
 interface Props {
-  fields: Field[];
   children: React.ReactNode;
 }
 

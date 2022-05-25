@@ -10,10 +10,10 @@ import {
   Textarea,
   useColorModeValue,
 } from "@chakra-ui/react";
-import {AiFillEnvironment, AiFillPhone, AiFillInstagram, AiTwotoneCalendar} from "react-icons/ai";
+import {AiFillPhone, AiFillInstagram, AiTwotoneCalendar} from "react-icons/ai";
 import axios from "axios";
 
-export default function AboutUs() {
+export default function contactMe() {
   const [name, setName] = useState<string>("");
   const [surname, setSurname] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -164,7 +164,6 @@ export default function AboutUs() {
                       allowFullScreen={true}
                       frameBorder="0"
                       loading="lazy"
-                      referrerpolicy="no-referrer-when-downgrade"
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3539.703085237791!2d-58.83847798494288!3d-27.478501582887215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94456c996041c7e3%3A0xfa9ea756edccc92e!2sGral.%20Paz%201244%2C%20W3410BAY%20Corrientes!5e0!3m2!1ses-419!2sar!4v1651879176703!5m2!1ses-419!2sar"
                       style={{
                         borderRadius: "15px",
@@ -210,12 +209,12 @@ export default function AboutUs() {
                     </Flex>
                     <FormControl>
                       <Input
-                        border={`4px solid #75CED4`}
-                        borderRadius={"30px"}
-                        fontSize={"2xl"}
                         _placeholder={{color: "gray"}}
                         bg={"bgContactMe"}
+                        border={`4px solid #75CED4`}
+                        borderRadius={"30px"}
                         color={"black"}
+                        fontSize={"2xl"}
                         height={{
                           base: "5vh",
                           md: "6vh",
@@ -236,12 +235,12 @@ export default function AboutUs() {
 
                     <FormControl>
                       <Input
-                        border={`4px solid #75CED4`}
-                        borderRadius={"30px"}
-                        fontSize={"2xl"}
                         _placeholder={{color: "gray"}}
                         bg={"bgContactMe"}
+                        border={`4px solid #75CED4`}
+                        borderRadius={"30px"}
                         color={"black"}
+                        fontSize={"2xl"}
                         height={{
                           base: "5vh",
                           md: "6vh",
@@ -262,12 +261,12 @@ export default function AboutUs() {
 
                     <FormControl>
                       <Input
-                        border={`4px solid #75CED4`}
-                        borderRadius={"30px"}
-                        fontSize={"2xl"}
                         _placeholder={{color: "gray"}}
                         bg={"bgContactMe"}
+                        border={`4px solid #75CED4`}
+                        borderRadius={"30px"}
                         color={"black"}
+                        fontSize={"2xl"}
                         height={{
                           base: "5vh",
                           md: "6vh",
@@ -288,12 +287,12 @@ export default function AboutUs() {
 
                     <FormControl>
                       <Textarea
-                        border={`4px solid #75CED4`}
-                        borderRadius={"30px"}
-                        fontSize={"2xl"}
                         _placeholder={{color: "gray"}}
                         bg={"bgContactMe"}
+                        border={`4px solid #75CED4`}
+                        borderRadius={"30px"}
                         color={"black"}
+                        fontSize={"2xl"}
                         height={{
                           base: "5vh",
                           md: "6vh",

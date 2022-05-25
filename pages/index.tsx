@@ -107,41 +107,40 @@ const HeroHeader: React.FC = () => {
     >
       <Box>
         <Heading
-          as={motion.h1}
           animate={controls}
-          initial="hidden"
-          variants={heroHeaderVariants1}
+          as={motion.h1}
           color="white"
           fontFamily={"header"}
+          initial="hidden"
           left={{
             base: "10%",
             sm: "12%",
             md: "15%",
-          }}
-          position={"relative"}
-          size="3xl"
-          top={{
-            base: "10%",
-            md: "17%",
           }}
           maxWidth={{
             base: "300px",
             sm: "420px",
             md: "800px",
           }}
+          position={"relative"}
+          size="3xl"
           textShadow={{
             base: "1px 1px 2px rgba(1,1,1,0.8)",
           }}
+          top={{
+            base: "10%",
+            md: "17%",
+          }}
+          variants={heroHeaderVariants1}
         >
           Fucking Grikas
         </Heading>
         <Heading
-          as={motion.h3}
           animate={controls}
-          initial="hidden"
-          variants={heroHeaderVariants2}
+          as={motion.h3}
           color="white"
           fontWeight={500}
+          initial="hidden"
           left={{
             base: "10%",
             sm: "12%",
@@ -156,18 +155,19 @@ const HeroHeader: React.FC = () => {
             base: "20%",
             md: "27%",
           }}
+          variants={heroHeaderVariants2}
         >
           Conseguí tu primera
           <br />
           <Text
-            as={motion.p}
-            animate={controls}
-            initial="hidden"
-            variants={heroHeaderVariants3}
             ref={ref}
+            animate={controls}
+            as={motion.p}
             color={"rgba(255,114,114,1)"}
             display="inline-block"
+            initial="hidden"
             textShadow="2px 2px 1px white"
+            variants={heroHeaderVariants3}
           >
             Motomel Blitz 0km.
           </Text>
@@ -189,7 +189,11 @@ const gridVariants = {
   },
 };
 
-const slideData = ["02.jpg", "03.jpg", "05.jpg"];
+const slideData = [
+  "/assets/homeGallery/02.jpg",
+  "/assets/homeGallery/03.jpg",
+  "/assets/homeGallery/05.jpg",
+];
 
 const SliderGrid: React.FC = () => {
   const {ref, inView} = useInView({triggerOnce: true, delay: 200});
@@ -204,10 +208,10 @@ const SliderGrid: React.FC = () => {
   return (
     <Center backgroundColor={"bg"} margin={0}>
       <Grid
-        as={motion.div}
         animate={controls}
+        as={motion.div}
         initial="hidden"
-        variants={gridVariants}
+        maxWidth="900px"
         overflow="hidden"
         padding={5}
         templateColumns={{
@@ -220,7 +224,7 @@ const SliderGrid: React.FC = () => {
           sm: "500px 300px",
           md: "30px 110px 110px 110px 110px 30px",
         }}
-        maxWidth="900px"
+        variants={gridVariants}
       >
         <GridItem
           alignItems={"center"}
@@ -268,12 +272,12 @@ const SliderGrid: React.FC = () => {
             Corrientes Cripy resinoso 1700 los 10g 3700 los 25g
           </Heading>
           <Heading
+            ref={ref}
             as={"h5"}
             color={"#555"}
             fontFamily={"navbar"}
             lineHeight={8}
             size={"sm"}
-            ref={ref}
           >
             El argentino que compró el dominio de Google por menos de US$3
           </Heading>
@@ -362,38 +366,38 @@ const FooterSection: React.FC = () => {
       alignItems={"center"}
       backgroundColor="rgb(109 192 198)"
       color={"white"}
-      justifyContent={"space-evenly"}
-      minHeight={200}
       flexDirection={{base: "row"}}
       flexWrap={"wrap"}
+      justifyContent={"space-evenly"}
+      minHeight={200}
     >
       <Center
-        as={motion.div}
-        animate={controls}
-        initial="hidden"
-        variants={footerItemVariants1}
         alignItems={"center"}
+        animate={controls}
+        as={motion.div}
         flexDirection={{
           base: "column",
           md: "row",
         }}
+        initial="hidden"
         margin={5}
+        variants={footerItemVariants1}
       >
         <Box border={"1px solid white"} borderRadius={"50%"} padding={3}>
           <BsFillCartFill size={40} />
         </Box>
         <Box
-          marginTop={2}
-          marginLeft={{
-            base: 0,
-            md: 3,
-          }}
-          display={"flex"}
-          flexDirection={"column"}
           alignItems={{
             base: "center",
             md: "start",
           }}
+          display={"flex"}
+          flexDirection={"column"}
+          marginLeft={{
+            base: 0,
+            md: 3,
+          }}
+          marginTop={2}
         >
           <Text fontWeight={800}>Viene el PM</Text>
           <Text ref={ref} fontSize={"sm"} fontWeight={500}>
@@ -402,32 +406,32 @@ const FooterSection: React.FC = () => {
         </Box>
       </Center>
       <Center
-        as={motion.div}
-        animate={controls}
-        initial="hidden"
-        variants={footerItemVariants2}
         alignItems={"center"}
+        animate={controls}
+        as={motion.div}
         flexDirection={{
           base: "column",
           md: "row",
         }}
+        initial="hidden"
         margin={5}
+        variants={footerItemVariants2}
       >
         <Box border={"1px solid white"} borderRadius={"50%"} padding={3}>
           <FaMoneyBill size={40} />
         </Box>
         <Box
-          marginTop={2}
-          marginLeft={{
-            base: 0,
-            md: 3,
-          }}
-          display={"flex"}
-          flexDirection={"column"}
           alignItems={{
             base: "center",
             md: "start",
           }}
+          display={"flex"}
+          flexDirection={"column"}
+          marginLeft={{
+            base: 0,
+            md: 3,
+          }}
+          marginTop={2}
         >
           <Text fontWeight={800}>Part Time</Text>
           <Text fontSize={"sm"} fontWeight={500}>
@@ -436,33 +440,33 @@ const FooterSection: React.FC = () => {
         </Box>
       </Center>
       <Center
-        as={motion.div}
-        animate={controls}
-        initial="hidden"
-        variants={footerItemVariants3}
         alignItems={"center"}
+        animate={controls}
+        as={motion.div}
         flexDirection={{
           base: "column",
           md: "row",
         }}
-        marginY={5}
+        initial="hidden"
         marginX={10}
+        marginY={5}
+        variants={footerItemVariants3}
       >
         <Box border="1px solid white" borderRadius={"50%"} padding={3}>
           <BsExclamationTriangleFill size={40} />
         </Box>
         <Box
-          marginTop={2}
-          marginLeft={{
-            base: 0,
-            md: 3,
-          }}
-          display={"flex"}
-          flexDirection={"column"}
           alignItems={{
             base: "center",
             md: "start",
           }}
+          display={"flex"}
+          flexDirection={"column"}
+          marginLeft={{
+            base: 0,
+            md: 3,
+          }}
+          marginTop={2}
         >
           <Text fontWeight={800}>Cuidado</Text>
           <Text fontSize={"sm"} fontWeight={500}>
