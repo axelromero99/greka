@@ -1,15 +1,5 @@
 import React from "react";
-import {
-  useColorModeValue,
-  Stack,
-  Button,
-  Center,
-  Box,
-  Heading,
-  Text,
-  Image,
-  Fade,
-} from "@chakra-ui/react";
+import {useColorModeValue, Stack, Center, Box, Heading, Text, Image} from "@chakra-ui/react";
 
 import {parseCurrency} from "../../utils/currency";
 import {CartItem} from "../../cart/types";
@@ -23,10 +13,8 @@ interface Props {
 
 const ProductCard: React.FC<Props> = ({product, onAdd}) => {
   const [isModalOpen, toggleModal] = React.useState(false);
-  //probando
   const [isShown, setIsShown] = React.useState(false);
 
-  //probando
   const cartItem = React.useMemo<CartItem>(() => ({...product, quantity: 1}), [product]);
 
   return (

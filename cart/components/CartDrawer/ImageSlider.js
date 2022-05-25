@@ -18,7 +18,7 @@ const ImageSlider = ({slides}) => {
       showThumbs={false}
     >
       {slides.map((slide, index) => {
-        return <Image key={index} src={`/assets/products/${slide}`} />;
+        return <Image key={index} src={`${slide}`} />;
       })}
     </Carousel>
   );
