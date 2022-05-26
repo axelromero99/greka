@@ -14,11 +14,11 @@ NProgress.configure({showSpinner: false});
 const App: React.FC<AppProps> = ({Component, pageProps}) => {
   const [loading, setLoading] = useState<boolean>(false);
 
-  Router.events.on("routeChangeStart", (url) => {
+  Router.events.on("routeChangeStart", () => {
     NProgress.start();
     setLoading(true);
   });
-  Router.events.on("routeChangeComplete", (url) => {
+  Router.events.on("routeChangeComplete", () => {
     NProgress.done();
     setLoading(false);
   });
@@ -72,7 +72,6 @@ const App: React.FC<AppProps> = ({Component, pageProps}) => {
                       justifyContent={"center"}
                       opacity={0.7}
                       width={8}
-                      width={8}
                     >
                       <Image src={"/assets/icons/instagram.svg"} />
                     </Flex>
@@ -87,11 +86,9 @@ const App: React.FC<AppProps> = ({Component, pageProps}) => {
                       alignItems="center"
                       backgroundColor={"transparent"}
                       borderRadius={9999}
-                      color={"#444"}
                       color={"tertiary"}
                       height={8}
                       justifyContent="center"
-                      opacity={0.7}
                       opacity={0.7}
                       paddingBottom={0.5}
                       width={8}
