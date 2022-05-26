@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {
   Text,
   Image,
@@ -15,20 +15,15 @@ import {
   DrawerBody,
   Divider,
 } from "@chakra-ui/react";
-import {ChevronLeftIcon} from "@chakra-ui/icons";
+// import {ChevronLeftIcon} from "@chakra-ui/icons";
 
 import {useCart} from "../../context";
-import {CartItem, Field} from "../../types";
+import {CartItem} from "../../types";
 
 import Details from "./Details";
 
-interface Props extends Omit<DrawerProps, "children"> {
-  fields: Field[];
-}
-
-const CartDrawer: React.FC<Props> = ({onClose, isOpen, fields, ...props}) => {
-  const [{total, message, cart, checkout}, {removeItem, updateItem, updateField}] = useCart();
-  // const [currentStep, setCurrentStep] = React.useState<"details" | "fields">("details");
+const CartDrawer: React.FC<Omit<DrawerProps, "children">> = ({onClose, isOpen, ...props}) => {
+  const [{total, message, cart}, {removeItem, updateItem}] = useCart();
 
   function handleUpdateCart(id: symbol, item: CartItem) {
     if (!item.quantity) {
@@ -38,7 +33,7 @@ const CartDrawer: React.FC<Props> = ({onClose, isOpen, fields, ...props}) => {
     return updateItem(id, item);
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!cart.size) {
       onClose();
     }

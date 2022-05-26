@@ -6,11 +6,9 @@ import type {Product} from "../types";
 import ProductCard from "../components/ProductCard";
 import CartDrawer from "../../cart/components/CartDrawer/CartDrawer";
 import {useCart} from "../../cart/context";
-import {Field} from "../../cart/types";
 
 interface Props {
   products: Product[];
-  fields: Field[];
   categoryType: string;
 }
 
