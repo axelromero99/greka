@@ -59,7 +59,7 @@ export default function WithSubnavigation(): JSX.Element {
             <Link href={"/"}>
               <a>
                 <Heading color={"#333"} fontFamily={"header"}>
-                  Grikas
+                  Greka
                 </Heading>
               </a>
             </Link>
