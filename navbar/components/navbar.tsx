@@ -57,22 +57,23 @@ export default function WithSubnavigation(): JSX.Element {
         >
           <Box cursor={"pointer"}>
             <Link href={"/"}>
-              <Heading color={"#333"} fontFamily={"header"}>
-                Grikas
-              </Heading>
+              <a>
+                <Heading color={"#333"} fontFamily={"header"}>
+                  Grikas
+                </Heading>
+              </a>
             </Link>
           </Box>
           <Flex
-            alignItems={"center"}
-            color={"#444"}
+            alignItems="center"
+            color="#444"
             display={{base: "none", md: "flex"}}
             flex={"1"}
-            justifyContent={"center"}
+            justifyContent="center"
             ml={10}
           >
-            <Flex flex="2" justifyContent={"center"} maxWidth="900px" width="85%">
+            <Flex maxWidth="900px" width="85%">
               <SearchBar />
-              <AiOutlineSearch size={20} style={{position: "relative", top: 7, right: "6%"}} />
             </Flex>
             <DesktopNav />
           </Flex>
@@ -147,6 +148,7 @@ const DesktopNav = () => {
 
             {navItem.children && (
               <PopoverContent
+                _focus={{boxShadow: "none"}}
                 bg={popoverContentBgColor}
                 border={0}
                 boxShadow={"xl"}
@@ -171,34 +173,36 @@ const DesktopNav = () => {
 const DesktopSubNav = ({label, href, subLabel, icon}: NavItem) => {
   return (
     <Link href={href}>
-      <Box
-        _hover={{bg: useColorModeValue("pink.50", "gray.900")}}
-        cursor={"pointer"}
-        display={"block"}
-        p={2}
-        role={"group"}
-        rounded={"md"}
-      >
-        <Stack align={"center"} direction={"row"}>
-          <Box>
-            <Text _groupHover={{color: "pink.400"}} fontWeight={500} transition={"all .3s ease"}>
-              {label}
-            </Text>
-            <Text fontSize={"sm"}>{subLabel}</Text>
-          </Box>
-          <Flex
-            _groupHover={{opacity: "100%", transform: "translateX(0)"}}
-            align={"center"}
-            flex={1}
-            justify={"flex-end"}
-            opacity={0}
-            transform={"translateX(-10px)"}
-            transition={"all .3s ease"}
-          >
-            <Icon as={ChevronRightIcon} color={"pink.400"} h={5} w={5} />
-          </Flex>
-        </Stack>
-      </Box>
+      <a>
+        <Box
+          _hover={{bg: useColorModeValue("pink.50", "gray.900")}}
+          cursor={"pointer"}
+          display={"block"}
+          p={2}
+          role={"group"}
+          rounded={"md"}
+        >
+          <Stack align={"center"} direction={"row"}>
+            <Box>
+              <Text _groupHover={{color: "pink.400"}} fontWeight={500} transition={"all .3s ease"}>
+                {label}
+              </Text>
+              <Text fontSize={"sm"}>{subLabel}</Text>
+            </Box>
+            <Flex
+              _groupHover={{opacity: "100%", transform: "translateX(0)"}}
+              align={"center"}
+              flex={1}
+              justify={"flex-end"}
+              opacity={0}
+              transform={"translateX(-10px)"}
+              transition={"all .3s ease"}
+            >
+              <Icon as={ChevronRightIcon} color={"pink.400"} h={5} w={5} />
+            </Flex>
+          </Stack>
+        </Box>
+      </a>
     </Link>
   );
 };
@@ -291,12 +295,16 @@ const NAV_ITEMS: Array<NavItem> = [
         href: "/categories/jeans",
       },
       {
-        label: "Tops-Remeras",
+        label: "Tops/Remeras",
         href: "/categories/tops-remeras",
       },
       {
-        label: "Shorts-Polleras",
+        label: "Shorts/Polleras",
         href: "/categories/shorts-polleras",
+      },
+      {
+        label: "Abrigos",
+        href: "/categories/abrigos",
       },
       {
         label: "Vestidos",

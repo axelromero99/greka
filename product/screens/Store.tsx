@@ -68,9 +68,11 @@ const StoreScreen: React.FC<Props> = ({products, categoryType}) => {
             ))}
           </Grid>
         ) : (
-          <Text color="gray.500" fontSize="lg" margin="auto">
-            No hay productos
-          </Text>
+          <Stack height="50vh">
+            <Text color="font" fontSize="lg" margin="auto">
+              No tenemos stock por el momento
+            </Text>
+          </Stack>
         )}
         {Boolean(quantity) && !isCartOpen && (
           <Flex

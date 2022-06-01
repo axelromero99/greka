@@ -269,7 +269,7 @@ const SliderGrid: React.FC = () => {
           w={"100%"}
         >
           <Heading as={"h3"} color={"#393939"} fontFamily={"header"} fontSize={"3xl"}>
-            Corrientes Cripy resinoso 1700 los 10g 3700 los 25g
+            ¿Buscas descuentos?
           </Heading>
           <Heading
             ref={ref}
@@ -279,19 +279,17 @@ const SliderGrid: React.FC = () => {
             lineHeight={8}
             size={"sm"}
           >
-            El argentino que compró el dominio de Google por menos de US$3
+            Hasta 30% off en estas prendas!
           </Heading>
           <Button
-            _active={{
-              bg: useColorModeValue("pink.50", "gray.900"),
-              color: "rgba(255,111,111,0.75)",
-            }}
             _hover={{
-              bg: "rgba(255,111,111,0.75)",
-              color: "white",
+              bg: "bgContactMe",
+              color: "button",
+              border: "2px",
             }}
-            bg={"rgba(255,111,111,0.95)"}
-            color={"white"}
+            bg={"button"}
+            color={"bgContactMe"}
+            width="100%"
           >
             <Link href="/categories/todos">
               <a>Ver productos</a>

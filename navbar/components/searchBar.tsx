@@ -1,7 +1,9 @@
 import * as React from "react";
-import type { NextPage } from "next";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import type {NextPage} from "next";
+import {useEffect, useState} from "react";
+import {useRouter} from "next/router";
+import {InputGroup, Input, InputLeftElement} from "@chakra-ui/react";
+import {AiOutlineSearch} from "react-icons/ai";
 
 import useDebounce from "../../utils/hooks/useDebounce";
 
@@ -24,18 +26,20 @@ const SearchBar: NextPage = () => {
   }, [debouncedSearch]);
 
   return (
-    <input
-      background-color="bg"
-      placeholder="Buscar productos..."
-      style={{
-        borderRadius: 10,
-        padding: "5px 15px",
-        border: "1px solid #a2a2a2",
-        width: "100%",
-      }}
-      type="text"
-      onChange={(e) => setSearch(e.target.value)}
-    />
+    <InputGroup width="50%">
+      <InputLeftElement children={<AiOutlineSearch color="gray.300" />} pb={2} />
+      <Input
+        _focus={{boxShadow: "none"}}
+        backgroundColor="bg"
+        border="1px solid black"
+        borderRadius="10"
+        placeholder="Buscar productos..."
+        size="sm"
+        type="text"
+        variant={"flushed"}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+    </InputGroup>
   );
 };
 
