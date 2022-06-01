@@ -1,7 +1,7 @@
 import axios from "axios";
 import Papa from "papaparse";
 
-import {Option as IOption, Product as IProduct} from "./types";
+import { Option as IOption, Product as IProduct } from "./types";
 
 interface RawOption extends IOption {
   type: "option";
@@ -116,6 +116,7 @@ function normalizeWithCategory(data: (RawProduct | RawOption)[], categoryType) {
   const products = new Map<RawProduct["id"], Product>();
 
   for (const item of data) {
+
     if (!products.has(item.id) && item.category === categoryType.toLowerCase()) {
       products.set(item.id, new Product());
     }
@@ -127,7 +128,8 @@ function normalizeWithCategory(data: (RawProduct | RawOption)[], categoryType) {
     } else if (item.type === "option") {
       const product = products.get(item.id);
 
-      item && product.addOption(item);
+      item && product && product.addOption(item);
+
     }
   }
 
@@ -144,10 +146,10 @@ function normalizeWithCategory(data: (RawProduct | RawOption)[], categoryType) {
  * @param search - The search term
  * @returns An array of IProducts
  */
-function normalizeSearch(data: (RawProduct | RawOption)[], search: string) {
-  const products = new Map<RawProduct["id"], Product>();
+function normalizeSearch(data: (RawProduct | RawOption)[], search) {
+  let products = new Map<RawProduct["id"], Product>();
 
-  for (const item of data) {
+  for (let item of data) {
     let lastProductTitle = "";
 
     if (
@@ -223,7 +225,7 @@ export default {
           }),
       );
   },
-  searchAndList: async (search: string): Promise<IProduct[]> => {
+  searchAndList: async (search: string | string[]): Promise<IProduct[]> => {
     return axios
       .get(process.env.PRODUCTS_CSV, {
         responseType: "blob",
