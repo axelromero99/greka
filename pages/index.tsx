@@ -10,6 +10,7 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
+import {GetServerSideProps} from "next";
 import Link from "next/link";
 import {BsFillCartFill} from "react-icons/bs";
 import {FaMoneyBill} from "react-icons/fa";
@@ -17,14 +18,15 @@ import {BsExclamationTriangleFill} from "react-icons/bs";
 import {useInView} from "react-intersection-observer";
 import {motion, useAnimation} from "framer-motion";
 
+import productApi from "../product/api";
 import ImageSlider from "../cart/components/CartDrawer/ImageSlider";
 
-const index_copy: React.FC = () => {
+const index: React.FC<{offersImages: string[]}> = ({offersImages}) => {
   return (
     <>
       <Box bg={"body"} height="1px" width="100%" />
       <HeroHeader />
-      <SliderGrid />
+      {offersImages && <SliderGrid offersImages={offersImages} />}
       <FooterSection />
       <Box bg={"body"} height={"2px"} width={"100%"} />
     </>
@@ -189,13 +191,7 @@ const gridVariants = {
   },
 };
 
-const slideData = [
-  "/assets/homeGallery/02.jpg",
-  "/assets/homeGallery/03.jpg",
-  "/assets/homeGallery/05.jpg",
-];
-
-const SliderGrid: React.FC = () => {
+const SliderGrid: React.FC<{offersImages: string[]}> = ({offersImages}) => {
   const {ref, inView} = useInView({triggerOnce: true, delay: 200});
   const controls = useAnimation();
 
@@ -237,7 +233,7 @@ const SliderGrid: React.FC = () => {
           rowEnd={{base: 2, md: 7}}
           rowStart={{base: 1, md: 1}}
         >
-          <ImageSlider slides={slideData} />
+          <ImageSlider slides={offersImages} />
         </GridItem>
         <GridItem
           boxShadow={"2px 2px 8px rgba(1,1,1,0.3)"}
@@ -476,4 +472,19 @@ const FooterSection: React.FC = () => {
   );
 };
 
-export default index_copy;
+export const getServerSideProps: GetServerSideProps = async () => {
+  const productsOffers = await productApi.listOffers();
+
+  const offersImages = productsOffers.map((product) => {
+    return product.image;
+  });
+
+  return {
+    props: {
+      // productsOffers,
+      offersImages,
+    },
+  };
+};
+
+export default index;
