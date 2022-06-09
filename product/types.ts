@@ -5,6 +5,7 @@ export interface Option {
   description: string;
   image: string;
   price: number;
+  discount?: number;
 }
 
 export interface Product {

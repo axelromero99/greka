@@ -1,7 +1,7 @@
 import axios from "axios";
 import Papa from "papaparse";
 
-import { Option as IOption, Product as IProduct } from "./types";
+import {Option as IOption, Product as IProduct} from "./types";
 
 interface RawOption extends IOption {
   type: "option";
@@ -35,7 +35,7 @@ class Product implements IProduct {
       image: product.image,
       gallery: product.gallery,
       price: Number(product.price),
-      discount: Number(product.discount),
+      discount: product.discount,
     });
   }
 
@@ -64,7 +64,7 @@ class Product implements IProduct {
       gallery: this.gallery,
       options: this.options,
       price: Number(this.price),
-      discount: Number(this.discount),
+      discount: this.discount,
     };
 
     if (Object.keys(product.options).length === 0) {
@@ -106,6 +106,28 @@ function normalize(data: (RawProduct | RawOption)[]) {
   return normalized;
 }
 
+function normalizeOffers(data: (RawProduct | RawOption)[]) {
+  const products = new Map<RawProduct["id"], Product>();
+
+  for (const item of data) {
+    if (!products.has(item.id) && item.discount !== "") {
+      products.set(item.id, new Product());
+
+      if (item.type === "product") {
+        const product = products.get(item.id);
+
+        product.set(item);
+      }
+    }
+  }
+
+  const normalized: IProduct[] = Object.values(Object.fromEntries(products)).map((product) =>
+    product.toJSON(),
+  );
+
+  return normalized;
+}
+
 /**
  * It takes an array of raw products and options, and returns an array of normalized products, filtered by categories
  * @param {(RawProduct | RawOption)[]} data - (RawProduct | RawOption)[]
@@ -116,7 +138,6 @@ function normalizeWithCategory(data: (RawProduct | RawOption)[], categoryType) {
   const products = new Map<RawProduct["id"], Product>();
 
   for (const item of data) {
-
     if (!products.has(item.id) && item.category === categoryType.toLowerCase()) {
       products.set(item.id, new Product());
     }
@@ -129,7 +150,6 @@ function normalizeWithCategory(data: (RawProduct | RawOption)[], categoryType) {
       const product = products.get(item.id);
 
       item && product && product.addOption(item);
-
     }
   }
 
@@ -147,9 +167,9 @@ function normalizeWithCategory(data: (RawProduct | RawOption)[], categoryType) {
  * @returns An array of IProducts
  */
 function normalizeSearch(data: (RawProduct | RawOption)[], search) {
-  let products = new Map<RawProduct["id"], Product>();
+  const products = new Map<RawProduct["id"], Product>();
 
-  for (let item of data) {
+  for (const item of data) {
     let lastProductTitle = "";
 
     if (
@@ -194,6 +214,26 @@ export default {
               header: true,
               complete: (results) => {
                 const data = normalize(results.data as (RawProduct | RawOption)[]);
+
+                return resolve(data);
+              },
+              error: (error) => reject(error.message),
+            });
+          }),
+      );
+  },
+  listOffers: async (): Promise<IProduct[]> => {
+    return axios
+      .get(process.env.PRODUCTS_CSV, {
+        responseType: "blob",
+      })
+      .then(
+        (response) =>
+          new Promise<IProduct[]>((resolve, reject) => {
+            Papa.parse(response.data, {
+              header: true,
+              complete: (results) => {
+                const data = normalizeOffers(results.data as (RawProduct | RawOption)[]);
 
                 return resolve(data);
               },
