@@ -21,6 +21,8 @@ import {motion, useAnimation} from "framer-motion";
 import productApi from "../product/api";
 import ImageSlider from "../cart/components/CartDrawer/ImageSlider";
 
+import ImagesGrid from "./ImagesGrid";
+
 const index: React.FC<{offersImages: string[]}> = ({offersImages}) => {
   return (
     <>
@@ -28,6 +30,7 @@ const index: React.FC<{offersImages: string[]}> = ({offersImages}) => {
       <HeroHeader />
       {offersImages && <SliderGrid offersImages={offersImages} />}
       <FooterSection />
+      <ImagesGrid />
       <Box bg={"body"} height={"2px"} width={"100%"} />
     </>
   );
