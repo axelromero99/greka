@@ -31,7 +31,7 @@ const index: React.FC<{offersImages: string[]}> = ({offersImages}) => {
       {offersImages && <SliderGrid offersImages={offersImages} />}
       <FooterSection />
       <ImagesGrid />
-      <Box bg={"body"} height={"2px"} width={"100%"} />
+      <Box bg={"body"} height="1px" width={"100%"} />
     </>
   );
 };
@@ -214,70 +214,63 @@ const SliderGrid: React.FC<{offersImages: string[]}> = ({offersImages}) => {
         overflow="hidden"
         padding={5}
         templateColumns={{
-          base: "20px 85% 20px",
-          sm: "20px 430px 20px",
+          base: "0px 100% 0px",
+          sm: "0px 430px 0px",
           md: "20px 1fr 20px 1fr",
         }}
         templateRows={{
-          base: "400px 350px",
-          sm: "500px 300px",
+          base: "400px 200px",
+          sm: "400px 230px",
           md: "30px 110px 110px 110px 110px 30px",
         }}
         variants={gridVariants}
       >
         <GridItem
-          alignItems={"center"}
+          alignItems="center"
           colEnd={{base: 3, md: 3}}
           colStart={{base: 2, md: 2}}
           display={"flex"}
-          flexDirection={"column"}
-          justifyContent={"center"}
-          marginTop={"15px"}
+          flexDirection="column"
+          justifyContent="center"
           rowEnd={{base: 2, md: 7}}
           rowStart={{base: 1, md: 1}}
         >
           <ImageSlider slides={offersImages} />
         </GridItem>
         <GridItem
-          boxShadow={"2px 2px 8px rgba(1,1,1,0.3)"}
+          boxShadow={"2px 2px 12px rgba(1,1,1,0.3)"}
           colEnd={{base: 4, md: 5}}
           colStart={{base: 1, md: 1}}
           rowEnd={{base: 3, md: 6}}
           rowStart={{base: 1, md: 2}}
-          w={"100%"}
+          width="100%"
         />
         <GridItem
           backgroundColor={"rgba(255,111,111,0.7)"}
+          boxShadow={"2px 2px 12px rgba(1,1,1,0.3)"}
           colEnd={4}
           colStart={1}
           rowEnd={{base: 2, md: 6}}
           rowStart={{base: 1, md: 2}}
-          w={"100%"}
+          width="100%"
         />
         <GridItem
-          alignItems={"start"}
+          alignItems="center"
           backgroundColor="white"
           colEnd={{base: 3, md: 5}}
           colStart={{base: 2, md: 4}}
-          display={"flex"}
-          flexDirection={"column"}
-          justifyContent={"space-between"}
-          padding={{base: 3, md: 10}}
+          display="flex"
+          flexDirection="column"
+          justifyContent="space-between"
+          padding={{base: 6, md: 10}}
           rowEnd={{base: 3, md: 6}}
           rowStart={{base: 2, md: 2}}
-          w={"100%"}
+          w="100%"
         >
-          <Heading as={"h3"} color={"#393939"} fontFamily={"header"} fontSize={"3xl"}>
+          <Heading alignSelf="center" as="h3" fontFamily="header" fontSize="2xl">
             ¿Buscas descuentos?
           </Heading>
-          <Heading
-            ref={ref}
-            as={"h5"}
-            color={"#555"}
-            fontFamily={"navbar"}
-            lineHeight={8}
-            size={"sm"}
-          >
+          <Heading ref={ref} as={"h5"} fontFamily={"navbar"} lineHeight={2} size={"sm"}>
             Hasta 30% off en estas prendas!
           </Heading>
           <Button
@@ -288,7 +281,7 @@ const SliderGrid: React.FC<{offersImages: string[]}> = ({offersImages}) => {
             }}
             bg={"button"}
             color={"bgContactMe"}
-            width="100%"
+            width="200px"
           >
             <Link href="/categories/todos">
               <a>Ver productos</a>
@@ -360,16 +353,16 @@ const FooterSection: React.FC = () => {
 
   return (
     <Flex
-      alignItems={"center"}
+      alignItems="center"
       backgroundColor="rgb(109 192 198)"
-      color={"white"}
+      color="white"
       flexDirection={{base: "row"}}
-      flexWrap={"wrap"}
-      justifyContent={"space-evenly"}
-      minHeight={200}
+      flexWrap="wrap"
+      justifyContent="space-evenly"
+      minHeight="200"
     >
       <Center
-        alignItems={"center"}
+        alignItems="center"
         animate={controls}
         as={motion.div}
         flexDirection={{
@@ -380,7 +373,7 @@ const FooterSection: React.FC = () => {
         margin={5}
         variants={footerItemVariants1}
       >
-        <Box border={"1px solid white"} borderRadius={"50%"} padding={3}>
+        <Box border="1px solid white" borderRadius="50%" padding={3}>
           <BsFillCartFill size={40} />
         </Box>
         <Box
