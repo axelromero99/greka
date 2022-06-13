@@ -47,7 +47,7 @@ export const getStaticPaths: GetStaticPaths<{categoryType: string}> = async () =
       {params: {categoryType: "abrigos"}},
       {params: {categoryType: "vestidos"}},
     ],
-    fallback: "blocking", //indicates the type of fallback
+    fallback: "blocking",
   };
 };
 

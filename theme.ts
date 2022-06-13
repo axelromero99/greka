@@ -12,6 +12,7 @@ export default extendTheme({
       body: {
         // bgGradient: "linear-gradient(90deg, rgba(255,180,209,1) 0%, rgba(249,108,137,1) 100%)",
         bg: "linear-gradient(90deg, rgba(255,180,209,1) 0%, rgba(249,108,137,1) 100%)",
+        height: "100%",
       },
     },
   },

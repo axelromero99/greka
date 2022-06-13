@@ -36,25 +36,25 @@ const App: React.FC<AppProps> = ({Component, pageProps}) => {
       <ChakraProvider theme={theme}>
         <WithSubnavigation />
         {loading ? (
-          <Container maxWidth={"100vw"} minHeight={"100vh"} padding={0}>
+          <Container maxWidth="100vw" minHeight="100vh" padding={0}>
             <Loading />
           </Container>
         ) : (
           <>
-            <Container maxWidth={"100vw"} minHeight={"100vh"} padding={0}>
+            <Container maxWidth="100vw" minHeight="100vh" padding={0}>
               <Stack>
                 <Component {...pageProps} />
               </Stack>
             </Container>
             <Container
               alignItems={{base: "start", md: "center"}}
-              backgroundColor={"bg"}
-              display={"flex"}
+              backgroundColor="bg"
+              display="flex"
               flexDirection={{base: "column", md: "row"}}
-              height={20}
+              height="20"
               justifyContent={{base: "center", md: "center"}}
-              margin={0}
-              maxW={"100%"}
+              margin="0"
+              maxW="100%"
               textAlign={{base: "left", md: "center"}}
             >
               <Flex alignItems={"center"} justifyContent={"center"} width={"100%"}>
