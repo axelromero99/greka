@@ -93,7 +93,9 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
             </Heading>
             <Stack align={"center"} direction={"row"}>
               <Text fontSize={"lg"} fontWeight={650}>
-                {product.discount ? parseCurrency(product.discount) : parseCurrency(product.price)}
+                {product.discount
+                  ? parseCurrency(Number(product.discount))
+                  : parseCurrency(product.price)}
               </Text>
               {product.discount && (
                 <Text

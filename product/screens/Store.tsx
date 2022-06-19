@@ -13,7 +13,7 @@ interface Props {
 }
 
 const dynamicBanners = {
-  todos: "url(/assets/banner.jpg)",
+  todos: "url(/assets/banner/banner.jpg)",
   "tops-remeras": "url(/assets/banner/tops.jpg)",
   vestidos: "url(/assets/banner/vestido.jpg)",
   "shorts-polleras": "url(/assets/banner/remeras2.jpg)",
@@ -24,6 +24,8 @@ const StoreScreen: React.FC<Props> = ({products, categoryType}) => {
   const [{total, quantity}, {addItem}] = useCart();
   const [isCartOpen, toggleCart] = React.useState<boolean>(false);
   const bgBanner = dynamicBanners[categoryType];
+
+  console.log(categoryType);
 
   return (
     <>
