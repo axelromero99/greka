@@ -29,7 +29,7 @@ const index: React.FC<{offersImages: string[]}> = ({offersImages}) => {
       <Box bg={"body"} height="1px" width="100%" />
       <HeroHeader />
       {offersImages && <SliderGrid offersImages={offersImages} />}
-      <FooterSection />
+      <InfoSection />
       <ImagesGrid />
       <Box bg={"body"} height="1px" width={"100%"} />
     </>
@@ -88,15 +88,6 @@ const heroHeaderVariants3 = {
 
 const HeroHeader: React.FC = () => {
   const {ref, inView} = useInView({triggerOnce: true, delay: 200});
-  const controls = useAnimation();
-
-  useEffect(() => {
-    if (inView) {
-      controls.start("visible1");
-      controls.start("visible2");
-      controls.start("visible3");
-    }
-  }, [inView]);
 
   return (
     <Flex
@@ -112,7 +103,7 @@ const HeroHeader: React.FC = () => {
     >
       <Box>
         <Heading
-          animate={controls}
+          animate={inView ? "visible1" : ""}
           as={motion.h1}
           color="white"
           fontFamily={"header"}
@@ -141,7 +132,7 @@ const HeroHeader: React.FC = () => {
           Fucking Grikas
         </Heading>
         <Heading
-          animate={controls}
+          animate={inView ? "visible2" : ""}
           as={motion.h3}
           color="white"
           fontWeight={500}
@@ -166,7 +157,7 @@ const HeroHeader: React.FC = () => {
           <br />
           <Text
             ref={ref}
-            animate={controls}
+            animate={inView ? "visible3" : ""}
             as={motion.p}
             color={"rgba(255,114,114,1)"}
             display="inline-block"
@@ -293,178 +284,104 @@ const SliderGrid: React.FC<{offersImages: string[]}> = ({offersImages}) => {
   );
 };
 
-//FOOTER SECTION COMPONENT
-//Modularizar en componente individual cada item de la sección
-const footerItemVariants1 = {
-  hidden: {opacity: 0, y: 50},
-  visible1: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  },
-};
+//Animaciones del componente IconWithText
+//La animación "visible" recibe el valor de la prop delayValue
 
-const footerItemVariants2 = {
+const IconWithTextVariants = {
   hidden: {
     opacity: 0,
     y: 50,
   },
-  visible2: {
+  visible: (delayValue) => ({
     opacity: 1,
     y: 0,
     transition: {
       duration: 0.6,
-      delay: 0.4,
+      delay: delayValue,
       ease: "easeOut",
     },
-  },
+  }),
 };
 
-const footerItemVariants3 = {
-  hidden: {
-    opacity: 0,
-    y: 50,
-  },
-  visible3: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      delay: 0.8,
-      ease: "easeOut",
-    },
-  },
-};
-
-const FooterSection: React.FC = () => {
+const InfoSection: React.FC = () => {
   const {ref, inView} = useInView({triggerOnce: true, delay: 300});
-  const controls = useAnimation();
-
-  useEffect(() => {
-    if (inView) {
-      controls.start("visible1");
-      controls.start("visible2");
-      controls.start("visible3");
-    }
-  }, [inView]);
 
   return (
-    <Flex
-      alignItems="center"
-      backgroundColor="rgb(109 192 198)"
-      color="white"
-      flexDirection={{base: "row"}}
-      flexWrap="wrap"
-      justifyContent="space-evenly"
-      minHeight="200"
-    >
-      <Center
+    <>
+      <Flex
         alignItems="center"
-        animate={controls}
-        as={motion.div}
-        flexDirection={{
-          base: "column",
-          md: "row",
-        }}
-        initial="hidden"
-        margin={5}
-        variants={footerItemVariants1}
+        backgroundColor="rgb(109 192 198)"
+        color="white"
+        flexDirection={{base: "row"}}
+        flexWrap="wrap"
+        justifyContent="space-evenly"
+        minHeight="200"
       >
-        <Box border="1px solid white" borderRadius="50%" padding={3}>
-          <BsFillCartFill size={40} />
-        </Box>
-        <Box
-          alignItems={{
-            base: "center",
-            md: "start",
-          }}
-          display={"flex"}
-          flexDirection={"column"}
-          marginLeft={{
-            base: 0,
-            md: 3,
-          }}
-          marginTop={2}
-        >
-          <Text fontWeight={800}>Viene el PM</Text>
-          <Text ref={ref} fontSize={"sm"} fontWeight={500}>
-            Ordenen todo viejo
-          </Text>
-        </Box>
-      </Center>
-      <Center
-        alignItems={"center"}
-        animate={controls}
-        as={motion.div}
-        flexDirection={{
-          base: "column",
-          md: "row",
+        <IconWithText
+          Icon={BsFillCartFill}
+          animateIn={inView}
+          delayValue={0}
+          description="aaaa"
+          title="probando"
+        />
+        <IconWithText
+          Icon={FaMoneyBill}
+          animateIn={inView}
+          delayValue={0.4}
+          description="risk of rain"
+          title="siempre has querido jugarlo"
+        />
+        <IconWithText
+          Icon={BsExclamationTriangleFill}
+          animateIn={inView}
+          delayValue={0.8}
+          description="hola"
+          title="como estas"
+        />
+      </Flex>
+      <div ref={ref} />
+    </>
+  );
+};
+
+const IconWithText = ({title, description, Icon, animateIn, delayValue}) => {
+  return (
+    <Center
+      alignItems={"center"}
+      animate={animateIn ? "visible" : ""}
+      as={motion.div}
+      custom={delayValue}
+      flexDirection={{
+        base: "column",
+        md: "row",
+      }}
+      initial="hidden"
+      marginX={10}
+      marginY={5}
+      variants={IconWithTextVariants}
+    >
+      <Box border="1px solid white" borderRadius={"50%"} padding={3}>
+        <Icon size={40} />
+      </Box>
+      <Box
+        alignItems={{
+          base: "center",
+          md: "start",
         }}
-        initial="hidden"
-        margin={5}
-        variants={footerItemVariants2}
-      >
-        <Box border={"1px solid white"} borderRadius={"50%"} padding={3}>
-          <FaMoneyBill size={40} />
-        </Box>
-        <Box
-          alignItems={{
-            base: "center",
-            md: "start",
-          }}
-          display={"flex"}
-          flexDirection={"column"}
-          marginLeft={{
-            base: 0,
-            md: 3,
-          }}
-          marginTop={2}
-        >
-          <Text fontWeight={800}>Part Time</Text>
-          <Text fontSize={"sm"} fontWeight={500}>
-            Desde casita
-          </Text>
-        </Box>
-      </Center>
-      <Center
-        alignItems={"center"}
-        animate={controls}
-        as={motion.div}
-        flexDirection={{
-          base: "column",
-          md: "row",
+        display={"flex"}
+        flexDirection={"column"}
+        marginLeft={{
+          base: 0,
+          md: 3,
         }}
-        initial="hidden"
-        marginX={10}
-        marginY={5}
-        variants={footerItemVariants3}
+        marginTop={2}
       >
-        <Box border="1px solid white" borderRadius={"50%"} padding={3}>
-          <BsExclamationTriangleFill size={40} />
-        </Box>
-        <Box
-          alignItems={{
-            base: "center",
-            md: "start",
-          }}
-          display={"flex"}
-          flexDirection={"column"}
-          marginLeft={{
-            base: 0,
-            md: 3,
-          }}
-          marginTop={2}
-        >
-          <Text fontWeight={800}>Cuidado</Text>
-          <Text fontSize={"sm"} fontWeight={500}>
-            Flujo Tubular
-          </Text>
-        </Box>
-      </Center>
-    </Flex>
+        <Text fontWeight={800}>{title}</Text>
+        <Text fontSize={"sm"} fontWeight={500}>
+          {description}
+        </Text>
+      </Box>
+    </Center>
   );
 };
 
