@@ -1,5 +1,5 @@
 import React from "react";
-import {Grid, GridItem, Stack, Center, Box, Image, Text, PseudoBox} from "@chakra-ui/react";
+import {Grid, GridItem, Stack, Center, Box, Image, Text} from "@chakra-ui/react";
 import Link from "next/link";
 
 const ImagesGrid: React.FC = () => {
@@ -10,9 +10,16 @@ const ImagesGrid: React.FC = () => {
           <GridItem bg="black" colSpan={2} height="40vh">
             <Link href="/categories/tops-remeras">
               <a>
-                <Box bg="black" h="100%" justifyContent="center" position="relative" w="100%">
+                <Box
+                  bg="black"
+                  h="100%"
+                  justifyContent="center"
+                  overflow="hidden"
+                  position="relative"
+                  w="100%"
+                >
                   <Image
-                    _hover={{opacity: "0.7"}}
+                    _hover={{opacity: "0.7", transform: "scale(1.1)"}}
                     fit="cover"
                     h="100%"
                     src="https://images.pexels.com/photos/8929812/pexels-photo-8929812.jpeg?auto=compress&cs=tinysrgb&w=1260&h=500&dpr=1"
@@ -42,9 +49,16 @@ const ImagesGrid: React.FC = () => {
           <GridItem colSpan={2} height="40vh">
             <Link href="/categories/shorts-polleras">
               <a>
-                <Box bg="black" h="100%" justifyContent="center" position="relative" w="100%">
+                <Box
+                  bg="black"
+                  h="100%"
+                  justifyContent="center"
+                  overflow="hidden"
+                  position="relative"
+                  w="100%"
+                >
                   <Image
-                    _hover={{opacity: "0.7"}}
+                    _hover={{opacity: "0.7", transform: "scale(1.1)"}}
                     fit="cover"
                     height="100%"
                     src="https://media.istockphoto.com/photos/beautiful-woman-smiling-picture-id507904690?k=20&m=507904690&s=612x612&w=0&h=AyPWlWtfsIE7v-WXyamX2f_ggqzPn4yka1QRTyhhbok="
@@ -74,9 +88,16 @@ const ImagesGrid: React.FC = () => {
             <Box h="100%" justifyContent="center" position="relative" w="100%">
               <Link href="/categories/jeans">
                 <a style={{height: "100%"}}>
-                  <Box bg="black" h="100%" justifyContent="center" position="relative" w="100%">
+                  <Box
+                    bg="black"
+                    h="100%"
+                    justifyContent="center"
+                    overflow="hidden"
+                    position="relative"
+                    w="100%"
+                  >
                     <Image
-                      _hover={{opacity: "0.7"}}
+                      _hover={{opacity: "0.7", transform: "scale(1.1)"}}
                       align="center"
                       fit="cover"
                       height="100%"

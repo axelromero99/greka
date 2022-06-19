@@ -1,22 +1,12 @@
-import React, {useEffect} from "react";
-import {
-  Box,
-  Button,
-  Heading,
-  Flex,
-  Grid,
-  Center,
-  GridItem,
-  Text,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import React from "react";
+import {Box, Button, Heading, Flex, Grid, Center, GridItem, Text} from "@chakra-ui/react";
 import {GetServerSideProps} from "next";
 import Link from "next/link";
 import {BsFillCartFill} from "react-icons/bs";
 import {FaMoneyBill} from "react-icons/fa";
 import {BsExclamationTriangleFill} from "react-icons/bs";
 import {useInView} from "react-intersection-observer";
-import {motion, useAnimation} from "framer-motion";
+import {motion} from "framer-motion";
 
 import productApi from "../product/api";
 import ImageSlider from "../cart/components/CartDrawer/ImageSlider";
@@ -174,6 +164,7 @@ const HeroHeader: React.FC = () => {
 };
 
 // SLIDER COMPONENT
+
 const gridVariants = {
   hidden: {opacity: 0},
   visible: {
@@ -187,18 +178,11 @@ const gridVariants = {
 
 const SliderGrid: React.FC<{offersImages: string[]}> = ({offersImages}) => {
   const {ref, inView} = useInView({triggerOnce: true, delay: 200});
-  const controls = useAnimation();
-
-  useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    }
-  }, [inView]);
 
   return (
     <Center backgroundColor={"bg"} margin={0}>
       <Grid
-        animate={controls}
+        animate={inView ? "visible" : ""}
         as={motion.div}
         initial="hidden"
         maxWidth="900px"
@@ -284,25 +268,6 @@ const SliderGrid: React.FC<{offersImages: string[]}> = ({offersImages}) => {
   );
 };
 
-//Animaciones del componente IconWithText
-//La animación "visible" recibe el valor de la prop delayValue
-
-const IconWithTextVariants = {
-  hidden: {
-    opacity: 0,
-    y: 50,
-  },
-  visible: (delayValue) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      delay: delayValue,
-      ease: "easeOut",
-    },
-  }),
-};
-
 const InfoSection: React.FC = () => {
   const {ref, inView} = useInView({triggerOnce: true, delay: 300});
 
@@ -317,34 +282,68 @@ const InfoSection: React.FC = () => {
         justifyContent="space-evenly"
         minHeight="200"
       >
+        {/* vale la pena juntar la data en un array y renderizar estos 3 con un .map() ? */}
         <IconWithText
           Icon={BsFillCartFill}
           animateIn={inView}
           delayValue={0}
-          description="aaaa"
-          title="probando"
+          description="Dentro de las 4 avenidas"
+          title="Envios"
         />
         <IconWithText
           Icon={FaMoneyBill}
           animateIn={inView}
           delayValue={0.4}
-          description="risk of rain"
-          title="siempre has querido jugarlo"
+          description="Transferencia o Mercado Pago"
+          title="Aceptamos pagos online"
         />
         <IconWithText
           Icon={BsExclamationTriangleFill}
           animateIn={inView}
           delayValue={0.8}
-          description="hola"
-          title="como estas"
+          description="Válidos por 7 dias"
+          title="Cambios y devoluciones"
         />
       </Flex>
-      <div ref={ref} />
+      <div ref={ref} style={{margin: "0px"}} />
     </>
   );
 };
 
-const IconWithText = ({title, description, Icon, animateIn, delayValue}) => {
+//Animaciones del componente IconWithText
+//La animación "visible" recibe el valor de la prop delayValue
+
+const IconWithTextVariants = {
+  hidden: {
+    opacity: 0,
+    y: 50,
+  },
+  visible: (delayValue: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      delay: delayValue,
+      ease: "easeOut",
+    },
+  }),
+};
+
+interface IconWithTextPropTypes {
+  title: string;
+  description: string;
+  Icon: React.FC<{size: number}>;
+  animateIn: boolean;
+  delayValue: number;
+}
+
+const IconWithText: React.FC<IconWithTextPropTypes> = ({
+  title,
+  description,
+  Icon,
+  animateIn,
+  delayValue,
+}) => {
   return (
     <Center
       alignItems={"center"}
