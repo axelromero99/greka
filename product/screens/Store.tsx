@@ -18,6 +18,7 @@ const dynamicBanners = {
   vestidos: "url(/assets/banner/vestido.jpg)",
   "shorts-polleras": "url(/assets/banner/remeras2.jpg)",
   jeans: "url(/assets/banner/jeans.jpg)",
+  abrigos: "url(/assets/banner/abrigos.jpg)",
 };
 
 const StoreScreen: React.FC<Props> = ({products, categoryType}) => {
