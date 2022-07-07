@@ -14,9 +14,9 @@ interface Props {
 
 const dynamicBanners = {
   todos: "url(/assets/banner/banner.jpg)",
-  "tops-remeras": "url(/assets/banner/tops.jpg)",
+  "tops-remeras": "url(/assets/banner/remeras.jpg)",
   vestidos: "url(/assets/banner/vestido.jpg)",
-  "shorts-polleras": "url(/assets/banner/remeras2.jpg)",
+  "shorts-polleras": "url(/assets/banner/polleras.jpg)",
   jeans: "url(/assets/banner/jeans.jpg)",
   abrigos: "url(/assets/banner/abrigos.jpg)",
 };
@@ -26,13 +26,12 @@ const StoreScreen: React.FC<Props> = ({products, categoryType}) => {
   const [isCartOpen, toggleCart] = React.useState<boolean>(false);
   const bgBanner = dynamicBanners[categoryType];
 
-  console.log(categoryType);
-
   return (
     <>
       <Box bg={"body"} height="1px" width="100%" />
       <Flex
         alignItems="center"
+        filter="blur(2px)"
         height={"350px"}
         justifyContent="center"
         margin={0}
