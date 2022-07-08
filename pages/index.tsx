@@ -9,7 +9,7 @@ import {useInView} from "react-intersection-observer";
 import {motion} from "framer-motion";
 
 import productApi from "../product/api";
-import ImageSlider from "../cart/components/CartDrawer/ImageSlider";
+import ImageSlider from "../imageslider/ImageSlider";
 
 import ImagesGrid from "./ImagesGrid";
 
@@ -194,7 +194,7 @@ const SliderGrid: React.FC<{offersImages: string[]}> = ({offersImages}) => {
           md: "20px 1fr 20px 1fr",
         }}
         templateRows={{
-          base: "400px 200px",
+          base: "390px 200px",
           sm: "400px 230px",
           md: "30px 110px 110px 110px 110px 30px",
         }}
