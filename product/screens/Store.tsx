@@ -38,6 +38,7 @@ const StoreScreen: React.FC<Props> = ({products, categoryType}) => {
           backgroundImage: bgBanner,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
         width="100%"
         position={"relative"}
