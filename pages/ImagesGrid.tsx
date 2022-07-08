@@ -4,9 +4,16 @@ import Link from "next/link";
 
 const ImagesGrid: React.FC = () => {
   return (
-    <Center bg="bg" h="100vh" margin={0}>
-      <Stack width={["95%", "55%"]}>
-        <Grid templateColumns="repeat(4, 1fr)" templateRows="repeat(2, 1fr)">
+    <Center bg="bg" h={{base: "90vh", sm: "100vh"}} margin={0}>
+      <Stack
+        boxShadow="rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px"
+        width={["95%", "55%"]}
+      >
+        <Grid
+          boxShadow="rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px"
+          templateColumns="repeat(4, 1fr)"
+          templateRows="repeat(2, 1fr)"
+        >
           <GridItem bg="black" colSpan={2} height="40vh">
             <Link href="/categories/tops-remeras">
               <a>
@@ -28,13 +35,14 @@ const ImagesGrid: React.FC = () => {
                   />
 
                   <Text
-                    alignSelf="center"
+                    // alignSelf="center"
                     color="#fff"
                     fontFamily="body"
                     fontSize="2rem"
                     left="50%"
                     pointerEvents="none"
                     position="absolute"
+                    textAlign="center"
                     textShadow="2px 1px 1px #000"
                     top="50%"
                     transform="translate(-50%, -50%)"

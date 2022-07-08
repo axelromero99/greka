@@ -31,35 +31,35 @@ const StoreScreen: React.FC<Props> = ({products, categoryType}) => {
       <Box bg={"body"} height="1px" width="100%" />
       <Flex
         alignItems="center"
+        backgroundImage={bgBanner}
+        backgroundPosition="center"
+        backgroundRepeat="no-repeat"
+        backgroundSize="cover"
         height={"350px"}
         justifyContent="center"
         margin={0}
-        backgroundImage="bgBanner"
-        backgroundRepeat="no-repeat"
-        backgroundSize="cover"
-        backgroundPosition="center"
-        width="100%"
         position={"relative"}
+        width="100%"
       >
         {/* This is the element that handles the background-image blur filter */}
-      <Flex
-        content=""
-        position={"absolute"}
-        top={0}
-        left={0}
-        right={0}
-        bottom={0}
-        width={"100%"}
-        height={"100%"}
-        backdropFilter={"blur(2px) brightness(90%)"}
-      />
+        <Flex
+          backdropFilter={"blur(2px) brightness(90%)"}
+          bottom={0}
+          content=""
+          height={"100%"}
+          left={0}
+          position={"absolute"}
+          right={0}
+          top={0}
+          width={"100%"}
+        />
         <Heading
           color={"white"}
           fontFamily={"body"}
+          position="relative"
           textAlign={"center"}
           textShadow="2px 2px 1px rgba(205,64,64,1)"
           textTransform={"uppercase"}
-          position="relative"
         >
           {categoryType}
         </Heading>

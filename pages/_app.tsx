@@ -6,6 +6,7 @@ import Router from "next/router";
 import {AppProps} from "next/app";
 import NProgress from "nprogress";
 
+import Footer from "../footer/Footer";
 import WithSubnavigation from "../navbar/components/navbar";
 import theme from "../theme";
 import Loading from "../loading/Loading";
@@ -46,60 +47,7 @@ const App: React.FC<AppProps> = ({Component, pageProps}) => {
                 <Component {...pageProps} />
               </Stack>
             </Container>
-            <Container
-              alignItems={{base: "start", md: "center"}}
-              backgroundColor="bg"
-              display="flex"
-              flexDirection={{base: "column", md: "row"}}
-              height="20"
-              justifyContent={{base: "center", md: "center"}}
-              margin="0"
-              maxW="100%"
-              textAlign={{base: "left", md: "center"}}
-            >
-              <Flex alignItems={"center"} justifyContent={"center"} width={"100%"}>
-                <Text color={"tertiary"} fontFamily={"body"} fontWeight={500} textAlign={"center"}>
-                  © Copyright {new Date().getFullYear()}. GREKA SHOWROOM
-                </Text>
-
-                <Flex position={{base: "block", sm: "absolute"}} right={6}>
-                  <Link isExternal href={"https://www.instagram.com/grekashowroom/"} marginX={2}>
-                    <Flex
-                      alignItems="center"
-                      backgroundColor={"transparent"}
-                      borderRadius={9999}
-                      height={8}
-                      justifyContent={"center"}
-                      opacity={0.7}
-                      width={8}
-                    >
-                      <Image src={"/assets/icons/instagram.svg"} />
-                    </Flex>
-                  </Link>
-                  <Link
-                    isExternal
-                    href={
-                      "https://mail.google.com/mail/?view=cm&source=mailto&to=grekashowroom@gmail.com"
-                    }
-                  >
-                    <Flex
-                      alignItems="center"
-                      backgroundColor={"transparent"}
-                      borderRadius={9999}
-                      color={"tertiary"}
-                      height={8}
-                      justifyContent="center"
-                      opacity={0.7}
-                      paddingBottom={0.5}
-                      width={8}
-                    >
-                      <Image src={"/assets/icons/envelope.svg"} />
-                    </Flex>
-                  </Link>
-                </Flex>
-              </Flex>
-              {/* </Stack> */}
-            </Container>
+            <Footer />
           </>
         )}
       </ChakraProvider>
