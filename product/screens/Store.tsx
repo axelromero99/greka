@@ -52,13 +52,13 @@ const StoreScreen: React.FC<Props> = ({products, categoryType}) => {
         bottom={0}
         width={"100%"}
         height={"100%"}
-        backdropFilter={"blur(2px)"}
+        backdropFilter={"blur(2px) brightness(90%)"}
       />
         <Heading
           color={"white"}
           fontFamily={"body"}
           textAlign={"center"}
-          textShadow="2px 2px 1px rgba(255,114,114,1)"
+          textShadow="2px 2px 1px rgba(205,64,64,1)"
           textTransform={"uppercase"}
           position="relative"
         >
