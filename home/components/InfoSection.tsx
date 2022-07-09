@@ -5,7 +5,7 @@ import {FaMoneyBill} from "react-icons/fa";
 import {BsExclamationTriangleFill} from "react-icons/bs";
 import {useInView} from "react-intersection-observer";
 
-import InfoSectionData from "../components/InfoSectionData"
+import InfoSectionData from "../components/InfoSectionData";
 
 const InfoSection: React.FC = () => {
   const {ref, inView} = useInView({triggerOnce: true, delay: 300});
