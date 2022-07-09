@@ -14,7 +14,7 @@ const ImageSlider: React.FC<Prop> = ({slides}) => {
       autoPlay={true}
       dynamicHeight={false}
       emulateTouch={false}
-      showArrows={false}
+      showArrows={true}
       showIndicators={false}
       showStatus={false}
       showThumbs={false}
