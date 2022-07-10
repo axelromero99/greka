@@ -48,13 +48,13 @@ const OffersSlider: React.FC<{offersImages: string[]}> = ({offersImages}) => {
           display={"flex"}
           flexDirection="column"
           justifyContent="center"
+          overflow="hidden"
           rowEnd={{base: 2, md: 7}}
           rowStart={{base: 1, md: 1}}
         >
           <ImageSlider slides={offersImages} />
         </GridItem>
         <GridItem
-          boxShadow={"2px 2px 12px rgba(1,1,1,0.3)"}
           colEnd={{base: 4, md: 5}}
           colStart={{base: 1, md: 1}}
           rowEnd={{base: 3, md: 6}}
@@ -79,8 +79,8 @@ const OffersSlider: React.FC<{offersImages: string[]}> = ({offersImages}) => {
           flexDirection="column"
           justifyContent="space-between"
           padding={{base: 6, md: 10}}
-          rowEnd={{base: 3, md: 6}}
-          rowStart={{base: 2, md: 2}}
+          rowEnd={{base: 3, md: 5}}
+          rowStart={{base: 2, md: 3}}
           w="100%"
         >
           <Heading alignSelf="center" as="h3" fontFamily="header" fontSize="2xl">

@@ -23,6 +23,7 @@ import {CartItem} from "../types";
 import {getCartItemPrice} from "../utils";
 import ImageSlider from "../../imageslider/ImageSlider";
 
+/* Defining the props that the component will take in. */
 interface Props extends Omit<DrawerProps, "children"> {
   item: CartItem;
   onClose: VoidFunction;
@@ -65,7 +66,6 @@ const CartItemDrawer: React.FC<Props> = ({item, onClose, onSubmit, ...props}) =>
             <Stack divider={<Divider />} spacing={6}>
               <Stack>
                 <ImageSlider slides={item.gallery.split(",")} />
-
                 <Text color="gray.500">{item.description}</Text>
               </Stack>
               {options.length ? (
