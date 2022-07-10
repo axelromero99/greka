@@ -3,7 +3,7 @@ import {GetServerSideProps} from "next";
 
 import {Product} from "../../product/types";
 import productApi from "../../product/api";
-import StoreScreen from "../../product/screens/Store";
+import StoreScreen from "../../product/components/Store";
 import CartProvider from "../../cart/context";
 
 interface Props {

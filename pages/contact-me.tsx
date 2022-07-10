@@ -26,7 +26,6 @@ export default function contactMe() {
 
   return (
     <>
-      {/* ABOUT US */}
       <Grid
         bg="bgSecondary"
         justifyContent="center"
@@ -133,7 +132,13 @@ export default function contactMe() {
                       fontSize={{base: "lg", md: "xl", "2xl": "2xl"}}
                       m="auto"
                     >
-                      @grekashowroom
+                      <a
+                        href="https://www.instagram.com/grekashowroom/?hl=es"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        @grekashowroom
+                      </a>
                     </Text>
                   </Flex>
                 </Flex>

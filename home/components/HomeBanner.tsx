@@ -6,12 +6,13 @@ import {motion} from "framer-motion";
 const HomeBanner: React.FC = () => {
   const {ref, inView} = useInView({triggerOnce: true, delay: 200});
 
-  const bannerVariants1 = {
+  //Variantes de animaciones del Banner
+  const headingVariants = {
     hidden: {
       opacity: 0,
       y: 100,
     },
-    visible1: {
+    visible: {
       opacity: 1,
       y: 0,
       transition: {
@@ -21,36 +22,20 @@ const HomeBanner: React.FC = () => {
     },
   };
 
-  const bannerVariants2 = {
+  const secondaryHeadingVariants = {
     hidden: {
       opacity: 0,
       y: 70,
     },
-    visible2: {
+    visible: (extraDelay = 0) => ({
       opacity: 1,
       y: 0,
       transition: {
         duration: 0.6,
-        delay: 0.45,
+        delay: 0.45 + extraDelay,
         ease: "easeOut",
       },
-    },
-  };
-
-  const bannerVariants3 = {
-    hidden: {
-      opacity: 0,
-      y: 70,
-    },
-    visible3: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        delay: 0.6,
-        ease: "easeOut",
-      },
-    },
+    }),
   };
 
   return (
@@ -67,7 +52,7 @@ const HomeBanner: React.FC = () => {
     >
       <Box>
         <Heading
-          animate={inView ? "visible1" : ""}
+          animate={inView ? "visible" : ""}
           as={motion.h1}
           color="white"
           fontFamily={"header"}
@@ -91,12 +76,12 @@ const HomeBanner: React.FC = () => {
             base: "10%",
             md: "17%",
           }}
-          variants={bannerVariants1}
+          variants={headingVariants}
         >
-          Fucking Grikas
+          Greka Showroom
         </Heading>
         <Heading
-          animate={inView ? "visible2" : ""}
+          animate={inView ? "visible" : ""}
           as={motion.h3}
           color="white"
           fontWeight={500}
@@ -115,19 +100,20 @@ const HomeBanner: React.FC = () => {
             base: "20%",
             md: "27%",
           }}
-          variants={bannerVariants2}
+          variants={secondaryHeadingVariants}
         >
           Conseguí tu primera
           <br />
           <Text
             ref={ref}
-            animate={inView ? "visible3" : ""}
+            animate={inView ? "visible" : ""}
             as={motion.p}
             color={"rgba(255,114,114,1)"}
+            custom={0.15}
             display="inline-block"
             initial="hidden"
             textShadow="2px 2px 1px white"
-            variants={bannerVariants3}
+            variants={secondaryHeadingVariants}
           >
             Motomel Blitz 0km.
           </Text>

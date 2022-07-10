@@ -6,7 +6,7 @@ import Router from "next/router";
 import {AppProps} from "next/app";
 import NProgress from "nprogress";
 
-import Footer from "../footer/Footer";
+import Footer from "../footer/components/Footer";
 import WithSubnavigation from "../navbar/components/navbar";
 import theme from "../theme";
 import Loading from "../loading/Loading";

@@ -3,7 +3,7 @@ import {GetStaticProps, GetStaticPaths} from "next";
 
 import {Product} from "../../product/types";
 import productApi from "../../product/api";
-import StoreScreen from "../../product/screens/Store";
+import StoreScreen from "../../product/components/Store";
 import CartProvider from "../../cart/context";
 
 interface Props {
@@ -34,10 +34,13 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
       products,
       categoryType,
     },
+    revalidate: 10, // In seconds
   };
 };
 
-export const getStaticPaths: GetStaticPaths<{categoryType: string}> = async () => {
+export const getStaticPaths: GetStaticPaths<{
+  categoryType: string;
+}> = async () => {
   return {
     paths: [
       {params: {categoryType: "todos"}},

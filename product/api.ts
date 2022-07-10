@@ -106,6 +106,11 @@ function normalize(data: (RawProduct | RawOption)[]) {
   return normalized;
 }
 
+/**
+ * It takes an array of raw products and options, and returns an array of normalized offers
+ * @param {(RawProduct | RawOption)[]} data - (RawProduct | RawOption)[]
+ * @returns An array of IProducts
+ */
 function normalizeOffers(data: (RawProduct | RawOption)[]) {
   const products = new Map<RawProduct["id"], Product>();
 
