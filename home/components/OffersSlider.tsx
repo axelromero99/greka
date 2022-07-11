@@ -55,6 +55,7 @@ const OffersSlider: React.FC<{offersImages: string[]}> = ({offersImages}) => {
           <ImageSlider slides={offersImages} />
         </GridItem>
         <GridItem
+          ref={ref} 
           colEnd={{base: 4, md: 5}}
           colStart={{base: 1, md: 1}}
           rowEnd={{base: 3, md: 6}}
@@ -86,7 +87,7 @@ const OffersSlider: React.FC<{offersImages: string[]}> = ({offersImages}) => {
           <Heading alignSelf="center" as="h3" fontFamily="header" fontSize="2xl">
             ¿Buscas descuentos?
           </Heading>
-          <Heading ref={ref} as={"h5"} fontFamily={"navbar"} lineHeight={2} size={"sm"}>
+          <Heading as={"h5"} fontFamily={"navbar"} lineHeight={2} size={"sm"}>
             Hasta 30% off en estas prendas!
           </Heading>
           <Button
