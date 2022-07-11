@@ -15,7 +15,7 @@ import {
   useDisclosure,
   Heading,
 } from "@chakra-ui/react";
-import {AiOutlineHome, AiOutlineSearch} from "react-icons/ai";
+import {AiOutlineHome} from "react-icons/ai";
 import {RiTShirtLine} from "react-icons/ri";
 import {BsChatDots} from "react-icons/bs";
 import {Link as ChakraLink} from "@chakra-ui/react";
@@ -217,8 +217,9 @@ const MobileNav = () => {
   );
 };
 
-const MobileNavItem = ({label, children, href}: NavItem) => {
-  const {isOpen, onToggle} = useDisclosure();
+const MobileNavItem = ({label, children, href, type}: NavItem) => {
+  const {isOpen, onToggle} = useDisclosure(); 
+  const hrefProp = href ? {href: href} : null;
 
   return (
     <Stack spacing={4} onClick={children && onToggle}>
@@ -227,8 +228,9 @@ const MobileNavItem = ({label, children, href}: NavItem) => {
           textDecoration: "none",
         }}
         align={"center"}
-        as={ChakraLink}
+        as={type === "collapsable" ? "div" : ChakraLink}
         href={href ?? "#"}
+        {...hrefProp}
         justify={"space-between"}
         py={2}
       >
@@ -273,18 +275,21 @@ interface NavItem {
   subLabel?: string;
   children?: Array<NavItem>;
   href?: string;
+  type?: "link" | "collapsable";
 }
 
 const NAV_ITEMS: Array<NavItem> = [
   {
     label: "Inicio",
+    type: "link",
     href: "/",
     icon: "AiOutlineHome",
   },
   {
     label: "Productos",
-    href: "/categories/todos",
+    href: "#",
     icon: "RiTShirtLine",
+    type: "collapsable",
     children: [
       {
         label: "Todos",
@@ -316,5 +321,6 @@ const NAV_ITEMS: Array<NavItem> = [
     label: "Contactanos",
     href: "/contact-me",
     icon: "BsChatDots",
+    type: "link",
   },
 ];
