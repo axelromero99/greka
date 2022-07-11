@@ -4,7 +4,7 @@ import Link from "next/link";
 import {useInView} from "react-intersection-observer";
 import {motion} from "framer-motion";
 
-import ImageSlider from "../../imageslider/ImageSlider";
+import ImageSlider from "../../imageslider/components/ImageSlider";
 
 const OffersSlider: React.FC<{offersImages: string[]}> = ({offersImages}) => {
   const {ref, inView} = useInView({triggerOnce: true, delay: 200});

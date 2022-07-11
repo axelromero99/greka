@@ -15,7 +15,6 @@ import {
   DrawerBody,
   Divider,
 } from "@chakra-ui/react";
-// import {ChevronLeftIcon} from "@chakra-ui/icons";
 
 import {useCart} from "../../context";
 import {CartItem} from "../../types";

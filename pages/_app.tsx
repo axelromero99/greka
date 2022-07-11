@@ -9,7 +9,7 @@ import NProgress from "nprogress";
 import Footer from "../footer/components/Footer";
 import WithSubnavigation from "../navbar/components/navbar";
 import theme from "../theme";
-import Loading from "../loading/Loading";
+import Loading from "../loading/components/Loading";
 NProgress.configure({showSpinner: false});
 
 const App: React.FC<AppProps> = ({Component, pageProps}) => {

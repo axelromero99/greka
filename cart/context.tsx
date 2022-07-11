@@ -92,6 +92,12 @@ const CartProvider: React.VFC<Props> = (props) => {
 
 export function useCart(): [Context["state"], Context["actions"]] {
   const {state, actions} = React.useContext(CartContext);
+  const {quantity} = state;
+
+  React.useEffect(() => {
+    console.log(quantity);
+    sessionStorage.setItem("cartQuantity", String(quantity));
+  }, [quantity]);
 
   return [state, actions];
 }

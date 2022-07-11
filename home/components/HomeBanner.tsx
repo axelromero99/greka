@@ -102,20 +102,20 @@ const HomeBanner: React.FC = () => {
           }}
           variants={secondaryHeadingVariants}
         >
-          Conseguí tu primera
+          Te vestimos
           <br />
           <Text
             ref={ref}
             animate={inView ? "visible" : ""}
             as={motion.p}
-            color={"rgba(255,114,114,1)"}
+            color={"button"}
             custom={0.15}
             display="inline-block"
             initial="hidden"
             textShadow="2px 2px 1px white"
             variants={secondaryHeadingVariants}
           >
-            Motomel Blitz 0km.
+            como nadie más.
           </Text>
         </Heading>
       </Box>
