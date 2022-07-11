@@ -30,8 +30,11 @@ const SearchBar: NextPage = () => {
       <InputLeftElement children={<AiOutlineSearch color="gray.300" />} pb={2} />
       <Input
         _focus={{boxShadow: "none"}}
-        backgroundColor="bg"
-        border="1px solid black"
+        backgroundColor="#f8f8f8"
+        border="1px solid rgba(1,1,1,0.5)"
+        _focusVisible={{
+          border: "1px solid rgba(1,1,1,0.9)"
+        }}
         borderRadius="10"
         placeholder="Buscar productos..."
         size="sm"
