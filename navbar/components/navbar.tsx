@@ -14,18 +14,25 @@ import {
   useColorModeValue,
   useDisclosure,
   Heading,
+  Center,
 } from "@chakra-ui/react";
 import {AiOutlineHome} from "react-icons/ai";
 import {RiTShirtLine} from "react-icons/ri";
-import {BsChatDots} from "react-icons/bs";
+import {BsChatDots, BsCart2} from "react-icons/bs";
 import {Link as ChakraLink} from "@chakra-ui/react";
 import {HamburgerIcon, CloseIcon, ChevronDownIcon, ChevronRightIcon} from "@chakra-ui/icons";
 import Link from "next/link";
+
+import {useCart} from "../../cart/context";
+import CartDrawer from "../../cart/components/CartDrawer/CartDrawer";
 
 import SearchBar from "./searchBar";
 
 export default function WithSubnavigation(): JSX.Element {
   const {isOpen, onToggle} = useDisclosure();
+
+  //TEMPORTAL
+  //const [cartQuantity, setCartQuantity] = React.useState<number>(+sessionStorage.getItem("cartQuantity"));
 
   return (
     <Box>
@@ -37,28 +44,16 @@ export default function WithSubnavigation(): JSX.Element {
       >
         <Flex
           alignItems={"center"}
-          display={{base: "flex", md: "none"}}
-          flex={{base: 0, md: 1}}
-          ml={{base: -2}}
-        >
-          <IconButton
-            aria-label={"Toggle Navigation"}
-            icon={isOpen ? <CloseIcon h={3} w={3} /> : <HamburgerIcon h={5} w={5} />}
-            ml={3}
-            variant={"ghost"}
-            onClick={onToggle}
-          />
-        </Flex>
-        <Flex
-          alignItems={"center"}
           flex={{base: 1}}
           justifyContent={{base: "center", md: "start"}}
-          marginLeft={{base: -6, md: 5}}
+          marginLeft={{md: 5}}
+          ml={{sm: 2}}
+          px={2}
         >
           <Box cursor={"pointer"}>
             <Link href={"/"}>
               <a>
-                <Heading color={"#333"} fontFamily={"header"}>
+                <Heading color={"#333"} fontFamily={"header"} fontSize={{base: 24, md: 30}}>
                   Greka
                 </Heading>
               </a>
@@ -67,10 +62,10 @@ export default function WithSubnavigation(): JSX.Element {
           <Flex
             alignItems="center"
             color="#444"
-            display={{base: "none", md: "flex"}}
+            display={"flex"}
             flex={"1"}
             justifyContent="center"
-            ml={10}
+            ml={{base: 0, md: 10}}
           >
             <Flex maxWidth="900px" width="85%">
               <SearchBar />
@@ -78,8 +73,37 @@ export default function WithSubnavigation(): JSX.Element {
             <DesktopNav />
           </Flex>
         </Flex>
-      </Flex>
+        <Flex
+          alignItems={"center"}
+          display={{base: "flex", md: "none"}}
+          flex={{base: 0, md: 1}}
+          ml={{base: -4}}
+          mr={{sm: 2}}
+        >
+          <Box position="relative">
+            <IconButton aria-label={"View Shopcart"} icon={<BsCart2 />} size={"lg"} />
+            <Center
+              position="absolute"
+              top={0}
+              right={0}
+              bg="pink.700"
+              color="white"
+              width="20px"
+              height="20px"
+              borderRadius="50%"
+            >
+              {8}
+            </Center>
+          </Box>
 
+          <IconButton
+            aria-label={"Toggle Navigation"}
+            icon={isOpen ? <CloseIcon h={3} w={3} /> : <HamburgerIcon h={5} w={5} />}
+            variant={"ghost"}
+            onClick={onToggle}
+          />
+        </Flex>
+      </Flex>
       <Collapse animateOpacity in={isOpen}>
         <MobileNav />
       </Collapse>
@@ -93,7 +117,7 @@ const DesktopNav = () => {
   return (
     <Stack
       direction={"row"}
-      display={"flex"}
+      display={{base: "none", md: "flex"}}
       flex={"1"}
       justifyContent={"end"}
       justifySelf={"end"}
@@ -138,6 +162,7 @@ const DesktopNav = () => {
                       <RiTShirtLine color={"tertiary"} size={"30"} />
                     )}
                     {navItem.icon === "BsChatDots" && <BsChatDots color={"tertiary"} size={"30"} />}
+                    {navItem.icon === "BsCart2" && <BsCart2 color={"tertiary"} size={"30"} />}
                     <Text fontWeight={500} pt={1}>
                       {navItem.label}
                     </Text>
@@ -209,8 +234,8 @@ const DesktopSubNav = ({label, href, subLabel, icon}: NavItem) => {
 
 const MobileNav = () => {
   return (
-    <Stack bg={useColorModeValue("white", "gray.800")} display={{md: "none"}} p={4}>
-      {NAV_ITEMS.map((navItem) => (
+    <Stack bg={useColorModeValue("bg", "gray.800")} display={{md: "none"}} p={4}>
+      {NAV_ITEMS.filter((item) => item.type !== "carrito").map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
     </Stack>
@@ -218,7 +243,7 @@ const MobileNav = () => {
 };
 
 const MobileNavItem = ({label, children, href, type}: NavItem) => {
-  const {isOpen, onToggle} = useDisclosure(); 
+  const {isOpen, onToggle} = useDisclosure();
   const hrefProp = href ? {href: href} : null;
 
   return (
@@ -275,15 +300,15 @@ interface NavItem {
   subLabel?: string;
   children?: Array<NavItem>;
   href?: string;
-  type?: "link" | "collapsable";
+  type?: "link" | "collapsable" | "carrito";
 }
 
 const NAV_ITEMS: Array<NavItem> = [
   {
     label: "Inicio",
-    type: "link",
     href: "/",
     icon: "AiOutlineHome",
+    type: "link",
   },
   {
     label: "Productos",
@@ -322,5 +347,11 @@ const NAV_ITEMS: Array<NavItem> = [
     href: "/contact-me",
     icon: "BsChatDots",
     type: "link",
+  },
+  {
+    label: "Mi Carrito",
+    href: "#",
+    icon: "BsCart2",
+    type: "carrito",
   },
 ];

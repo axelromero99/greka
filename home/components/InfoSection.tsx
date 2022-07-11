@@ -26,15 +26,15 @@ const InfoSection: React.FC = () => {
           Icon={BsFillCartFill}
           animateIn={inView}
           delayValue={0}
-          description="Dentro de las 4 avenidas"
-          title="Envios"
+          description="A todo el país"
+          title="Envíos"
         />
         <InfoSectionData
           Icon={FaMoneyBill}
           animateIn={inView}
           delayValue={0.4}
-          description="Transferencia o Mercado Pago"
-          title="Aceptamos pagos online"
+          description="Efectivo, tarjetas de crédito y débito"
+          title="Medios de pago"
         />
         <InfoSectionData
           Icon={BsExclamationTriangleFill}

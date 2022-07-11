@@ -37,8 +37,8 @@ const ImagesGrid: React.FC = () => {
                   <Text
                     // alignSelf="center"
                     color="#fff"
-                    fontFamily="body"
-                    fontSize="2rem"
+                    fontFamily="header"
+                    fontSize={{base: "1.5rem", md: "2rem"}}
                     left="50%"
                     pointerEvents="none"
                     position="absolute"
@@ -77,8 +77,8 @@ const ImagesGrid: React.FC = () => {
                   <Text
                     alignSelf="center"
                     color="#fff"
-                    fontFamily="body"
-                    fontSize="2rem"
+                    fontFamily="header"
+                    fontSize={{base: "1.5rem", md: "2rem"}}
                     left="50%"
                     pointerEvents="none"
                     position="absolute"
@@ -118,8 +118,8 @@ const ImagesGrid: React.FC = () => {
                     <Text
                       alignSelf="center"
                       color="#fff"
-                      fontFamily="body"
-                      fontSize="2rem"
+                      fontFamily="header"
+                      fontSize={{base: "1.5rem", md: "2rem"}}
                       left="50%"
                       pointerEvents="none"
                       position="absolute"

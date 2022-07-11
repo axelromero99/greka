@@ -26,14 +26,16 @@ const SearchBar: NextPage = () => {
   }, [debouncedSearch]);
 
   return (
-    <InputGroup minWidth="55%" maxWidth={"300px"}>
-      <InputLeftElement children={<AiOutlineSearch color="gray.300" />} pb={2} />
+    <InputGroup minWidth={{base: "100%", md: "55%"}} maxWidth={{sm: "200px", md: "300px"}}>
+      <InputLeftElement pb={2}>
+        <AiOutlineSearch color="gray.300" />
+      </InputLeftElement>
       <Input
         _focus={{boxShadow: "none"}}
-        backgroundColor="#f8f8f8"
+        backgroundColor="#f6f6f6"
         border="1px solid rgba(1,1,1,0.5)"
         _focusVisible={{
-          border: "1px solid rgba(1,1,1,0.9)"
+          border: "1px solid rgba(1,1,1,0.9)",
         }}
         borderRadius="10"
         placeholder="Buscar productos..."
