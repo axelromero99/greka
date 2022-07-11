@@ -26,7 +26,7 @@ const SearchBar: NextPage = () => {
   }, [debouncedSearch]);
 
   return (
-    <InputGroup width="50%">
+    <InputGroup minWidth="55%" maxWidth={"300px"}>
       <InputLeftElement children={<AiOutlineSearch color="gray.300" />} pb={2} />
       <Input
         _focus={{boxShadow: "none"}}
