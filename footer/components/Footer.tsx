@@ -1,5 +1,5 @@
 import React from "react";
-import {Text, Image, Container, Link, Flex, Divider, Heading} from "@chakra-ui/react";
+import {Text, Image, Container, Link, Flex, Divider} from "@chakra-ui/react";
 
 const Footer: React.FC = () => {
   return (
@@ -9,9 +9,7 @@ const Footer: React.FC = () => {
         backgroundColor="bg"
         display="flex"
         flexDirection={{base: "column", md: "row"}}
-        // height="20"
         justifyContent={{base: "center", md: "center"}}
-        // margin="0"
         maxW="100%"
         textAlign={{base: "left", md: "center"}}
       >

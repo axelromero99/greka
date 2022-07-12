@@ -7,11 +7,10 @@ import {getCartItemPrice, getCartItemOptionsSummary} from "../../utils";
 
 interface Props {
   cart: Cart;
-  onChange: (id: symbol, item: CartItem) => void;
+  onChange: (id: string, item: CartItem) => void;
 }
 
 const Details: React.FC<Props> = ({cart, onChange}) => {
-  console.log(cart)
   return (
     <Stack divider={<Divider />} spacing={4}>
       {Array.from(cart.entries()).map(([id, item]) => (

@@ -23,7 +23,6 @@ import {CartItem} from "../types";
 import {getCartItemPrice} from "../utils";
 import ImageSlider from "../../imageslider/components/ImageSlider";
 
-/* Defining the props that the component will take in. */
 interface Props extends Omit<DrawerProps, "children"> {
   item: CartItem;
   onClose: VoidFunction;

@@ -33,9 +33,9 @@ const SearchBar: NextPage = () => {
       <Input
         _focus={{boxShadow: "none"}}
         backgroundColor="#f6f6f6"
-        border="1px solid rgba(1,1,1,0.5)"
+        border="1px solid rgba(1,1,1,0.3)"
         _focusVisible={{
-          border: "1px solid rgba(1,1,1,0.9)",
+          border: "1px solid rgba(1,1,1,0.7)",
         }}
         borderRadius="10"
         placeholder="Buscar productos..."

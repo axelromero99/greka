@@ -1,12 +1,33 @@
 import React from "react";
 import {Grid, GridItem, Stack, Center, Box, Image, Text} from "@chakra-ui/react";
 import Link from "next/link";
+import {useInView} from "react-intersection-observer";
+import {motion} from "framer-motion";
+
+const gridVariants = {
+  hidden: {opacity: 0},
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 1,
+      ease: "easeInOut",
+      delay: 1,
+    },
+  },
+};
 
 const ImagesGrid: React.FC = () => {
+  const {ref, inView} = useInView({triggerOnce: true, delay: 200});
+
   return (
     <Center bg="bg" h={{base: "90vh", sm: "100vh"}} margin={0}>
       <Stack
+        ref={ref}
+        animate={inView ? "visible" : ""}
+        as={motion.div}
         boxShadow="rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px"
+        initial="hidden"
+        variants={gridVariants}
         width={["95%", "55%"]}
       >
         <Grid
