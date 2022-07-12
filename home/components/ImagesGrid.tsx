@@ -27,15 +27,15 @@ const ImagesGrid: React.FC = () => {
                 >
                   <Image
                     _hover={{opacity: "0.7", transform: "scale(1.1)"}}
+                    filter="brightness(0.8)"
                     fit="cover"
                     h="100%"
-                    src="https://images.pexels.com/photos/8929812/pexels-photo-8929812.jpeg?auto=compress&cs=tinysrgb&w=1260&h=500&dpr=1"
+                    src="https://res.cloudinary.com/dxgrn0qtx/image/upload/c_scale,q_70,w_824/v1657597231/topss_pesa9q.png"
                     transition="all 0.5s ease-out"
                     w="100%"
                   />
 
                   <Text
-                    // alignSelf="center"
                     color="#fff"
                     fontFamily="header"
                     fontSize={{base: "1.5rem", md: "2rem"}}
@@ -67,9 +67,10 @@ const ImagesGrid: React.FC = () => {
                 >
                   <Image
                     _hover={{opacity: "0.7", transform: "scale(1.1)"}}
+                    filter="brightness(0.8)"
                     fit="cover"
                     height="100%"
-                    src="https://media.istockphoto.com/photos/beautiful-woman-smiling-picture-id507904690?k=20&m=507904690&s=612x612&w=0&h=AyPWlWtfsIE7v-WXyamX2f_ggqzPn4yka1QRTyhhbok="
+                    src="https://res.cloudinary.com/dxgrn0qtx/image/upload/c_scale,q_70,w_901/v1657596976/pollerass_hc2ykn.png"
                     transition="all 0.5s ease-out"
                     width="100%"
                   />
@@ -107,10 +108,11 @@ const ImagesGrid: React.FC = () => {
                     <Image
                       _hover={{opacity: "0.7", transform: "scale(1.1)"}}
                       align="center"
+                      filter="brightness(0.8)"
                       fit="cover"
                       height="100%"
                       position="absolute"
-                      src="https://images.pexels.com/photos/2129970/pexels-photo-2129970.jpeg?auto=compress&cs=tinysrgb&w=1200&h=500&dpr=1"
+                      src="https://res.cloudinary.com/dxgrn0qtx/image/upload/c_scale,q_70,w_962/v1657597571/jeanss_fsndjo.png"
                       transition="all 0.5s ease-out"
                       width="100%"
                       z-index="-1"

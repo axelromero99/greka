@@ -15,20 +15,12 @@ const InfoSection: React.FC = () => {
       <Flex
         alignItems="center"
         backgroundColor="rgb(109 192 198)"
-        color="white"
+        color="#eee"
         flexDirection={{base: "row"}}
         flexWrap="wrap"
         justifyContent="space-evenly"
         minHeight="200"
       >
-        {/* vale la pena juntar la data en un array y renderizar estos 3 con un .map() ? */}
-        <InfoSectionData
-          Icon={BsFillCartFill}
-          animateIn={inView}
-          delayValue={0}
-          description="A todo el país"
-          title="Envíos"
-        />
         <InfoSectionData
           Icon={FaMoneyBill}
           animateIn={inView}
@@ -42,6 +34,13 @@ const InfoSection: React.FC = () => {
           delayValue={0.8}
           description="Válidos por 7 dias"
           title="Cambios y devoluciones"
+        />
+        <InfoSectionData
+          Icon={BsFillCartFill}
+          animateIn={inView}
+          delayValue={0}
+          description="A todo el país"
+          title="Envíos"
         />
       </Flex>
       <div ref={ref} style={{margin: "0px"}} />

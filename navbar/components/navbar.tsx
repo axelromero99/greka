@@ -83,14 +83,14 @@ export default function WithSubnavigation(): JSX.Element {
           <Box position="relative">
             <IconButton aria-label={"View Shopcart"} icon={<BsCart2 />} size={"lg"} />
             <Center
-              position="absolute"
-              top={0}
-              right={0}
               bg="pink.700"
-              color="white"
-              width="20px"
-              height="20px"
               borderRadius="50%"
+              color="white"
+              height="20px"
+              position="absolute"
+              right={0}
+              top={0}
+              width="20px"
             >
               {8}
             </Center>
@@ -195,7 +195,7 @@ const DesktopNav = () => {
   );
 };
 
-const DesktopSubNav = ({label, href, subLabel, icon}: NavItem) => {
+const DesktopSubNav = ({label, href, subLabel}: NavItem) => {
   return (
     <Link href={href}>
       <a>

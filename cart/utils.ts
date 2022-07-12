@@ -39,9 +39,9 @@ export function getCartMessage(cart: Cart, checkout: Checkout): string {
   const fields = Array.from(checkout.entries())
     .map(([key, value]) => `${key}: ${value}\n`)
     .join("\n");
-  const total = `Total (en efectivo): ${parseCurrency(
+  const total = `Total\nEn efectivo: ${parseCurrency(
     getCartTotal(cart),
-  )}\n(7,5% de recargo con tarjeta)`;
+  )}\nCon tarjeta: ${parseCurrency(getCartTotal(cart) * 1.075)} (7,5% de recargo)`;
 
   return `Hola, quisiera realizar la compra de:\n${items}${fields}\n${total} `;
 }
