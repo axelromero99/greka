@@ -50,7 +50,69 @@ const HomeBanner: React.FC = () => {
       }}
       width="100%"
     >
-      <Box>
+      <Flex align="center" direction="column" ml={{base: "-35px", md: 0}} mt={16}>
+        <Heading
+          animate={inView ? "visible" : ""}
+          as={motion.h3}
+          color="white"
+          fontFamily={"header"}
+          initial="hidden"
+          left={{
+            base: "10%",
+            sm: "12%",
+            md: "15%",
+          }}
+          maxWidth={{
+            base: "300px",
+            sm: "420px",
+            md: "800px",
+          }}
+          position={"relative"}
+          size="xl"
+          // textAlign="center"
+          textShadow={{
+            base: "1px 1px 2px rgba(1,1,1,0.8)",
+          }}
+          top={{
+            base: "10%",
+            md: "17%",
+          }}
+          variants={headingVariants}
+        >
+          Somos
+        </Heading>
+        <Heading
+          ref={ref}
+          animate={inView ? "visible" : ""}
+          as={motion.h1}
+          color={"button"}
+          custom={0.15}
+          display="inline-block"
+          initial="hidden"
+          left={{
+            base: "10%",
+            sm: "12%",
+            md: "15%",
+          }}
+          maxWidth={{
+            base: "300px",
+            sm: "420px",
+            md: "800px",
+          }}
+          position={"relative"}
+          size="3xl"
+          textAlign="center"
+          textShadow="2px 2px 1px white"
+          top={{
+            base: "10%",
+            md: "17%",
+          }}
+          variants={secondaryHeadingVariants}
+        >
+          Greka Showroom
+        </Heading>
+      </Flex>
+      {/* <Box>
         <Heading
           animate={inView ? "visible" : ""}
           as={motion.h1}
@@ -69,12 +131,12 @@ const HomeBanner: React.FC = () => {
           }}
           position={"relative"}
           size="3xl"
-          textShadow={{
-            base: "1px 1px 2px rgba(1,1,1,0.8)",
-          }}
           top={{
             base: "10%",
             md: "17%",
+          }}
+          textShadow={{
+            base: "1px 1px 2px rgba(1,1,1,0.8)",
           }}
           variants={headingVariants}
         >
@@ -118,7 +180,7 @@ const HomeBanner: React.FC = () => {
             Como nadie más.
           </Text>
         </Heading>
-      </Box>
+      </Box> */}
     </Flex>
   );
 };
