@@ -115,7 +115,7 @@ const HomeBanner: React.FC = () => {
             textShadow="2px 2px 1px white"
             variants={secondaryHeadingVariants}
           >
-            como nadie más.
+            Como nadie más.
           </Text>
         </Heading>
       </Box>

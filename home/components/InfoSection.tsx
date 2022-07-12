@@ -24,21 +24,21 @@ const InfoSection: React.FC = () => {
         <InfoSectionData
           Icon={FaMoneyBill}
           animateIn={inView}
-          delayValue={0.4}
+          delayValue={0}
           description="Efectivo, tarjetas de crédito y débito"
           title="Medios de pago"
         />
         <InfoSectionData
           Icon={BsExclamationTriangleFill}
           animateIn={inView}
-          delayValue={0.8}
+          delayValue={0.4}
           description="Válidos por 7 dias"
           title="Cambios y devoluciones"
         />
         <InfoSectionData
           Icon={BsFillCartFill}
           animateIn={inView}
-          delayValue={0}
+          delayValue={0.8}
           description="A todo el país"
           title="Envíos"
         />

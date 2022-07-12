@@ -107,12 +107,6 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
                   ${product.price}
                 </Text>
               )}
-              {/* <Button
-                size="xs"
-                onClick={() => (product.options ? toggleModal(true) : onAdd(cartItem))}
-              >
-                Agregar
-              </Button> */}
             </Stack>
           </Stack>
         </Box>

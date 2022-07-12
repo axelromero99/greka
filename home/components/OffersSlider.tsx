@@ -46,17 +46,17 @@ const OffersSlider: React.FC<{offersImages: string[]}> = ({offersImages}) => {
           colEnd={{base: 3, md: 3}}
           colStart={{base: 2, md: 2}}
           display={"flex"}
+          filter="brightness(0.9)"
           flexDirection="column"
           justifyContent="center"
           overflow="hidden"
           rowEnd={{base: 2, md: 7}}
           rowStart={{base: 1, md: 1}}
-          filter="brightness(0.9)"
         >
           <ImageSlider slides={offersImages} />
         </GridItem>
         <GridItem
-          ref={ref} 
+          ref={ref}
           colEnd={{base: 4, md: 5}}
           colStart={{base: 1, md: 1}}
           rowEnd={{base: 3, md: 6}}
@@ -75,6 +75,8 @@ const OffersSlider: React.FC<{offersImages: string[]}> = ({offersImages}) => {
         <GridItem
           alignItems="center"
           backgroundColor="white"
+          bg="#f2f2f2"
+          boxShadow={"2px 2px 12px rgba(1,1,1,0.2)"}
           colEnd={{base: 3, md: 5}}
           colStart={{base: 2, md: 4}}
           display="flex"
@@ -84,13 +86,11 @@ const OffersSlider: React.FC<{offersImages: string[]}> = ({offersImages}) => {
           rowEnd={{base: 3, md: 5}}
           rowStart={{base: 2, md: 3}}
           w="100%"
-          bg="#f2f2f2"
-          boxShadow={"2px 2px 12px rgba(1,1,1,0.2)"}
         >
-          <Heading color="#333" alignSelf="center" as="h3" fontFamily="header" fontSize="2xl">
+          <Heading alignSelf="center" as="h3" color="#333" fontFamily="header" fontSize="2xl">
             ¿Buscas descuentos?
           </Heading>
-          <Heading color="#555" as={"h5"} fontFamily={"navbar"} lineHeight={2} size={"sm"}>
+          <Heading as={"h5"} color="#555" fontFamily={"navbar"} lineHeight={2} size={"sm"}>
             Hasta 30% off en estas prendas!
           </Heading>
           <Button

@@ -24,7 +24,7 @@ import Details from "./Details";
 const CartDrawer: React.FC<Omit<DrawerProps, "children">> = ({onClose, isOpen, ...props}) => {
   const [{total, message, cart}, {removeItem, updateItem}] = useCart();
 
-  function handleUpdateCart(id: symbol, item: CartItem) {
+  function handleUpdateCart(id: string, item: CartItem) {
     if (!item.quantity) {
       return removeItem(id);
     }

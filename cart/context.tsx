@@ -39,18 +39,12 @@ const CartProvider: React.VFC<Props> = (props) => {
 
   const addItem = React.useCallback(
     (id: string, value: CartItem) => {
-      console.log(value);
-
       if (cart.has(value.id)) {
-        console.log(cart.values());
         const toUpdate = cart.get(value.id);
-        console.log("esto debería actualizarse");
 
         return updateItem(id, {...toUpdate, quantity: toUpdate.quantity + 1});
       }
-      console.log("no entres acá");
       cart.set(id, value);
-
       setCart(new Map(cart));
     },
     [cart],

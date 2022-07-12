@@ -14,28 +14,21 @@ import {
   useColorModeValue,
   useDisclosure,
   Heading,
-  Center,
 } from "@chakra-ui/react";
 import {AiOutlineHome} from "react-icons/ai";
 import {RiTShirtLine} from "react-icons/ri";
-import {BsChatDots, BsCart2} from "react-icons/bs";
+import {BsChatDots} from "react-icons/bs";
 import {Link as ChakraLink} from "@chakra-ui/react";
 import {HamburgerIcon, CloseIcon, ChevronDownIcon, ChevronRightIcon} from "@chakra-ui/icons";
 import Link from "next/link";
-
-import {useCart} from "../../cart/context";
-import CartDrawer from "../../cart/components/CartDrawer/CartDrawer";
 
 import SearchBar from "./searchBar";
 
 export default function WithSubnavigation(): JSX.Element {
   const {isOpen, onToggle} = useDisclosure();
 
-  //TEMPORTAL
-  //const [cartQuantity, setCartQuantity] = React.useState<number>(+sessionStorage.getItem("cartQuantity"));
-
   return (
-    <Box>
+    <Box position={"sticky"} top={0} zIndex={"90"}>
       <Flex
         alignItems={"center"}
         backgroundColor={"bg"}
@@ -80,22 +73,6 @@ export default function WithSubnavigation(): JSX.Element {
           ml={{base: -4}}
           mr={{sm: 2}}
         >
-          <Box position="relative">
-            <IconButton aria-label={"View Shopcart"} icon={<BsCart2 />} size={"lg"} />
-            <Center
-              bg="pink.700"
-              borderRadius="50%"
-              color="white"
-              height="20px"
-              position="absolute"
-              right={0}
-              top={0}
-              width="20px"
-            >
-              {8}
-            </Center>
-          </Box>
-
           <IconButton
             aria-label={"Toggle Navigation"}
             icon={isOpen ? <CloseIcon h={3} w={3} /> : <HamburgerIcon h={5} w={5} />}
@@ -162,7 +139,6 @@ const DesktopNav = () => {
                       <RiTShirtLine color={"tertiary"} size={"30"} />
                     )}
                     {navItem.icon === "BsChatDots" && <BsChatDots color={"tertiary"} size={"30"} />}
-                    {navItem.icon === "BsCart2" && <BsCart2 color={"tertiary"} size={"30"} />}
                     <Text fontWeight={500} pt={1}>
                       {navItem.label}
                     </Text>
@@ -235,7 +211,7 @@ const DesktopSubNav = ({label, href, subLabel}: NavItem) => {
 const MobileNav = () => {
   return (
     <Stack bg={useColorModeValue("bg", "gray.800")} display={{md: "none"}} p={4}>
-      {NAV_ITEMS.filter((item) => item.type !== "carrito").map((navItem) => (
+      {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
     </Stack>
@@ -254,8 +230,8 @@ const MobileNavItem = ({label, children, href, type}: NavItem) => {
         }}
         align={"center"}
         as={type === "collapsable" ? "div" : ChakraLink}
-        href={href ?? "#"}
         {...hrefProp}
+        cursor="pointer"
         justify={"space-between"}
         py={2}
       >
@@ -300,7 +276,7 @@ interface NavItem {
   subLabel?: string;
   children?: Array<NavItem>;
   href?: string;
-  type?: "link" | "collapsable" | "carrito";
+  type?: "link" | "collapsable";
 }
 
 const NAV_ITEMS: Array<NavItem> = [
@@ -312,7 +288,7 @@ const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "Productos",
-    href: "#",
+    href: "/categories/todos",
     icon: "RiTShirtLine",
     type: "collapsable",
     children: [
@@ -347,11 +323,5 @@ const NAV_ITEMS: Array<NavItem> = [
     href: "/contact-me",
     icon: "BsChatDots",
     type: "link",
-  },
-  {
-    label: "Mi Carrito",
-    href: "#",
-    icon: "BsCart2",
-    type: "carrito",
   },
 ];

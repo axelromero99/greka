@@ -20,7 +20,7 @@ const ImageSlider: React.FC<Prop> = ({slides}) => {
       showThumbs={false}
     >
       {slides.map((slide, index) => {
-        return <Image key={index} src={slide} transform={"scale(1.07)"} />;
+        return <Image key={index} src={slide} />;
       })}
     </Carousel>
   );
