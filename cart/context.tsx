@@ -14,9 +14,9 @@ interface Context {
     message: string;
   };
   actions: {
-    addItem: (id: symbol, value: CartItem) => void;
-    removeItem: (id: symbol) => void;
-    updateItem: (id: symbol, value: CartItem) => void;
+    addItem: (id: string, value: CartItem) => void;
+    removeItem: (id: string) => void;
+    updateItem: (id: string, value: CartItem) => void;
     updateField: (id: string, value: string) => void;
   };
 }
@@ -38,7 +38,17 @@ const CartProvider: React.VFC<Props> = (props) => {
   const message = React.useMemo(() => getCartMessage(cart, checkout), [cart, checkout]);
 
   const addItem = React.useCallback(
-    (id: symbol, value: CartItem) => {
+    (id: string, value: CartItem) => {
+      console.log(value);
+
+      if (cart.has(value.id)) {
+        console.log(cart.values());
+        const toUpdate = cart.get(value.id);
+        console.log("esto debería actualizarse");
+
+        return updateItem(id, {...toUpdate, quantity: toUpdate.quantity + 1});
+      }
+      console.log("no entres acá");
       cart.set(id, value);
 
       setCart(new Map(cart));
@@ -47,7 +57,7 @@ const CartProvider: React.VFC<Props> = (props) => {
   );
 
   const removeItem = React.useCallback(
-    (id: symbol) => {
+    (id: string) => {
       cart.delete(id);
 
       setCart(new Map(cart));
@@ -56,7 +66,7 @@ const CartProvider: React.VFC<Props> = (props) => {
   );
 
   const updateItem = React.useCallback(
-    (id: symbol, value: CartItem) => {
+    (id: string, value: CartItem) => {
       cart.set(id, value);
 
       setCart(new Map(cart));
@@ -95,7 +105,6 @@ export function useCart(): [Context["state"], Context["actions"]] {
   const {quantity} = state;
 
   React.useEffect(() => {
-    console.log(quantity);
     sessionStorage.setItem("cartQuantity", String(quantity));
   }, [quantity]);
 

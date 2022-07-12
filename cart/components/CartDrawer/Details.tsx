@@ -11,6 +11,7 @@ interface Props {
 }
 
 const Details: React.FC<Props> = ({cart, onChange}) => {
+  console.log(cart)
   return (
     <Stack divider={<Divider />} spacing={4}>
       {Array.from(cart.entries()).map(([id, item]) => (

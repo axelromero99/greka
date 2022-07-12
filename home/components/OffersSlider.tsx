@@ -51,6 +51,7 @@ const OffersSlider: React.FC<{offersImages: string[]}> = ({offersImages}) => {
           overflow="hidden"
           rowEnd={{base: 2, md: 7}}
           rowStart={{base: 1, md: 1}}
+          filter="brightness(0.9)"
         >
           <ImageSlider slides={offersImages} />
         </GridItem>
@@ -83,11 +84,13 @@ const OffersSlider: React.FC<{offersImages: string[]}> = ({offersImages}) => {
           rowEnd={{base: 3, md: 5}}
           rowStart={{base: 2, md: 3}}
           w="100%"
+          bg="#f2f2f2"
+          boxShadow={"2px 2px 12px rgba(1,1,1,0.2)"}
         >
-          <Heading alignSelf="center" as="h3" fontFamily="header" fontSize="2xl">
+          <Heading color="#333" alignSelf="center" as="h3" fontFamily="header" fontSize="2xl">
             ¿Buscas descuentos?
           </Heading>
-          <Heading as={"h5"} fontFamily={"navbar"} lineHeight={2} size={"sm"}>
+          <Heading color="#555" as={"h5"} fontFamily={"navbar"} lineHeight={2} size={"sm"}>
             Hasta 30% off en estas prendas!
           </Heading>
           <Button

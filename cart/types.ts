@@ -21,5 +21,8 @@ export interface TextField {
 }
 
 export type Field = RadioField | TextField;
-export type Cart = Map<symbol, CartItem>;
+export type Cart = Map<string, CartItem>;
 export type Checkout = Map<string, string>;
+
+//Original Cart type:
+//export type Cart = Map<symbol, CartItem>;

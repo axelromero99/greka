@@ -77,7 +77,7 @@ const StoreScreen: React.FC<Props> = ({products, categoryType}) => {
               <ProductCard
                 key={product.id}
                 product={product}
-                onAdd={(product: Product) => addItem(Symbol(), {...product, quantity: 1})}
+                onAdd={(product: Product) => addItem(product.id, {...product, quantity: 1})}
               />
             ))}
           </Grid>
