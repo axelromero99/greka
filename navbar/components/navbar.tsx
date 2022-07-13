@@ -250,14 +250,7 @@ const MobileNavItem = ({label, children, href, type}: NavItem) => {
       </Flex>
 
       <Collapse animateOpacity in={isOpen} style={{marginTop: "0!important"}}>
-        <Stack
-          align={"start"}
-          borderColor={useColorModeValue("gray.200", "gray.700")}
-          borderLeft={1}
-          borderStyle={"solid"}
-          mt={2}
-          pl={4}
-        >
+        <Stack align={"start"} mt={2} pl={4}>
           {children &&
             children.map((child) => (
               <ChakraLink key={child.label} href={child.href} py={2} width="100%">
