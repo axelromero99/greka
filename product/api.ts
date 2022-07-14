@@ -21,6 +21,7 @@ class Product implements IProduct {
   options: IProduct["options"];
   price: IProduct["price"];
   discount: IProduct["discount"];
+  stock: IProduct["stock"];
 
   constructor() {
     this.options = {} as Product["options"];
@@ -36,6 +37,7 @@ class Product implements IProduct {
       gallery: product.gallery,
       price: Number(product.price),
       discount: product.discount,
+      stock: product.stock,
     });
   }
 
@@ -65,6 +67,7 @@ class Product implements IProduct {
       options: this.options,
       price: Number(this.price),
       discount: this.discount,
+      stock: this.stock,
     };
 
     if (Object.keys(product.options).length === 0) {
