@@ -18,4 +18,5 @@ export interface Product {
   options?: Record<Option["category"], Option[]>;
   price: number;
   discount?: string;
+  stock?: string;
 }

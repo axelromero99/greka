@@ -73,13 +73,15 @@ const StoreScreen: React.FC<Props> = ({products, categoryType}) => {
               sm: "repeat(auto-fill, minmax(360px, 1fr))",
             }}
           >
-            {products.map((product) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                onAdd={(product: Product) => addItem(product.id, {...product, quantity: 1})}
-              />
-            ))}
+            {products
+              .filter((product) => product.stock !== "0")
+              .map((product) => (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  onAdd={(product: Product) => addItem(product.id, {...product, quantity: 1})}
+                />
+              ))}
           </Grid>
         ) : (
           <Stack height="50vh">
