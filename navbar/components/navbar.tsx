@@ -253,7 +253,15 @@ const MobileNavItem = ({label, children, href, type}: NavItem) => {
         <Stack align={"start"} mt={2} pl={4}>
           {children &&
             children.map((child) => (
-              <ChakraLink key={child.label} href={child.href} py={2} width="100%">
+              <ChakraLink
+                key={child.label}
+                _hover={{
+                  textDecoration: "none",
+                }}
+                href={child.href}
+                py={2}
+                width="100%"
+              >
                 {child.label}
               </ChakraLink>
             ))}
