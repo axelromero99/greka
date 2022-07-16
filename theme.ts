@@ -21,7 +21,7 @@ export default extendTheme({
     tertiary: "#444",
     font: theme.colors.black,
     bg: "#eee",
-    bgSecondary: "#75CED4",
+    bgSecondary: "#c9cecf",
     bgContactMe: "#fff",
     button: "rgba(255,111,111,0.95)",
   },
