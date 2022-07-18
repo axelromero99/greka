@@ -298,24 +298,28 @@ const NAV_ITEMS: Array<NavItem> = [
         href: "/categories/todos",
       },
       {
-        label: "Jeans",
-        href: "/categories/jeans",
-      },
-      {
         label: "Tops/Remeras",
         href: "/categories/tops-remeras",
+      },
+      {
+        label: "Vestidos",
+        href: "/categories/vestidos",
       },
       {
         label: "Shorts/Polleras",
         href: "/categories/shorts-polleras",
       },
       {
+        label: "Pantalones",
+        href: "/categories/pantalones",
+      },
+      {
         label: "Abrigos",
         href: "/categories/abrigos",
       },
       {
-        label: "Vestidos",
-        href: "/categories/vestidos",
+        label: "Zapatos",
+        href: "/categories/zapatos",
       },
     ],
   },

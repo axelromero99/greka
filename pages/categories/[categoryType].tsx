@@ -45,10 +45,11 @@ export const getStaticPaths: GetStaticPaths<{
     paths: [
       {params: {categoryType: "todos"}},
       {params: {categoryType: "tops/remeras"}},
-      {params: {categoryType: "jeans"}},
+      {params: {categoryType: "pantalones"}},
       {params: {categoryType: "shorts/polleras"}},
       {params: {categoryType: "abrigos"}},
       {params: {categoryType: "vestidos"}},
+      {params: {categoryType: "zapatos"}},
     ],
     fallback: "blocking",
   };
