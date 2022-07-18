@@ -116,7 +116,7 @@ const ImagesGrid: React.FC = () => {
           </GridItem>
           <GridItem colSpan={4} height="40vh">
             <Box h="100%" justifyContent="center" position="relative" w="100%">
-              <Link href="/categories/jeans">
+              <Link href="/categories/pantalones">
                 <a style={{height: "100%"}}>
                   <Box
                     bg="black"
@@ -133,7 +133,7 @@ const ImagesGrid: React.FC = () => {
                       fit="cover"
                       height="100%"
                       position="absolute"
-                      src="https://res.cloudinary.com/dxgrn0qtx/image/upload/c_scale,q_70,w_962/v1657597571/jeanss_fsndjo.png"
+                      src="https://res.cloudinary.com/dxgrn0qtx/image/upload/c_scale,h_840,q_100,w_1298/v1657596302/image_50336257_vezlgi.jpg"
                       transition="all 0.5s ease-out"
                       width="100%"
                       z-index="-1"
@@ -150,7 +150,7 @@ const ImagesGrid: React.FC = () => {
                       top="50%"
                       transform="translate(-50%, -50%)"
                     >
-                      JEANS
+                      PANTALONES
                     </Text>
                   </Box>
                 </a>
