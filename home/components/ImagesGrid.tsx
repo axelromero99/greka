@@ -133,7 +133,7 @@ const ImagesGrid: React.FC = () => {
                       fit="cover"
                       height="100%"
                       position="absolute"
-                      src="https://res.cloudinary.com/dxgrn0qtx/image/upload/c_scale,h_840,q_100,w_1298/v1657596302/image_50336257_vezlgi.jpg"
+                      src="https://res.cloudinary.com/dxgrn0qtx/image/upload/c_scale,q_100,w_1784/v1658250960/jeanss_qojnp2.png"
                       transition="all 0.5s ease-out"
                       width="100%"
                       z-index="-1"

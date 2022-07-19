@@ -62,7 +62,14 @@ const Footer: React.FC = () => {
             </Flex>
           </Flex>
           <Divider borderBottomWidth="2px" opacity="0.5" w="100%" />
-          <Text color="tertiary" fontFamily="body" my="4" textAlign="center">
+          <Text
+            color="tertiary"
+            fontFamily="body"
+            fontSize="sm"
+            fontWeight="700"
+            my="4"
+            textAlign="center"
+          >
             Created by {"{ riskOfDev }"}
           </Text>
         </Flex>
