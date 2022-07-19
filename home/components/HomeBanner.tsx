@@ -50,12 +50,19 @@ const HomeBanner: React.FC = () => {
       }}
       width="100%"
     >
-      <Flex align="center" direction="column" ml={{base: "-35px", md: 0}} mt={16}>
+      <Flex
+        align="center"
+        direction="column"
+        gap="2"
+        ml={{base: "-44px", md: 0}}
+        mt={{base: 20, sm: 16}}
+      >
         <Heading
           animate={inView ? "visible" : ""}
           as={motion.h3}
           color="white"
           fontFamily={"header"}
+          fontSize={{base: "34px", md: "44px", lg: "48px"}}
           initial="hidden"
           left={{
             base: "10%",
@@ -68,8 +75,7 @@ const HomeBanner: React.FC = () => {
             md: "800px",
           }}
           position={"relative"}
-          size="xl"
-          // textAlign="center"
+          textAlign="center"
           textShadow={{
             base: "1px 1px 2px rgba(1,1,1,0.8)",
           }}
@@ -79,7 +85,7 @@ const HomeBanner: React.FC = () => {
           }}
           variants={headingVariants}
         >
-          Somos
+          GREKA SHOWROOM
         </Heading>
         <Heading
           ref={ref}
@@ -88,6 +94,7 @@ const HomeBanner: React.FC = () => {
           color={"button"}
           custom={0.15}
           display="inline-block"
+          fontSize={{base: "22px", md: "24px"}}
           initial="hidden"
           left={{
             base: "10%",
@@ -100,7 +107,6 @@ const HomeBanner: React.FC = () => {
             md: "800px",
           }}
           position={"relative"}
-          size="3xl"
           textAlign="center"
           textShadow="2px 2px 1px white"
           top={{
@@ -109,7 +115,7 @@ const HomeBanner: React.FC = () => {
           }}
           variants={secondaryHeadingVariants}
         >
-          Greka Showroom
+          CATÁLOGO ONLINE
         </Heading>
       </Flex>
       {/* <Box>
