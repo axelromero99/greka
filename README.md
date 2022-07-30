@@ -15,5 +15,5 @@ This Typescript project was made with NextJS/ReactJS and ChakraUI, using the nex
 - React-responsive-carousel.
 - Axios.
 - NProgress.
-- Papaparse.
 - Nodemailer.
+- Papaparse.
