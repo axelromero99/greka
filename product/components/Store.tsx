@@ -27,8 +27,6 @@ const StoreScreen: React.FC<Props> = ({products, categoryType}) => {
   const [isCartOpen, toggleCart] = React.useState<boolean>(false);
   const bgBanner = dynamicBanners[categoryType];
 
-  console.log(products);
-
   return (
     <>
       <Box bg={"body"} height="1px" width="100%" />
