@@ -1,5 +1,5 @@
 import React from "react";
-import {Box, Heading, Flex, Text} from "@chakra-ui/react";
+import {Heading, Flex} from "@chakra-ui/react";
 import {useInView} from "react-intersection-observer";
 import {motion} from "framer-motion";
 
