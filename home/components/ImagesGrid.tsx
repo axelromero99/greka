@@ -4,6 +4,8 @@ import Link from "next/link";
 import {useInView} from "react-intersection-observer";
 import {motion} from "framer-motion";
 
+import ChakraNextImage from "../../chakranextimage/components/ChakraNextImage";
+
 const gridVariants = {
   hidden: {opacity: 0},
   visible: {
@@ -46,7 +48,7 @@ const ImagesGrid: React.FC = () => {
                   position="relative"
                   w="100%"
                 >
-                  <Image
+                  <ChakraNextImage
                     _hover={{opacity: "0.7", transform: "scale(1.1)"}}
                     filter="brightness(0.8)"
                     fit="cover"
@@ -86,7 +88,7 @@ const ImagesGrid: React.FC = () => {
                   position="relative"
                   w="100%"
                 >
-                  <Image
+                  <ChakraNextImage
                     _hover={{opacity: "0.7", transform: "scale(1.1)"}}
                     filter="brightness(0.8)"
                     fit="cover"
@@ -126,7 +128,7 @@ const ImagesGrid: React.FC = () => {
                     position="relative"
                     w="100%"
                   >
-                    <Image
+                    <ChakraNextImage
                       _hover={{opacity: "0.7", transform: "scale(1.1)"}}
                       align="center"
                       filter="brightness(0.8)"
