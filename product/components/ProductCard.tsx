@@ -1,10 +1,11 @@
 import React from "react";
-import {useColorModeValue, Stack, Center, Box, Heading, Text, Image} from "@chakra-ui/react";
+import {useColorModeValue, Stack, Center, Box, Heading, Text} from "@chakra-ui/react";
 
 import {parseCurrency} from "../../utils/currency";
 import {CartItem} from "../../cart/types";
 import {Product} from "../types";
 import CartItemDrawer from "../../cart/components/CartItemDrawer";
+import ChakraNextImage from "../../chakranextimage/components/ChakraNextImage";
 
 interface Props {
   product: Product;
@@ -58,6 +59,7 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
             mt={-12}
             pos={"relative"}
             rounded={"lg"}
+            style={{borderRadius: "15px"}}
             onClick={() => (product.options ? toggleModal(true) : onAdd(cartItem))}
             onMouseOut={() => setIsShown(false)}
             onMouseOver={() => setIsShown(true)}
@@ -73,13 +75,13 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
             >
               🔍 Ver
             </Box>
-            <Image
+            <ChakraNextImage
               filter={isShown ? "blur(3px)" : ""}
               height={230}
-              objectFit={"cover"}
-              rounded={"lg"}
+              objectFit="cover"
               src={product.image}
-              transition={"all .3s linear"}
+              style={{borderRadius: "9px", overflow: "hidden"}}
+              transition="all .3s linear"
               width={360}
             />
           </Box>
