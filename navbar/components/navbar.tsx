@@ -318,8 +318,8 @@ const NAV_ITEMS: Array<NavItem> = [
         href: "/categories/abrigos",
       },
       {
-        label: "Zapatos",
-        href: "/categories/zapatos",
+        label: "Calzados",
+        href: "/categories/calzados",
       },
     ],
   },
