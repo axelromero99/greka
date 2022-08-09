@@ -34,7 +34,7 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
       products,
       categoryType,
     },
-    revalidate: 10, // In seconds
+    revalidate: 10,
   };
 };
 
@@ -49,7 +49,7 @@ export const getStaticPaths: GetStaticPaths<{
       {params: {categoryType: "shorts/polleras"}},
       {params: {categoryType: "abrigos"}},
       {params: {categoryType: "vestidos"}},
-      {params: {categoryType: "zapatos"}},
+      {params: {categoryType: "calzados"}},
     ],
     fallback: "blocking",
   };

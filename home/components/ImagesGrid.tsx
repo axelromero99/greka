@@ -1,5 +1,5 @@
 import React from "react";
-import {Grid, GridItem, Stack, Center, Box, Image, Text} from "@chakra-ui/react";
+import {Grid, GridItem, Stack, Center, Box, Text} from "@chakra-ui/react";
 import Link from "next/link";
 import {useInView} from "react-intersection-observer";
 import {motion} from "framer-motion";

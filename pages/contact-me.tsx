@@ -179,9 +179,12 @@ export default function contactMe() {
                   </Flex>
                   <FormControl>
                     <Input
+                      _focus={{
+                        border: `1px solid #75CED4`,
+                      }}
                       _placeholder={{color: "gray"}}
                       bg={"bgContactMe"}
-                      border={`2px solid #75CED4`}
+                      border={`1px solid gray`}
                       borderRadius={"lg"}
                       color={"font"}
                       height="6px"
@@ -198,9 +201,12 @@ export default function contactMe() {
                   </FormControl>
                   <FormControl>
                     <Input
+                      _focus={{
+                        border: `1px solid #75CED4`,
+                      }}
                       _placeholder={{color: "gray"}}
                       bg={"bgContactMe"}
-                      border={`2px solid #75CED4`}
+                      border={`1px solid gray`}
                       borderRadius={"lg"}
                       color={"font"}
                       height="6px"
@@ -217,9 +223,12 @@ export default function contactMe() {
                   </FormControl>
                   <FormControl>
                     <Input
+                      _focus={{
+                        border: `1px solid #75CED4`,
+                      }}
                       _placeholder={{color: "gray"}}
                       bg={"bgContactMe"}
-                      border={`2px solid #75CED4`}
+                      border={`1px solid gray`}
                       borderRadius={"lg"}
                       color={"font"}
                       height="6px"
@@ -236,9 +245,12 @@ export default function contactMe() {
                   </FormControl>
                   <FormControl>
                     <Textarea
+                      _focus={{
+                        border: `1px solid #75CED4`,
+                      }}
                       _placeholder={{color: "gray"}}
                       bg={"bgContactMe"}
-                      border={`2px solid #75CED4`}
+                      border={`1px solid gray`}
                       borderRadius={"lg"}
                       color={"font"}
                       height={{base: "50", xl: "100px", "2xl": "160px"}}
