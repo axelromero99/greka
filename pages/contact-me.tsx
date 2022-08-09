@@ -4,14 +4,12 @@ import {AiFillPhone, AiFillInstagram, AiTwotoneCalendar} from "react-icons/ai";
 import {IoCalendarNumberSharp} from "react-icons/io5";
 import axios from "axios";
 
-export default function contactMe() {
+export const ContactMe: React.FC = () => {
   const [name, setName] = useState<string>("");
   const [surname, setSurname] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
   const [form, setForm] = useState({});
-
-  const theme = useTheme();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -289,4 +287,6 @@ export default function contactMe() {
       </Grid>
     </>
   );
-}
+};
+
+export default ContactMe;
