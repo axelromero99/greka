@@ -1,7 +1,6 @@
 import React from "react";
 import {Carousel} from "react-responsive-carousel";
 import {Image} from "@chakra-ui/react";
-// import Image from "next/image";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
@@ -31,4 +30,3 @@ const ImageSlider: React.FC<Prop> = ({slides}) => {
 };
 
 export default ImageSlider;
-//       <ChakraNextImage key={index} height="500px" src={slide} width="410px" />;

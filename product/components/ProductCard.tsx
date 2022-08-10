@@ -9,10 +9,11 @@ import ChakraNextImage from "../../chakranextimage/components/ChakraNextImage";
 
 interface Props {
   product: Product;
+  index: number;
   onAdd: (product: Product) => void;
 }
 
-const ProductCard: React.FC<Props> = ({product, onAdd}) => {
+const ProductCard: React.FC<Props> = ({product, index, onAdd}) => {
   const [isModalOpen, toggleModal] = React.useState(false);
   const [isShown, setIsShown] = React.useState(false);
 
@@ -78,6 +79,7 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
             <ChakraNextImage
               filter={isShown ? "blur(3px)" : ""}
               height={230}
+              index={index}
               objectFit="cover"
               src={product.image}
               style={{borderRadius: "9px", overflow: "hidden"}}

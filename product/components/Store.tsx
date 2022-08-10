@@ -76,9 +76,10 @@ const StoreScreen: React.FC<Props> = ({products, categoryType}) => {
           >
             {products
               .filter((product) => product.stock !== "0")
-              .map((product) => (
+              .map((product, index) => (
                 <ProductCard
                   key={product.id}
+                  index={index}
                   product={product}
                   onAdd={(product: Product) => addItem(product.id, {...product, quantity: 1})}
                 />
