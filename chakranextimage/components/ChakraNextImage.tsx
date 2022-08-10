@@ -5,7 +5,7 @@ import Image from "next/image";
 const ChakraNextImage: any = ({src, ...props}) => {
   return (
     <Box height="100%" position="relative" width="100%" {...props}>
-      <Image layout="fill" objectFit="cover" quality="100" src={src} />
+      <Image priority layout="fill" objectFit="cover" quality="100" src={src} />
     </Box>
   );
 };

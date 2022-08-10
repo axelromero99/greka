@@ -12,7 +12,7 @@ const ImageSlider: React.FC<Prop> = ({slides}) => {
   return (
     <Carousel
       infiniteLoop
-      autoPlay={false}
+      autoPlay={true}
       dynamicHeight={true}
       emulateTouch={false}
       preventMovementUntilSwipeScrollTolerance={true}
