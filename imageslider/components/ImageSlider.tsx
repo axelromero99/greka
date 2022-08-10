@@ -1,6 +1,7 @@
 import React from "react";
 import {Carousel} from "react-responsive-carousel";
-import Image from "next/image";
+import {Image} from "@chakra-ui/react";
+// import Image from "next/image";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
@@ -23,7 +24,7 @@ const ImageSlider: React.FC<Prop> = ({slides}) => {
       swipeScrollTolerance={100}
     >
       {slides.map((slide, index) => {
-        return <Image key={index} height={500} quality="100" src={slide} width={410} />;
+        return <Image key={index} height={500} src={slide} width={410} />;
       })}
     </Carousel>
   );
